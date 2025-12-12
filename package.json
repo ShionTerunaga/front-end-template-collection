@@ -1,0 +1,70 @@
+{
+    "name": "create-react-template",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "cp:utils": "npx tsx scripts/copy/utils/copy-utils.ts",
+        "build:upgrade-mac": "npx @vercel/ncc build ./scripts/upgrade/change-upgrade-version-mac.ts -o ./dist/upgrade-mac && tsx scripts/write/upgrade-write-mac.ts",
+        "build:upgrade-win": "npx @vercel/ncc build ./scripts/upgrade/change-upgrade-version-win.ts -o ./dist/upgrade-win && tsx scripts/write/upgrade-write-win.ts",
+        "cp:template": "cd scripts/copy/template && npx tsx copy-template-main.ts",
+        "cp:win-upgrade": "tsx scripts/copy/upgrade/copy-build-upgrade-win.ts",
+        "cp:mac-upgrade": "tsx scripts/copy/upgrade/copy-build-upgrade-mac.ts",
+        "build:tmp": "npx @vercel/ncc build ./packages/create-template/src/index.ts -o ./dist/react-tmp && cd scripts/write && tsx tmp-write.ts",
+        "cp:cli-mac": "tsx scripts/copy/build/copy-build-tmp-mac.ts",
+        "cp:cli-win": "tsx scripts/copy/build/copy-build-tmp-win.ts",
+        "generate-csstype": "tsx ./scripts/css/generate-css-type.ts",
+        "create:env": "cd scripts/create-env && npx tsx create-env.ts",
+        "test:dev-mac": "cd test-dev && pnpm test:mac",
+        "test:dev-win": "cd test-dev && pnpm test:win",
+        "test:pack-mac": "pnpm build:tmp && pnpm cp:cli-mac && cd test-pack && pnpm test:mac",
+        "test:pack-win": "pnpm build:tmp && pnpm cp:cli-win && cd test-pack && pnpm test:win",
+        "lib:storybook": "cd packages/lib && pnpm storybook",
+        "lib:test": "cd packages/lib && pnpm test"
+    },
+    "pkg": {
+        "assets": [
+            "dist/template/**/*"
+        ]
+    },
+    "dependencies": {
+        "@commitlint/cli": "^19.8.1",
+        "@commitlint/config-conventional": "^19.8.1",
+        "@tanstack/react-router-devtools": "^1.132.51",
+        "@types/adm-zip": "^0.5.7",
+        "@types/node": "^24.0.3",
+        "@types/prompts": "^2.4.9",
+        "@types/react": "^19.1.12",
+        "@types/react-dom": "^19.1.9",
+        "@types/validate-npm-package-name": "^4.0.2",
+        "adm-zip": "^0.5.16",
+        "commander": "^14.0.1",
+        "conf": "^14.0.0",
+        "csstype": "^3.1.3",
+        "fast-glob": "^3.3.3",
+        "node-polyfill-webpack-plugin": "^4.1.0",
+        "picocolors": "^1.1.1",
+        "prettier": "^3.6.2",
+        "prompts": "^2.4.2",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "ts-node": "^10.9.2",
+        "validate-npm-package-name": "^6.0.2",
+        "vite-plugin-node-polyfills": "^0.24.0"
+    },
+    "devDependencies": {
+        "@types/conf": "^3.0.3",
+        "@vitejs/plugin-react": "^5.0.4",
+        "assert": "^2.1.0",
+        "browserify-zlib": "^0.2.0",
+        "buffer": "^6.0.3",
+        "copy-webpack-plugin": "^13.0.1",
+        "process": "^0.11.10",
+        "stream-browserify": "^3.0.0",
+        "ts-loader": "^9.5.4",
+        "tsx": "^4.20.3",
+        "typescript": "^5.8.3",
+        "util": "^0.12.5",
+        "vite": "^7.1.4",
+        "vite-tsconfig-paths": "^5.1.4"
+    }
+}
