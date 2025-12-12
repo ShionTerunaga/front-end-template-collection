@@ -1,0 +1,17 @@
+{
+    "name": "create-template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx tsx ./src/index.ts",
+        "lint": "eslint . --ext .ts,.tsx",
+        "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    },
+    "packageManager": "pnpm@10.18.3",
+    "dependencies": {
+        "eslint": "^9.39.1",
+        "@typescript-eslint/parser": "^6.8.0",
+        "@typescript-eslint/eslint-plugin": "^6.8.0"
+    }
+}

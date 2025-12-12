@@ -1,0 +1,63 @@
+import {
+    type Lib,
+    libsArray,
+    selectLibList
+} from "../template/template.static";
+import { isBoolean, isLib, isLibsArray } from "../utils/is";
+import { type Option, optionUtility } from "../utils/option";
+import { type Result, resultUtility } from "../utils/result";
+import { commanderCore } from "./core";
+import prompts from "prompts";
+
+export async function libCli(
+    optionLibs: Option<unknown>
+): Promise<Result<Option<Array<Lib>>, Error>> {
+    const { isSome, isNone, optionConversion, createSome, createNone } =
+        optionUtility;
+    const { createOk, checkPromiseReturn, isNG, createNg } = resultUtility;
+    const { onPromptState } = commanderCore;
+
+    if (isSome(optionLibs) && isBoolean(optionLibs.value) && optionLibs.value) {
+        return createOk(createSome([...libsArray]));
+    }
+
+    const response = await checkPromiseReturn({
+        fn: async () =>
+            await prompts({
+                onState: onPromptState,
+                type: "multiselect",
+                name: "packages",
+                message: "Select packages to add",
+                choices: selectLibList,
+                hint: "(Use space to select, and enter to submit)",
+                instructions: false
+            }),
+        err: (e) => {
+            if (e instanceof Error) {
+                return new Error("Failed to select packages: " + e.message);
+            }
+
+            return new Error("Failed to select packages");
+        }
+    });
+
+    if (isNG(response)) {
+        return response;
+    }
+
+    const selectedLibs = optionConversion(response.value.packages);
+
+    if (isNone(selectedLibs)) {
+        return createOk(createNone());
+    }
+
+    const value = selectedLibs.value;
+
+    const resultSelected = isLibsArray(value)
+        ? createOk(createSome(value))
+        : isLib(value)
+          ? createOk(createSome([value]))
+          : createNg(new Error("Selected packages have an invalid structure."));
+
+    return resultSelected;
+}

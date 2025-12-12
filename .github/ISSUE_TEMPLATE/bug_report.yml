@@ -1,0 +1,60 @@
+name: Bug report
+description: |
+    Create an issue to report a bug. Please include steps to reproduce, expected
+    and actual behavior, and environment details.
+title: "[BUG] "
+labels: [bug]
+assignees: []
+
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Thank you for taking the time to file a bug report. Please fill in the sections below as completely as you can. The more detail you provide, the easier it will be to reproduce and fix the issue.
+    - type: input
+      id: summary
+      attributes:
+          label: Short summary
+          description: A one-line summary of the bug (what happened).
+          placeholder: e.g. "Build fails with TypeError in createApp"
+      validations:
+          required: true
+    - type: textarea
+      id: steps
+      attributes:
+          label: Steps to reproduce
+          description: List the exact steps we can follow to reproduce the bug.
+          placeholder: |
+              1. Clone the repo
+              2. Run `pnpm install`
+              3. Run `pnpm run test:next-app`
+      validations:
+          required: true
+    - type: textarea
+      id: expected
+      attributes:
+          label: Expected behavior
+          description: What you expected to happen.
+          placeholder: e.g. "The project builds successfully and tests pass."
+    - type: textarea
+      id: actual
+      attributes:
+          label: Actual behavior
+          description:
+              What actually happened, including error messages and stack traces.
+          placeholder: Paste error output or stack trace here.
+    - type: input
+      id: environment
+      attributes:
+          label: Environment
+          description:
+              Provide OS, Node.js version, pnpm version, and any other relevant
+              environment info.
+          placeholder: e.g. "macOS 14.0, Node 20.10.0, pnpm 8.0.0"
+    - type: textarea
+      id: additional
+      attributes:
+          label: Additional context
+          description:
+              Any other information that might help (logs, screenshots, links to
+              failing CI, etc.).
