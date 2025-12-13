@@ -1,4 +1,4 @@
-import { optionUtility } from "../utils/option";
+import { optionUtility } from "../../utils/option";
 import { Command } from "commander";
 import { InitialReturnValue } from "prompts";
 
@@ -12,6 +12,7 @@ export const commanderCore = (function () {
         .helpOption("-h, --help", "display help for command")
         .allowUnknownOption()
         .option("-n, --name <name>", "specify the project name")
+        .option("-t, --tech-stack <techStack>", "specify the tech stack(react)")
         .option(
             "-f, --framework <framework>",
             "framework to use (tanstack-router | next/app | next/pages)"
@@ -27,6 +28,7 @@ export const commanderCore = (function () {
 
     const optionName = optionConversion(opts.name);
     const optionFramework = optionConversion(opts.framework);
+    const optionTechStack = optionConversion(opts.techStack);
     const optionCss = optionConversion(opts.css);
     const optionUseAllComponents = optionConversion(opts.useAllComponents);
 
@@ -46,6 +48,7 @@ export const commanderCore = (function () {
         onPromptState,
         optionName,
         optionFramework,
+        optionTechStack,
         optionCss,
         optionUseAllComponents
     };

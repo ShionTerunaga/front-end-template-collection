@@ -1,13 +1,11 @@
 import { resolve, basename } from "node:path";
-import { Css, Framework, Lib } from "./template/template.static";
+import { Css, Framework, Lib } from "./template/react.static";
 import { mkdirSync } from "node:fs";
 import { isFolderEmpty } from "./helper/is-folder-empty";
 import { green } from "picocolors";
-import { installTemplate } from "./template/template.index";
-import { addPackage } from "./install-lib/install-lib";
-import { Option, optionUtility } from "./utils/option";
-import { isLib, isLibsArray } from "./utils/is";
-import { resultUtility } from "./utils/result";
+import { installTemplate } from "./template/react.index";
+import { addPackage } from "./lib/react/install-lib";
+import { type Option, optionUtility } from "./utils/option";
 
 export async function createApp({
     appPath,
@@ -21,7 +19,6 @@ export async function createApp({
     libs: Option<Array<Lib>>;
 }) {
     const { isNone } = optionUtility;
-    const { createOk, createNg, isNG } = resultUtility;
     const root = resolve(appPath);
     const appName = basename(appPath);
 

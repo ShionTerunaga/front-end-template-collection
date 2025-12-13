@@ -1,5 +1,5 @@
 import { copy } from "../helper/copy";
-import type { InstallTemplateArgs } from "./template.static";
+import type { InstallTemplateArgs } from "./react.static";
 import path from "path";
 import { resultUtility } from "../utils/result";
 import fs from "fs/promises";

@@ -2,11 +2,11 @@ import {
     type Lib,
     libsArray,
     selectLibList
-} from "../template/template.static";
-import { isBoolean, isLib, isLibsArray } from "../utils/is";
-import { type Option, optionUtility } from "../utils/option";
-import { type Result, resultUtility } from "../utils/result";
-import { commanderCore } from "./core";
+} from "../../template/react.static";
+import { isBoolean, isLib, isLibsArray } from "../../utils/is";
+import { type Option, optionUtility } from "../../utils/option";
+import { type Result, resultUtility } from "../../utils/result";
+import { commanderCore } from "../common/core";
 import prompts from "prompts";
 
 export async function libCli(

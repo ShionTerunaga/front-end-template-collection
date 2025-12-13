@@ -4,11 +4,12 @@ import { existsSync } from "node:fs";
 import { bold, red, green } from "picocolors";
 import { createApp } from "./create-app";
 import { resultUtility } from "./utils/result";
-import { commanderCore } from "./command/core";
-import { nameCommand } from "./command/name";
-import { frameworkCommand } from "./command/framework";
-import { cssCommand } from "./command/css";
-import { libCli } from "./command/lib";
+import { commanderCore } from "./command/common/core";
+import { nameCommand } from "./command/common/name";
+import { frameworkCommand } from "./command/react/framework";
+import { cssCommand } from "./command/react/css";
+import { libCli } from "./command/react/lib";
+import { cliErrorLog } from "./utils/error";
 
 const handleSigTerm = () => process.exit(0);
 
@@ -24,9 +25,7 @@ export async function run(): Promise<string> {
     const projectName = await nameCommand(optionName);
 
     if (isNG(projectName)) {
-        console.error(red(projectName.err.message));
-        console.error(projectName.err.stack ?? "");
-
+        cliErrorLog(projectName.err);
         process.exit(1);
     }
 
@@ -56,26 +55,21 @@ export async function run(): Promise<string> {
     const frameworResult = await frameworkCommand(optionFramework);
 
     if (isNG(frameworResult)) {
-        console.error(red(frameworResult.err.message));
-        console.error(frameworResult.err.stack ?? "");
+        cliErrorLog(frameworResult.err);
         process.exit(1);
     }
 
     const cssResult = await cssCommand(optionCss);
 
     if (isNG(cssResult)) {
-        console.error(red(cssResult.err.message));
-        console.error(cssResult.err.stack ?? "");
-
+        cliErrorLog(cssResult.err);
         process.exit(1);
     }
 
     const resultSelected = await libCli(optionUseAllComponents);
 
     if (isNG(resultSelected)) {
-        console.error(red(resultSelected.err.message));
-        console.error(resultSelected.err.stack ?? "");
-
+        cliErrorLog(resultSelected.err);
         process.exit(1);
     }
 

@@ -1,8 +1,8 @@
-import { resultUtility, type Result } from "../utils/result";
-import { optionUtility, type Option } from "../utils/option";
-import { isString } from "../utils/is";
+import { resultUtility, type Result } from "../../utils/result";
+import { optionUtility, type Option } from "../../utils/option";
+import { isString } from "../../utils/is";
 import prompts from "prompts";
-import { validateNpmName } from "../helper/validate-npm-name";
+import { validateNpmName } from "../../helper/validate-npm-name";
 import { commanderCore } from "./core";
 
 export async function nameCommand(
