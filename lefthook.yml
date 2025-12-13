@@ -5,10 +5,6 @@ pre-commit:
             priority: 1
             run: |
                 echo "{staged_files}" | tr ' ' '\n' | grep -E '\.(js|jsx|ts|tsx|json|css|md|html)$' | xargs npx prettier --write
-#    eslint:
-#      priority: 2
-#      run: |
-#        cd example/next/app/v-15.3 && echo "{staged_files}" | tr ' ' '\n' | grep -E '\.(js|jsx|ts|tsx)$' | sed 's/^/example\/next\/app\/v-15.3\//' | xargs npx --prefix example/next/app/v-15.3 next lint --fix --file "{}"
 
 post-merge:
     commands:
