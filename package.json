@@ -27,8 +27,6 @@
         "adm-zip": "^0.5.16",
         "conf": "^15.0.2",
         "csstype": "^3.2.3",
-        "fs": "0.0.1-security",
-        "path": "^0.12.7",
         "prettier": "^3.6.2"
     },
     "devDependencies": {

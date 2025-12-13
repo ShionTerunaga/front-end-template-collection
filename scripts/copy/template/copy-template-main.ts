@@ -8,8 +8,8 @@ function main() {
     const destNextRoot = path.join(
         root,
         "packages",
-        "react",
         "create-template",
+        "react",
         "template",
         "next"
     );
@@ -251,8 +251,8 @@ function main() {
         root,
         "packages",
         "create-template",
-        "react",
         "template",
+        "react",
         "next",
         "pages",
         "vanilla-extract"
