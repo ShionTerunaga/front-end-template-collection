@@ -8,6 +8,7 @@ function main() {
     const destNextRoot = path.join(
         root,
         "packages",
+        "react",
         "create-template",
         "template",
         "next"
@@ -23,6 +24,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "tanstack-router"
     );
 
@@ -39,6 +41,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "next"
     );
 
@@ -52,6 +55,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "tanstack-router"
     );
 
@@ -67,6 +71,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "next"
     );
 
@@ -80,6 +85,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "tanstack-router"
     );
 
@@ -94,6 +100,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "next",
         "app",
         "vanilla-extract"
@@ -103,6 +110,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "next",
         "app",
         "vanilla-extract"
@@ -114,6 +122,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "next",
         "app",
         "vanilla-extract"
@@ -125,6 +134,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "next",
         "app",
         "vanilla-extract"
@@ -138,6 +148,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "next",
         "app",
         "tailwind"
@@ -147,6 +158,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "next",
         "app",
         "tailwind"
@@ -158,6 +170,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "next",
         "app",
         "tailwind"
@@ -169,6 +182,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "next",
         "app",
         "tailwind"
@@ -182,6 +196,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "next",
         "pages",
         "tailwind"
@@ -191,6 +206,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "next",
         "pages",
         "tailwind"
@@ -201,6 +217,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "next",
         "pages",
         "tailwind"
@@ -211,6 +228,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "next",
         "pages",
         "tailwind"
@@ -224,6 +242,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "next",
         "pages",
         "vanilla-extract"
@@ -232,6 +251,7 @@ function main() {
         root,
         "packages",
         "create-template",
+        "react",
         "template",
         "next",
         "pages",
@@ -243,6 +263,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "next",
         "pages",
         "vanilla-extract"
@@ -253,6 +274,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "next",
         "pages",
         "vanilla-extract"
@@ -266,6 +288,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "tanstack-router",
         "tailwind"
     );
@@ -274,6 +297,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "tanstack-router",
         "tailwind"
     );
@@ -284,6 +308,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "tanstack-router",
         "tailwind"
     );
@@ -294,6 +319,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "tanstack-router",
         "tailwind"
     );
@@ -306,6 +332,7 @@ function main() {
         root,
         "packages",
         "main-template",
+        "react",
         "tanstack-router",
         "vanilla-extract"
     );
@@ -314,6 +341,7 @@ function main() {
         "packages",
         "create-template",
         "template",
+        "react",
         "tanstack-router",
         "vanilla-extract"
     );
@@ -324,6 +352,7 @@ function main() {
         "mac",
         "tmp",
         "template",
+        "react",
         "tanstack-router",
         "vanilla-extract"
     );
@@ -334,6 +363,7 @@ function main() {
         "win",
         "tmp",
         "template",
+        "react",
         "tanstack-router",
         "vanilla-extract"
     );
@@ -344,13 +374,14 @@ function main() {
 
     // lib copy
 
-    const srcLibDir = path.join(root, "packages", "lib", "src", "lib");
+    const srcLibDir = path.join(root, "packages", "lib", "react", "src", "lib");
 
     const destLibDev = path.join(
         root,
         "packages",
         "create-template",
         "lib",
+        "react",
         "lib"
     );
 
@@ -360,6 +391,7 @@ function main() {
         "mac",
         "tmp",
         "lib",
+        "react",
         "lib"
     );
 
@@ -369,6 +401,7 @@ function main() {
         "win",
         "tmp",
         "lib",
+        "react",
         "lib"
     );
 
@@ -376,13 +409,21 @@ function main() {
     run(srcLibDir, destLibMacPack);
     run(srcLibDir, destLibWinPack);
 
-    const srcStoriesDir = path.join(root, "packages", "lib", "src", "stories");
+    const srcStoriesDir = path.join(
+        root,
+        "packages",
+        "lib",
+        "react",
+        "src",
+        "stories"
+    );
 
     const destStoriesDev = path.join(
         root,
         "packages",
         "create-template",
         "lib",
+        "react",
         "stories"
     );
 
@@ -392,6 +433,7 @@ function main() {
         "mac",
         "tmp",
         "lib",
+        "react",
         "stories"
     );
 
@@ -401,6 +443,7 @@ function main() {
         "win",
         "tmp",
         "lib",
+        "react",
         "stories"
     );
 
@@ -408,13 +451,21 @@ function main() {
     run(srcStoriesDir, destStoriesMacPack);
     run(srcStoriesDir, destStoriesWinPack);
 
-    const srcTestDir = path.join(root, "packages", "lib", "src", "__test__");
+    const srcTestDir = path.join(
+        root,
+        "packages",
+        "lib",
+        "react",
+        "src",
+        "__test__"
+    );
 
     const destTestDev = path.join(
         root,
         "packages",
         "create-template",
         "lib",
+        "react",
         "__test__"
     );
 
@@ -424,6 +475,7 @@ function main() {
         "mac",
         "tmp",
         "lib",
+        "react",
         "__test__"
     );
 
@@ -433,6 +485,7 @@ function main() {
         "win",
         "tmp",
         "lib",
+        "react",
         "__test__"
     );
 
