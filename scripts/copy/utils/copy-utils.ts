@@ -1,5 +1,4 @@
 import fs from "fs";
-import * as fsAsync from "fs/promises";
 import path from "path";
 
 /**
@@ -36,13 +35,14 @@ function copyDir(src: string, dest: string) {
 
 async function main() {
     const repoRoot = path.resolve(__dirname, "..", "..", "..");
-    const src = path.join(repoRoot, "packages", "utils");
+    const src = path.join(repoRoot, "packages", "common", "ts");
 
     const targets = [
         path.join(
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "next",
             "app",
             "tailwind",
@@ -52,6 +52,7 @@ async function main() {
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "next",
             "app",
             "vanilla-extract",
@@ -61,6 +62,7 @@ async function main() {
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "next",
             "pages",
             "tailwind",
@@ -70,6 +72,7 @@ async function main() {
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "next",
             "pages",
             "vanilla-extract",
@@ -79,6 +82,7 @@ async function main() {
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "tanstack-router",
             "vanilla-extract",
             "src"
@@ -87,6 +91,7 @@ async function main() {
             repoRoot,
             "packages",
             "main-template",
+            "react",
             "tanstack-router",
             "tailwind",
             "src"
