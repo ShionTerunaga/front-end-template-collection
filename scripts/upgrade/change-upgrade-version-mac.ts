@@ -14,7 +14,7 @@ import AdmZip from "adm-zip";
 // === 設定 ===
 const DIR = "tools";
 const OWNER = "ShionTerunaga";
-const REPO = "create-react-template";
+const REPO = "front-end-template-collection";
 const BRANCH = "release";
 
 export async function main(TARGET_DIR_IN_ZIP: string) {

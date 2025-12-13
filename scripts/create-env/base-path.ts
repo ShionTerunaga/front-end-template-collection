@@ -13,14 +13,14 @@ export const basePaths: Base = {
     exampleTanstackBase: path.resolve(__dirname, "../../example/tanstack"),
     mainNextAppBase: path.resolve(
         __dirname,
-        "../../packages/main-template/next/app"
+        "../../packages/main-template/react/next/app"
     ),
     mainNextPagesBase: path.resolve(
         __dirname,
-        "../../packages/main-template/next/pages"
+        "../../packages/main-template/react/next/pages"
     ),
     mainTanstackBase: path.resolve(
         __dirname,
-        "../../packages/main-template/tanstack-router"
+        "../../packages/main-template/react/tanstack-router"
     )
 };

@@ -6,18 +6,18 @@ import { execSync } from "child_process";
 
 // === 設定 ===
 const ZIP_URL =
-    "https://github.com/ShionTerunaga/create-react-template/archive/refs/heads/release.zip";
+    "https://github.com/ShionTerunaga/front-end-template-collection/archive/refs/heads/release.zip";
 const ZIP_PATH = path.resolve("repo.zip");
 const TEMP_DIR = path.resolve("repo");
 const EXEC_DIR = path.join(
     TEMP_DIR,
-    "create-react-template-release",
+    "front-end-template-collection-release",
     "execution",
     "win"
 );
 
 // Where tools will be placed on the user's machine
-const TOOLS_DIR = path.join(homedir(), "tools");
+const TOOLS_DIR = path.join(homedir(), "frontend-tools");
 
 // === 関数群 ===
 async function downloadZip(url: string, dest: string) {
