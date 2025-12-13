@@ -1,7 +1,7 @@
-import { describe, expect, it } from "vitest";
-import { resultUtility } from "@/utils/result";
+import { describe, expect, it } from 'vitest'
+import { resultUtility } from '@/utils/result'
 
-describe("resultUtility", () => {
+describe('resultUtility', () => {
     const {
         isOK,
         isNG,
@@ -11,99 +11,99 @@ describe("resultUtility", () => {
         checkResultVoid,
         checkPromiseReturn,
         checkPromiseVoid,
-        UNIT
-    } = resultUtility;
+        UNIT,
+    } = resultUtility
 
-    it("createOk で作った値は isOK が true になる", () => {
-        const ok = createOk("value");
+    it('createOk で作った値は isOK が true になる', () => {
+        const ok = createOk('value')
 
-        expect(isOK(ok)).toBeTruthy();
+        expect(isOK(ok)).toBeTruthy()
 
         if (isOK(ok)) {
-            expect(ok.value).toBe("value");
+            expect(ok.value).toBe('value')
         }
-    });
+    })
 
-    it("createNg で作った値は isNG が true になる", () => {
-        const ng = createNg("err");
+    it('createNg で作った値は isNG が true になる', () => {
+        const ng = createNg('err')
 
-        expect(isNG(ng)).toBe(true);
+        expect(isNG(ng)).toBe(true)
 
         if (isNG(ng)) {
-            expect(ng.err).toBe("err");
+            expect(ng.err).toBe('err')
         }
-    });
+    })
 
-    it("isOK は ok でない場合 false を返す", () => {
-        const ng = createNg("err");
+    it('isOK は ok でない場合 false を返す', () => {
+        const ng = createNg('err')
 
-        expect(isOK(ng)).toBeFalsy();
-    });
+        expect(isOK(ng)).toBeFalsy()
+    })
 
-    it("isNG は ng でない場合 false を返す", () => {
-        const ok = createOk("value");
+    it('isNG は ng でない場合 false を返す', () => {
+        const ok = createOk('value')
 
-        expect(isNG(ok)).toBeFalsy();
-    });
+        expect(isNG(ok)).toBeFalsy()
+    })
 
-    it("checkResultReturn は成功時に ok を返す", () => {
-        const res = checkResultReturn({ fn: () => "ret", err: "err" });
+    it('checkResultReturn は成功時に ok を返す', () => {
+        const res = checkResultReturn({ fn: () => 'ret', err: 'err' })
 
-        expect(isOK(res)).toBeTruthy();
+        expect(isOK(res)).toBeTruthy()
 
-        if (isOK(res)) expect(res.value).toBe("ret");
-    });
+        if (isOK(res)) expect(res.value).toBe('ret')
+    })
 
-    it("checkResultReturn は例外時に ng を返す", () => {
+    it('checkResultReturn は例外時に ng を返す', () => {
         const res = checkResultReturn({
             fn: () => {
-                throw new Error("boom");
+                throw new Error('boom')
             },
-            err: "myErr"
-        });
+            err: 'myErr',
+        })
 
-        expect(isNG(res)).toBeTruthy();
+        expect(isNG(res)).toBeTruthy()
 
-        if (isNG(res)) expect(res.err).toBe("myErr");
-    });
+        if (isNG(res)) expect(res.err).toBe('myErr')
+    })
 
-    it("checkResultVoid は成功時に UNIT を返す", () => {
-        const res = checkResultVoid({ fn: () => {}, err: "e" });
+    it('checkResultVoid は成功時に UNIT を返す', () => {
+        const res = checkResultVoid({ fn: () => {}, err: 'e' })
 
-        expect(isOK(res)).toBeTruthy();
+        expect(isOK(res)).toBeTruthy()
 
-        if (isOK(res)) expect(res.value).toBe(UNIT);
-    });
+        if (isOK(res)) expect(res.value).toBe(UNIT)
+    })
 
-    it("checkPromiseReturn は解決時に ok を返す", async () => {
+    it('checkPromiseReturn は解決時に ok を返す', async () => {
         const res = await checkPromiseReturn({
-            fn: async () => "async",
-            err: "e"
-        });
+            fn: async () => 'async',
+            err: 'e',
+        })
 
-        expect(isOK(res)).toBeTruthy();
+        expect(isOK(res)).toBeTruthy()
 
-        if (isOK(res)) expect(res.value).toBe("async");
-    });
+        if (isOK(res)) expect(res.value).toBe('async')
+    })
 
-    it("checkPromiseReturn は拒否時に ng を返す", async () => {
+    it('checkPromiseReturn は拒否時に ng を返す', async () => {
         const res = await checkPromiseReturn({
             fn: async () => {
-                throw new Error("fail");
+                throw new Error('fail')
             },
-            err: "err"
-        });
+            err: 'err',
+        })
 
-        expect(isNG(res)).toBeTruthy();
+        expect(isNG(res)).toBeTruthy()
 
-        if (isNG(res)) expect(res.err).toBe("err");
-    });
+        if (isNG(res)) expect(res.err).toBe('err')
+    })
 
-    it("checkPromiseVoid は成功時に UNIT を返す", async () => {
-        const res = await checkPromiseVoid({ fn: async () => {}, err: "e" });
+    it('checkPromiseVoid は成功時に UNIT を返す', async () => {
+        const res = await checkPromiseVoid({ fn: async () => {}, err: 'e' })
 
-        expect(isOK(res)).toBeTruthy();
+        expect(isOK(res)).toBeTruthy()
 
-        if (isOK(res)) expect(res.value).toBe(UNIT);
-    });
-});
+        if (isOK(res)) expect(res.value).toBe(UNIT)
+    })
+})
