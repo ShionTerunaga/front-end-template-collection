@@ -1,7 +1,6 @@
 {
-    "name": "create-react-template",
+    "name": "create-frontend-template",
     "version": "1.0.0",
-    "description": "",
     "scripts": {
         "cp:utils": "npx tsx scripts/copy/utils/copy-utils.ts",
         "build:upgrade-mac": "npx @vercel/ncc build ./scripts/upgrade/change-upgrade-version-mac.ts -o ./dist/upgrade-mac && tsx scripts/write/upgrade-write-mac.ts",
@@ -21,16 +20,12 @@
         "lib:storybook": "cd packages/lib && pnpm storybook",
         "lib:test": "cd packages/lib && pnpm test"
     },
-    "pkg": {
-        "assets": [
-            "dist/template/**/*"
-        ]
-    },
     "dependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
         "@types/adm-zip": "^0.5.7",
         "adm-zip": "^0.5.16",
+        "conf": "^15.0.2",
         "csstype": "^3.2.3",
         "fs": "0.0.1-security",
         "path": "^0.12.7",
