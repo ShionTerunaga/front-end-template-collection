@@ -10,8 +10,12 @@
     },
     "packageManager": "pnpm@10.18.3",
     "dependencies": {
-        "eslint": "^9.39.1",
+        "@types/prompts": "^2.4.9",
+        "@typescript-eslint/eslint-plugin": "^6.8.0",
         "@typescript-eslint/parser": "^6.8.0",
-        "@typescript-eslint/eslint-plugin": "^6.8.0"
+        "commander": "^14.0.2",
+        "eslint": "^9.39.1",
+        "picocolors": "^1.1.1",
+        "prompts": "^2.4.2"
     }
 }

@@ -1,9 +1,9 @@
-import { resultUtility } from "../utils/result";
+import { resultUtility } from "../../utils/result";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { Css, Lib, librarySetting } from "../template/template.static";
-import { copy } from "../helper/copy";
-import { foundFolder } from "../utils/found-file";
+import { Css, Lib, librarySetting } from "../../template/react.static";
+import { copy } from "../../helper/copy";
+import { foundFolder } from "../../utils/found-file";
 import fs from "fs/promises";
 
 export async function addPackage({
@@ -40,7 +40,7 @@ export async function addPackage({
 
         const templatePath = [
             path.join(__dirname, "lib", "lib", lib.lib),
-            path.join(__dirname, "..", "..", "lib", "lib", lib.lib)
+            path.join(__dirname, "..", "..", "..", "lib", "lib", lib.lib)
         ];
 
         const resultPath = foundFolder(templatePath);

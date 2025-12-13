@@ -1,8 +1,8 @@
-import { isTechStack } from "../utils/is";
-import { optionUtility, type Option } from "../utils/option";
-import { resultUtility } from "../utils/result";
+import { isReactFramework } from "../../utils/is";
+import { optionUtility, type Option } from "../../utils/option";
+import { resultUtility } from "../../utils/result";
 import prompts from "prompts";
-import { commanderCore } from "./core";
+import { commanderCore } from "../common/core";
 import { blue } from "picocolors";
 
 export async function frameworkCommand(optionFramework: Option<unknown>) {
@@ -10,7 +10,7 @@ export async function frameworkCommand(optionFramework: Option<unknown>) {
     const { createNg, createOk, checkPromiseReturn, isNG } = resultUtility;
     const { onPromptState } = commanderCore;
 
-    if (isSome(optionFramework) && isTechStack(optionFramework.value)) {
+    if (isSome(optionFramework) && isReactFramework(optionFramework.value)) {
         return createOk(optionFramework.value);
     }
 
@@ -44,7 +44,7 @@ export async function frameworkCommand(optionFramework: Option<unknown>) {
 
     const framework = response.value.framework;
 
-    if (isTechStack(framework)) {
+    if (isReactFramework(framework)) {
         return createOk(framework);
     }
 

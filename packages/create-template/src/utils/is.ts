@@ -1,3 +1,4 @@
+import { TechStack, techStacks } from "../template/core.static";
 import {
     Css,
     csses,
@@ -5,9 +6,9 @@ import {
     frameworks,
     Lib,
     libsArray
-} from "../template/template.static";
+} from "../template/react.static";
 
-export function isTechStack(value: unknown): value is Framework {
+export function isReactFramework(value: unknown): value is Framework {
     if (typeof value !== "string") {
         return false;
     }
@@ -39,6 +40,14 @@ export function isLibsArray(value: unknown): value is Array<Lib> {
 
 export function isLib(value: unknown): value is Lib {
     return libsArray.includes(value as Lib);
+}
+
+export function isTechStack(value: unknown): value is TechStack {
+    if (typeof value !== "string") {
+        return false;
+    }
+
+    return techStacks.includes(value as TechStack);
 }
 
 export function isCss(value: unknown): value is Css {
