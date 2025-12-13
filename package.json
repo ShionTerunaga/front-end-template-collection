@@ -29,6 +29,9 @@
     "dependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
+        "@types/adm-zip": "^0.5.7",
+        "adm-zip": "^0.5.16",
+        "csstype": "^3.2.3",
         "fs": "0.0.1-security",
         "path": "^0.12.7",
         "prettier": "^3.6.2"
