@@ -1,5 +1,5 @@
 import { resolve, basename } from "node:path";
-import { Css, Framework, Lib } from "./template/react.static";
+import { Framework, Lib, ReactCss } from "./template/react.static";
 import { mkdirSync } from "node:fs";
 import { isFolderEmpty } from "./helper/is-folder-empty";
 import { green } from "picocolors";
@@ -15,7 +15,7 @@ export async function createApp({
 }: {
     appPath: string;
     framework: Framework;
-    css: Css;
+    css: ReactCss;
     libs: Option<Array<Lib>>;
 }) {
     const { isNone } = optionUtility;
