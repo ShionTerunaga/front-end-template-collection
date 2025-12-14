@@ -34,12 +34,19 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
     }
 
     const templatePath = [
-        path.join(__dirname, "template", frameworResult.value, cssResult.value),
+        path.join(
+            __dirname,
+            "template",
+            "react",
+            frameworResult.value,
+            cssResult.value
+        ),
         path.join(
             __dirname,
             "..",
             "..",
             "template",
+            "react",
             frameworResult.value,
             cssResult.value
         )

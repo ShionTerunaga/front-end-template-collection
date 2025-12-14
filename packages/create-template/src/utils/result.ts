@@ -13,6 +13,9 @@ interface NG<E> {
     readonly err: E;
 }
 
+export type Noop = () => void;
+export const noop: Noop = () => {};
+
 interface CheckResultReturn<T, E> {
     fn: () => NonNullable<T>;
     err: (e: unknown) => NonNullable<E>;
