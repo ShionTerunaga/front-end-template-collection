@@ -1,7 +1,7 @@
 {
     "name": "create-react-tmp",
     "bin": {
-        "create-react-tmp": "./tmp/index.js",
-        "upgrade-tmp": "./upgrade-tmp.js"
+        "create-frontend-tmp": "./tmp/index.js",
+        "upgrade-frontend-tmp": "./upgrade-tmp.js"
     }
 }

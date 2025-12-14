@@ -12,7 +12,7 @@ import { join, basename } from "node:path";
 import AdmZip from "adm-zip";
 
 // === 設定 ===
-const DIR = "tools";
+const DIR = "frontend-tools";
 const OWNER = "ShionTerunaga";
 const REPO = "front-end-template-collection";
 const BRANCH = "release";

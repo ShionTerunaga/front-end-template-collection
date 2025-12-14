@@ -6,7 +6,7 @@ import path from "path";
  * If the bundle doesn't start with a shebang, add one so it can be executed.
  */
 async function main() {
-    const repoRoot = path.resolve(__dirname, "..", "..");
+    const repoRoot = path.resolve(__dirname, "..", "..", "..");
     const src = path.join(repoRoot, "dist", "upgrade-mac", "index.js");
     const destDir = path.join(repoRoot, "execution", "mac");
     const dest = path.join(destDir, "upgrade-tmp.js");
