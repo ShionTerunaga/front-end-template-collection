@@ -6,12 +6,5 @@
         "composite": false
     },
     "include": ["./**/*", "./template/**/*", "rspack.config.js"],
-    "exclude": [
-        "node_modules",
-        "./template/next",
-        "./template/tanstack-router",
-        "./lib/__test__",
-        "./lib/lib",
-        "./lib/stories"
-    ]
+    "exclude": ["node_modules", "./template/*", "./template/*", "./lib/*"]
 }
