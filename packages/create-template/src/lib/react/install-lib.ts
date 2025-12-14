@@ -1,10 +1,11 @@
-import { resultUtility } from "../../utils/result";
+import { noop, Noop, Result, resultUtility } from "../../utils/result";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { ReactCss, Lib, librarySetting } from "../../template/react.static";
+import { ReactCss, ReactLibrarySettings } from "../../template/react.static";
 import { copy } from "../../helper/copy";
 import { foundFolder } from "../../utils/found-file";
 import fs from "fs/promises";
+import { green } from "picocolors";
 
 export async function addPackage({
     root,
@@ -13,9 +14,16 @@ export async function addPackage({
 }: {
     root: string;
     css: ReactCss;
-    libs: Array<Lib>;
-}) {
-    const { isNG, checkPromiseReturn, checkPromiseVoid } = resultUtility;
+    libs: ReactLibrarySettings;
+}): Promise<Result<Noop, Error>> {
+    const { isNG, createOk, checkPromiseReturn, checkPromiseVoid } =
+        resultUtility;
+
+    if (libs.length === 0) {
+        console.log("✅ No additional packages selected.");
+
+        return createOk(noop);
+    }
 
     const appPath = path.join(root, "src", "lib");
     const testPath = path.join(root, "src", "__test__", "lib");
@@ -29,26 +37,29 @@ export async function addPackage({
 
     mkdirSync(storybookPath, { recursive: true });
 
-    const addLibs = librarySetting.filter((setting) =>
-        libs.some((lib) => lib === setting.lib)
-    );
-
-    for (const lib of addLibs) {
+    for (const lib of libs) {
         const srcLibDir = path.join(appPath, lib.lib);
 
         mkdirSync(srcLibDir, { recursive: true });
 
         const templatePath = [
-            path.join(__dirname, "lib", "lib", lib.lib),
-            path.join(__dirname, "..", "..", "..", "lib", "lib", lib.lib)
+            path.join(__dirname, "lib", "react", "lib", lib.lib),
+            path.join(
+                __dirname,
+                "..",
+                "..",
+                "..",
+                "lib",
+                "react",
+                "lib",
+                lib.lib
+            )
         ];
 
         const resultPath = foundFolder(templatePath);
 
         if (isNG(resultPath)) {
-            console.error("Library folder not found:", resultPath.err.message);
-
-            process.exit(1);
+            return resultPath;
         }
 
         //copy packages
@@ -58,9 +69,7 @@ export async function addPackage({
         });
 
         if (isNG(res)) {
-            console.error(res.err);
-
-            process.exit(1);
+            return res;
         }
 
         if (lib.storybook) {
@@ -69,12 +78,20 @@ export async function addPackage({
             mkdirSync(srcStorybookDir, { recursive: true });
 
             const storybookTemplatePath = [
-                path.join(__dirname, "lib", "stories", lib.lib + "-" + css),
+                path.join(
+                    __dirname,
+                    "lib",
+                    "react",
+                    "stories",
+                    lib.lib + "-" + css
+                ),
                 path.join(
                     __dirname,
                     "..",
                     "..",
+                    "..",
                     "lib",
+                    "react",
                     "stories",
                     lib.lib + "-" + css
                 )
@@ -83,12 +100,7 @@ export async function addPackage({
             const storybookResultPath = foundFolder(storybookTemplatePath);
 
             if (isNG(storybookResultPath)) {
-                console.error(
-                    "Storybook folder not found:",
-                    storybookResultPath.err.message
-                );
-
-                process.exit(1);
+                return storybookResultPath;
             }
 
             const storyRes = await copy(copySource, srcStorybookDir, {
@@ -97,9 +109,7 @@ export async function addPackage({
             });
 
             if (isNG(storyRes)) {
-                console.error(storyRes.err.message);
-
-                process.exit(1);
+                return storyRes;
             }
         }
 
@@ -108,19 +118,23 @@ export async function addPackage({
             mkdirSync(srcTestDir, { recursive: true });
 
             const testTemplatePath = [
-                path.join(__dirname, "lib", "__test__", lib.lib),
-                path.join(__dirname, "..", "..", "lib", "__test__", lib.lib)
+                path.join(__dirname, "lib", "react", "__test__", lib.lib),
+                path.join(
+                    __dirname,
+                    "..",
+                    "..",
+                    "..",
+                    "lib",
+                    "react",
+                    "__test__",
+                    lib.lib
+                )
             ];
 
             const testResultPath = foundFolder(testTemplatePath);
 
             if (isNG(testResultPath)) {
-                console.error(
-                    "Unit test folder not found:",
-                    testResultPath.err.message
-                );
-
-                process.exit(1);
+                return testResultPath;
             }
 
             const testRes = await copy(copySource, srcTestDir, {
@@ -129,9 +143,7 @@ export async function addPackage({
             });
 
             if (isNG(testRes)) {
-                console.error(testRes.err.message);
-
-                process.exit(1);
+                return testRes;
             }
         }
     }
@@ -146,10 +158,7 @@ export async function addPackage({
     });
 
     if (isNG(raw)) {
-        console.error(raw.err.message);
-        console.error(raw.err.stack ?? "");
-
-        process.exit(1);
+        return raw;
     }
 
     const existingInfo = JSON.parse(raw.value || "{}");
@@ -168,11 +177,12 @@ export async function addPackage({
     });
 
     if (isNG(writeResult)) {
-        console.error(writeResult.err.message);
-        console.error(writeResult.err.stack ?? "");
-
-        process.exit(1);
+        return writeResult;
     }
 
-    console.log("✅ Added selected packages:", libs.join(", "));
+    const libNames = libs.map((l) => l.lib).join(", ");
+
+    console.log("✅ Added selected packages:", green(libNames));
+
+    return createOk(noop);
 }

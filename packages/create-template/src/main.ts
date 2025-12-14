@@ -2,14 +2,12 @@ import { basename, resolve } from "node:path";
 import { validateNpmName } from "./helper/validate-npm-name";
 import { existsSync } from "node:fs";
 import { bold, red, green } from "picocolors";
-import { createApp } from "./create-app";
 import { resultUtility } from "./utils/result";
 import { commanderCore } from "./command/common/core";
 import { nameCommand } from "./command/common/name";
-import { frameworkCommand } from "./command/react/framework";
-import { cssCommand } from "./command/react/css";
-import { libCli } from "./command/react/lib";
 import { cliErrorLog } from "./utils/error";
+import { techStackCommand } from "./command/common/tech-stack";
+import { createApp } from "./template/core";
 
 const handleSigTerm = () => process.exit(0);
 
@@ -19,12 +17,7 @@ process.on("SIGINT", handleSigTerm);
 export async function run(): Promise<string> {
     const { isNG } = resultUtility;
 
-    const {
-        optionName,
-        optionReactFramework,
-        optionCss,
-        optionUseAllComponents
-    } = commanderCore;
+    const { optionName, optionTechStack } = commanderCore;
 
     const projectName = await nameCommand(optionName);
 
@@ -35,6 +28,13 @@ export async function run(): Promise<string> {
 
     const appPath = resolve(projectName.value);
     const appName = basename(appPath);
+
+    const techStack = await techStackCommand(optionTechStack);
+
+    if (isNG(techStack)) {
+        cliErrorLog(techStack.err);
+        process.exit(1);
+    }
 
     const validation = validateNpmName(appName);
 
@@ -56,33 +56,15 @@ export async function run(): Promise<string> {
         process.exit(1);
     }
 
-    const frameworResult = await frameworkCommand(optionReactFramework);
-
-    if (isNG(frameworResult)) {
-        cliErrorLog(frameworResult.err);
-        process.exit(1);
-    }
-
-    const cssResult = await cssCommand(optionCss);
-
-    if (isNG(cssResult)) {
-        cliErrorLog(cssResult.err);
-        process.exit(1);
-    }
-
-    const resultSelected = await libCli(optionUseAllComponents);
-
-    if (isNG(resultSelected)) {
-        cliErrorLog(resultSelected.err);
-        process.exit(1);
-    }
-
-    await createApp({
+    const installResult = await createApp({
         appPath,
-        framework: frameworResult.value,
-        css: cssResult.value,
-        libs: resultSelected.value
+        tech: techStack.value
     });
+
+    if (isNG(installResult)) {
+        cliErrorLog(installResult.err);
+        process.exit(1);
+    }
 
     return projectName.value;
 }
