@@ -12,13 +12,13 @@ export type Framework = (typeof frameworks)[number];
  * CSS
  */
 export const csses = ["tailwind", "vanilla-extract"] as const;
-export type Css = (typeof csses)[number];
+export type ReactCss = (typeof csses)[number];
 
 export interface InstallTemplateArgs {
     appName: string;
     root: string;
     framework: Framework;
-    css: Css;
+    css: ReactCss;
 }
 
 /**
@@ -34,19 +34,22 @@ export const selectLibList: Array<SelectLib> = [
     { title: "Popup", value: "popup" },
     { title: "Loading", value: "loading" }
 ];
-interface LibrarySetting {
+interface ReactLibrarySetting {
+    stack: "react";
     lib: Lib;
     unitTest: boolean;
     storybook: boolean;
 }
-export type LibrarySettings = Array<LibrarySetting>;
-export const librarySetting: LibrarySettings = [
+export type ReactLibrarySettings = Array<ReactLibrarySetting>;
+export const librarySetting: ReactLibrarySettings = [
     {
+        stack: "react",
         lib: "popup",
         unitTest: true,
         storybook: true
     },
     {
+        stack: "react",
         lib: "loading",
         unitTest: true,
         storybook: true

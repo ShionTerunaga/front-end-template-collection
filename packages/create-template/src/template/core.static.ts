@@ -1,4 +1,17 @@
+import { Option } from "../utils/option";
+import { ReactCss, ReactLibrarySettings } from "./react.static";
+
 export const techStacks = ["react"] as const;
 export type TechStack = (typeof techStacks)[number];
 
 export const techStackSelectList = [{ title: "React", value: "react" }];
+
+export type TechStackList = ReactLibrarySettings;
+
+export type TechStackCss = ReactCss;
+
+export interface TechMaterial {
+    path: string;
+    lib: Option<TechStackList>;
+    styleSheet: Option<TechStackCss>;
+}

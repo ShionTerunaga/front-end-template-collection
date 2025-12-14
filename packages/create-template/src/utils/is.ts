@@ -1,6 +1,6 @@
 import { TechStack, techStacks } from "../template/core.static";
 import {
-    Css,
+    ReactCss,
     csses,
     Framework,
     frameworks,
@@ -50,8 +50,8 @@ export function isTechStack(value: unknown): value is TechStack {
     return techStacks.includes(value as TechStack);
 }
 
-export function isCss(value: unknown): value is Css {
-    return csses.includes(value as Css);
+export function isCss(value: unknown): value is ReactCss {
+    return csses.includes(value as ReactCss);
 }
 
 export function isBoolean(value: unknown): value is boolean {

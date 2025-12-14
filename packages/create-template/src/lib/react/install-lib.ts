@@ -1,7 +1,7 @@
 import { resultUtility } from "../../utils/result";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { Css, Lib, librarySetting } from "../../template/react.static";
+import { ReactCss, Lib, librarySetting } from "../../template/react.static";
 import { copy } from "../../helper/copy";
 import { foundFolder } from "../../utils/found-file";
 import fs from "fs/promises";
@@ -12,7 +12,7 @@ export async function addPackage({
     libs
 }: {
     root: string;
-    css: Css;
+    css: ReactCss;
     libs: Array<Lib>;
 }) {
     const { isNG, checkPromiseReturn, checkPromiseVoid } = resultUtility;

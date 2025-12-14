@@ -19,8 +19,12 @@ process.on("SIGINT", handleSigTerm);
 export async function run(): Promise<string> {
     const { isNG } = resultUtility;
 
-    const { optionName, optionFramework, optionCss, optionUseAllComponents } =
-        commanderCore;
+    const {
+        optionName,
+        optionReactFramework,
+        optionCss,
+        optionUseAllComponents
+    } = commanderCore;
 
     const projectName = await nameCommand(optionName);
 
@@ -52,7 +56,7 @@ export async function run(): Promise<string> {
         process.exit(1);
     }
 
-    const frameworResult = await frameworkCommand(optionFramework);
+    const frameworResult = await frameworkCommand(optionReactFramework);
 
     if (isNG(frameworResult)) {
         cliErrorLog(frameworResult.err);
