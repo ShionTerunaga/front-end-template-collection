@@ -159,5 +159,3 @@ upgrade-frontend-tmp && chmod +x ~/frontend-tools/tmp/index.js && chmod +x ~/fro
 ```bash
 upgrade-frontend-tmp
 ```
-
-Happy Hucking!!
