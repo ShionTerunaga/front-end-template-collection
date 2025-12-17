@@ -1,17 +1,17 @@
 {
-  "name": "next",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.2.2",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.4"
-  }
+    "name": "next",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "nuxt": "^4.2.2",
+        "vue": "^3.5.25",
+        "vue-router": "^4.6.4"
+    }
 }
