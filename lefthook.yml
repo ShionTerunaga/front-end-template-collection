@@ -10,10 +10,10 @@ post-merge:
     commands:
         install:
             run: pnpm install
-        settings:
-            run:
-                pnpm create:env && buid:tmp && pnpm buid:upgrade-mac && pnpm
-                buid:upgrade-win
+#        settings:
+#            run:
+#                pnpm create:env && buid:tmp && pnpm buid:upgrade-mac && pnpm
+#                buid:upgrade-win
 
 commit-msg:
     commands:
