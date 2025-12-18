@@ -3,8 +3,8 @@ import { CardListView } from "@/components/view";
 import { APIView } from "@/features/harry-potter";
 import { ja } from "@/shared/lang/ja";
 import { CheckerProps } from "@/shared/types/object";
-import { Result, resultUtility } from "@/utils/result";
-import { Option, optionUtility } from "@/utils/option";
+import { Result } from "@/utils/result";
+import { Option } from "@/utils/option";
 import { FetcherError } from "@/utils/error/fetcher";
 
 interface Props {
@@ -15,14 +15,12 @@ function StaticGeneratorScreen<T extends Props>(
     props: CheckerProps<T, Props, "This props is different from Props.">
 ) {
     const { character } = props;
-    const { isNG } = resultUtility;
-    const { isNone } = optionUtility;
 
-    if (isNG(character)) {
+    if (character.isErr) {
         return <Box>静的生成が失敗してます。</Box>;
     }
 
-    if (isNone(character.value)) {
+    if (character.value.isNone) {
         return <Box>表示するデータがありません。</Box>;
     }
 
