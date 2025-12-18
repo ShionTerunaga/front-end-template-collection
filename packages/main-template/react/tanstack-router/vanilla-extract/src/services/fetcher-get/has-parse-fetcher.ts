@@ -15,8 +15,8 @@ export async function hasParseFetcher<T extends ZodType, S>({
     cache?: RequestCache
     parse: (scheme: core.output<T>) => Result<Option<S>, FetcherError>
 }): Promise<Result<Option<S>, FetcherError>> {
-    const { isNG, createOk } = resultUtility
-    const { isNone, createNone } = optionUtility
+    const { createOk } = resultUtility
+    const { createNone } = optionUtility
 
     const fetcherResult = await fetcher<T>({
         url,
@@ -24,11 +24,11 @@ export async function hasParseFetcher<T extends ZodType, S>({
         cache,
     })
 
-    if (isNG(fetcherResult)) {
+    if (fetcherResult.isErr) {
         return fetcherResult
     }
 
-    if (isNone(fetcherResult.value)) {
+    if (fetcherResult.value.isNone) {
         return createOk(createNone())
     }
 
