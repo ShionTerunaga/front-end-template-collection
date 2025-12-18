@@ -2,7 +2,7 @@
 /******/ (() => {
     // webpackBootstrap
     /******/ var __webpack_modules__ = {
-        /***/ 8977: /***/ (
+        /***/ 8360: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -35,7 +35,7 @@
             /***/
         },
 
-        /***/ 2906: /***/ (__unused_webpack_module, exports) => {
+        /***/ 9543: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -72,7 +72,7 @@
             /***/
         },
 
-        /***/ 3351: /***/ (
+        /***/ 9766: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -81,9 +81,9 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.Settings = exports.scandirSync = exports.scandir = void 0;
-            const async = __nccwpck_require__(1246);
-            const sync = __nccwpck_require__(6091);
-            const settings_1 = __nccwpck_require__(802);
+            const async = __nccwpck_require__(219);
+            const sync = __nccwpck_require__(4120);
+            const settings_1 = __nccwpck_require__(6589);
             exports.Settings = settings_1.default;
             function scandir(path, optionsOrSettingsOrCallback, callback) {
                 if (typeof optionsOrSettingsOrCallback === "function") {
@@ -116,7 +116,7 @@
             /***/
         },
 
-        /***/ 1246: /***/ (
+        /***/ 219: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -128,11 +128,11 @@
                 exports.readdirWithFileTypes =
                 exports.read =
                     void 0;
-            const fsStat = __nccwpck_require__(8274);
-            const rpl = __nccwpck_require__(7601);
-            const constants_1 = __nccwpck_require__(2906);
-            const utils = __nccwpck_require__(7185);
-            const common = __nccwpck_require__(2837);
+            const fsStat = __nccwpck_require__(5831);
+            const rpl = __nccwpck_require__(7940);
+            const constants_1 = __nccwpck_require__(9543);
+            const utils = __nccwpck_require__(9328);
+            const common = __nccwpck_require__(4506);
             function read(directory, settings, callback) {
                 if (
                     !settings.stats &&
@@ -260,7 +260,7 @@
             /***/
         },
 
-        /***/ 2837: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4506: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -279,7 +279,7 @@
             /***/
         },
 
-        /***/ 6091: /***/ (
+        /***/ 4120: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -291,10 +291,10 @@
                 exports.readdirWithFileTypes =
                 exports.read =
                     void 0;
-            const fsStat = __nccwpck_require__(8274);
-            const constants_1 = __nccwpck_require__(2906);
-            const utils = __nccwpck_require__(7185);
-            const common = __nccwpck_require__(2837);
+            const fsStat = __nccwpck_require__(5831);
+            const constants_1 = __nccwpck_require__(9543);
+            const utils = __nccwpck_require__(9328);
+            const common = __nccwpck_require__(4506);
             function read(directory, settings) {
                 if (
                     !settings.stats &&
@@ -367,7 +367,7 @@
             /***/
         },
 
-        /***/ 802: /***/ (
+        /***/ 6589: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -376,8 +376,8 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             const path = __nccwpck_require__(6928);
-            const fsStat = __nccwpck_require__(8274);
-            const fs = __nccwpck_require__(8977);
+            const fsStat = __nccwpck_require__(5831);
+            const fs = __nccwpck_require__(8360);
             class Settings {
                 constructor(_options = {}) {
                     this._options = _options;
@@ -413,7 +413,7 @@
             /***/
         },
 
-        /***/ 8758: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4289: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -439,7 +439,7 @@
             /***/
         },
 
-        /***/ 7185: /***/ (
+        /***/ 9328: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -448,13 +448,13 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.fs = void 0;
-            const fs = __nccwpck_require__(8758);
+            const fs = __nccwpck_require__(4289);
             exports.fs = fs;
 
             /***/
         },
 
-        /***/ 4884: /***/ (
+        /***/ 8241: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -485,7 +485,7 @@
             /***/
         },
 
-        /***/ 8274: /***/ (
+        /***/ 5831: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -494,9 +494,9 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.statSync = exports.stat = exports.Settings = void 0;
-            const async = __nccwpck_require__(7199);
-            const sync = __nccwpck_require__(580);
-            const settings_1 = __nccwpck_require__(9441);
+            const async = __nccwpck_require__(1934);
+            const sync = __nccwpck_require__(251);
+            const settings_1 = __nccwpck_require__(7538);
             exports.Settings = settings_1.default;
             function stat(path, optionsOrSettingsOrCallback, callback) {
                 if (typeof optionsOrSettingsOrCallback === "function") {
@@ -529,7 +529,7 @@
             /***/
         },
 
-        /***/ 7199: /***/ (__unused_webpack_module, exports) => {
+        /***/ 1934: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -574,7 +574,7 @@
             /***/
         },
 
-        /***/ 580: /***/ (__unused_webpack_module, exports) => {
+        /***/ 251: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -602,7 +602,7 @@
             /***/
         },
 
-        /***/ 9441: /***/ (
+        /***/ 7538: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -610,7 +610,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const fs = __nccwpck_require__(4884);
+            const fs = __nccwpck_require__(8241);
             class Settings {
                 constructor(_options = {}) {
                     this._options = _options;
@@ -639,7 +639,7 @@
             /***/
         },
 
-        /***/ 5182: /***/ (
+        /***/ 3187: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -652,10 +652,10 @@
                 exports.walkSync =
                 exports.walk =
                     void 0;
-            const async_1 = __nccwpck_require__(6659);
-            const stream_1 = __nccwpck_require__(6319);
-            const sync_1 = __nccwpck_require__(6560);
-            const settings_1 = __nccwpck_require__(9877);
+            const async_1 = __nccwpck_require__(4450);
+            const stream_1 = __nccwpck_require__(908);
+            const sync_1 = __nccwpck_require__(5975);
+            const settings_1 = __nccwpck_require__(5702);
             exports.Settings = settings_1.default;
             function walk(directory, optionsOrSettingsOrCallback, callback) {
                 if (typeof optionsOrSettingsOrCallback === "function") {
@@ -692,7 +692,7 @@
             /***/
         },
 
-        /***/ 6659: /***/ (
+        /***/ 4450: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -700,7 +700,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const async_1 = __nccwpck_require__(3401);
+            const async_1 = __nccwpck_require__(7604);
             class AsyncProvider {
                 constructor(_root, _settings) {
                     this._root = _root;
@@ -735,7 +735,7 @@
             /***/
         },
 
-        /***/ 6319: /***/ (
+        /***/ 908: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -743,8 +743,8 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const stream_1 = __nccwpck_require__(2203);
-            const async_1 = __nccwpck_require__(3401);
+            const stream_1 = __nccwpck_require__(4584);
+            const async_1 = __nccwpck_require__(7604);
             class StreamProvider {
                 constructor(_root, _settings) {
                     this._root = _root;
@@ -782,7 +782,7 @@
             /***/
         },
 
-        /***/ 6560: /***/ (
+        /***/ 5975: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -790,7 +790,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const sync_1 = __nccwpck_require__(6466);
+            const sync_1 = __nccwpck_require__(3229);
             class SyncProvider {
                 constructor(_root, _settings) {
                     this._root = _root;
@@ -809,7 +809,7 @@
             /***/
         },
 
-        /***/ 3401: /***/ (
+        /***/ 7604: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -818,10 +818,10 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             const events_1 = __nccwpck_require__(4434);
-            const fsScandir = __nccwpck_require__(3351);
-            const fastq = __nccwpck_require__(5095);
-            const common = __nccwpck_require__(8048);
-            const reader_1 = __nccwpck_require__(334);
+            const fsScandir = __nccwpck_require__(9766);
+            const fastq = __nccwpck_require__(5648);
+            const common = __nccwpck_require__(8379);
+            const reader_1 = __nccwpck_require__(2113);
             class AsyncReader extends reader_1.default {
                 constructor(_root, _settings) {
                     super(_root, _settings);
@@ -941,7 +941,7 @@
             /***/
         },
 
-        /***/ 8048: /***/ (__unused_webpack_module, exports) => {
+        /***/ 8379: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -982,7 +982,7 @@
             /***/
         },
 
-        /***/ 334: /***/ (
+        /***/ 2113: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -990,7 +990,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const common = __nccwpck_require__(8048);
+            const common = __nccwpck_require__(8379);
             class Reader {
                 constructor(_root, _settings) {
                     this._root = _root;
@@ -1006,7 +1006,7 @@
             /***/
         },
 
-        /***/ 6466: /***/ (
+        /***/ 3229: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -1014,9 +1014,9 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const fsScandir = __nccwpck_require__(3351);
-            const common = __nccwpck_require__(8048);
-            const reader_1 = __nccwpck_require__(334);
+            const fsScandir = __nccwpck_require__(9766);
+            const common = __nccwpck_require__(8379);
+            const reader_1 = __nccwpck_require__(2113);
             class SyncReader extends reader_1.default {
                 constructor() {
                     super(...arguments);
@@ -1092,7 +1092,7 @@
             /***/
         },
 
-        /***/ 9877: /***/ (
+        /***/ 5702: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -1101,7 +1101,7 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             const path = __nccwpck_require__(6928);
-            const fsScandir = __nccwpck_require__(3351);
+            const fsScandir = __nccwpck_require__(9766);
             class Settings {
                 constructor(_options = {}) {
                     this._options = _options;
@@ -1150,17 +1150,17 @@
             /***/
         },
 
-        /***/ 1664: /***/ (
+        /***/ 3613: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const stringify = __nccwpck_require__(1409);
-            const compile = __nccwpck_require__(2885);
-            const expand = __nccwpck_require__(454);
-            const parse = __nccwpck_require__(7455);
+            const stringify = __nccwpck_require__(1908);
+            const compile = __nccwpck_require__(4372);
+            const expand = __nccwpck_require__(9125);
+            const parse = __nccwpck_require__(2682);
 
             /**
              * Expand the given pattern or create a regex-compatible string.
@@ -1333,15 +1333,15 @@
             /***/
         },
 
-        /***/ 2885: /***/ (
+        /***/ 4372: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const fill = __nccwpck_require__(9793);
-            const utils = __nccwpck_require__(9941);
+            const fill = __nccwpck_require__(6156);
+            const utils = __nccwpck_require__(9216);
 
             const compile = (ast, options = {}) => {
                 const walk = (node, parent = {}) => {
@@ -1415,7 +1415,7 @@
             /***/
         },
 
-        /***/ 4353: /***/ (module) => {
+        /***/ 1436: /***/ (module) => {
             "use strict";
 
             module.exports = {
@@ -1477,16 +1477,16 @@
             /***/
         },
 
-        /***/ 454: /***/ (
+        /***/ 9125: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const fill = __nccwpck_require__(9793);
-            const stringify = __nccwpck_require__(1409);
-            const utils = __nccwpck_require__(9941);
+            const fill = __nccwpck_require__(6156);
+            const stringify = __nccwpck_require__(1908);
+            const utils = __nccwpck_require__(9216);
 
             const append = (queue = "", stash = "", enclose = false) => {
                 const result = [];
@@ -1629,14 +1629,14 @@
             /***/
         },
 
-        /***/ 7455: /***/ (
+        /***/ 2682: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const stringify = __nccwpck_require__(1409);
+            const stringify = __nccwpck_require__(1908);
 
             /**
              * Constants
@@ -1658,7 +1658,7 @@
                 CHAR_SINGLE_QUOTE /* ' */,
                 CHAR_NO_BREAK_SPACE,
                 CHAR_ZERO_WIDTH_NOBREAK_SPACE
-            } = __nccwpck_require__(4353);
+            } = __nccwpck_require__(1436);
 
             /**
              * parse
@@ -1993,14 +1993,14 @@
             /***/
         },
 
-        /***/ 1409: /***/ (
+        /***/ 1908: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const utils = __nccwpck_require__(9941);
+            const utils = __nccwpck_require__(9216);
 
             module.exports = (ast, options = {}) => {
                 const stringify = (node, parent = {}) => {
@@ -2038,7 +2038,7 @@
             /***/
         },
 
-        /***/ 9941: /***/ (__unused_webpack_module, exports) => {
+        /***/ 9216: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             exports.isInteger = (num) => {
@@ -2172,19 +2172,19 @@
             /***/
         },
 
-        /***/ 7666: /***/ (
+        /***/ 1915: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const taskManager = __nccwpck_require__(8065);
-            const async_1 = __nccwpck_require__(2639);
-            const stream_1 = __nccwpck_require__(643);
-            const sync_1 = __nccwpck_require__(980);
-            const settings_1 = __nccwpck_require__(1601);
-            const utils = __nccwpck_require__(5516);
+            const taskManager = __nccwpck_require__(1354);
+            const async_1 = __nccwpck_require__(3034);
+            const stream_1 = __nccwpck_require__(4596);
+            const sync_1 = __nccwpck_require__(3439);
+            const settings_1 = __nccwpck_require__(2862);
+            const utils = __nccwpck_require__(869);
             async function FastGlob(source, options) {
                 assertPatternsInput(source);
                 const works = getWorks(source, async_1.default, options);
@@ -2290,7 +2290,7 @@
             /***/
         },
 
-        /***/ 8065: /***/ (
+        /***/ 1354: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2306,7 +2306,7 @@
                 exports.convertPatternsToTasks =
                 exports.generate =
                     void 0;
-            const utils = __nccwpck_require__(5516);
+            const utils = __nccwpck_require__(869);
             function generate(input, settings) {
                 const patterns = processPatterns(input, settings);
                 const ignore = processPatterns(settings.ignore, settings);
@@ -2482,7 +2482,7 @@
             /***/
         },
 
-        /***/ 2639: /***/ (
+        /***/ 3034: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2490,8 +2490,8 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const async_1 = __nccwpck_require__(7069);
-            const provider_1 = __nccwpck_require__(3874);
+            const async_1 = __nccwpck_require__(1484);
+            const provider_1 = __nccwpck_require__(2585);
             class ProviderAsync extends provider_1.default {
                 constructor() {
                     super(...arguments);
@@ -2515,7 +2515,7 @@
             /***/
         },
 
-        /***/ 785: /***/ (
+        /***/ 4110: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2523,8 +2523,8 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const utils = __nccwpck_require__(5516);
-            const partial_1 = __nccwpck_require__(7554);
+            const utils = __nccwpck_require__(869);
+            const partial_1 = __nccwpck_require__(1385);
             class DeepFilter {
                 constructor(_settings, _micromatchOptions) {
                     this._settings = _settings;
@@ -2611,7 +2611,7 @@
             /***/
         },
 
-        /***/ 8875: /***/ (
+        /***/ 6726: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2619,7 +2619,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const utils = __nccwpck_require__(5516);
+            const utils = __nccwpck_require__(869);
             class EntryFilter {
                 constructor(_settings, _micromatchOptions) {
                     this._settings = _settings;
@@ -2763,7 +2763,7 @@
             /***/
         },
 
-        /***/ 25: /***/ (
+        /***/ 8960: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2771,7 +2771,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const utils = __nccwpck_require__(5516);
+            const utils = __nccwpck_require__(869);
             class ErrorFilter {
                 constructor(_settings) {
                     this._settings = _settings;
@@ -2791,7 +2791,7 @@
             /***/
         },
 
-        /***/ 4165: /***/ (
+        /***/ 8102: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2799,7 +2799,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const utils = __nccwpck_require__(5516);
+            const utils = __nccwpck_require__(869);
             class Matcher {
                 constructor(_patterns, _settings, _micromatchOptions) {
                     this._patterns = _patterns;
@@ -2861,7 +2861,7 @@
             /***/
         },
 
-        /***/ 7554: /***/ (
+        /***/ 1385: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2869,7 +2869,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const matcher_1 = __nccwpck_require__(4165);
+            const matcher_1 = __nccwpck_require__(8102);
             class PartialMatcher extends matcher_1.default {
                 match(filepath) {
                     const parts = filepath.split("/");
@@ -2915,7 +2915,7 @@
             /***/
         },
 
-        /***/ 3874: /***/ (
+        /***/ 2585: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2924,10 +2924,10 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             const path = __nccwpck_require__(6928);
-            const deep_1 = __nccwpck_require__(785);
-            const entry_1 = __nccwpck_require__(8875);
-            const error_1 = __nccwpck_require__(25);
-            const entry_2 = __nccwpck_require__(6796);
+            const deep_1 = __nccwpck_require__(4110);
+            const entry_1 = __nccwpck_require__(6726);
+            const error_1 = __nccwpck_require__(8960);
+            const entry_2 = __nccwpck_require__(9951);
             class Provider {
                 constructor(_settings) {
                     this._settings = _settings;
@@ -2987,7 +2987,7 @@
             /***/
         },
 
-        /***/ 643: /***/ (
+        /***/ 4596: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -2995,9 +2995,9 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const stream_1 = __nccwpck_require__(2203);
-            const stream_2 = __nccwpck_require__(249);
-            const provider_1 = __nccwpck_require__(3874);
+            const stream_1 = __nccwpck_require__(4584);
+            const stream_2 = __nccwpck_require__(6686);
+            const provider_1 = __nccwpck_require__(2585);
             class ProviderStream extends provider_1.default {
                 constructor() {
                     super(...arguments);
@@ -3034,7 +3034,7 @@
             /***/
         },
 
-        /***/ 980: /***/ (
+        /***/ 3439: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3042,8 +3042,8 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const sync_1 = __nccwpck_require__(4942);
-            const provider_1 = __nccwpck_require__(3874);
+            const sync_1 = __nccwpck_require__(9701);
+            const provider_1 = __nccwpck_require__(2585);
             class ProviderSync extends provider_1.default {
                 constructor() {
                     super(...arguments);
@@ -3067,7 +3067,7 @@
             /***/
         },
 
-        /***/ 6796: /***/ (
+        /***/ 9951: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3075,7 +3075,7 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const utils = __nccwpck_require__(5516);
+            const utils = __nccwpck_require__(869);
             class EntryTransformer {
                 constructor(_settings) {
                     this._settings = _settings;
@@ -3111,7 +3111,7 @@
             /***/
         },
 
-        /***/ 7069: /***/ (
+        /***/ 1484: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3119,9 +3119,9 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const fsWalk = __nccwpck_require__(5182);
-            const reader_1 = __nccwpck_require__(890);
-            const stream_1 = __nccwpck_require__(249);
+            const fsWalk = __nccwpck_require__(3187);
+            const reader_1 = __nccwpck_require__(1897);
+            const stream_1 = __nccwpck_require__(6686);
             class ReaderAsync extends reader_1.default {
                 constructor() {
                     super(...arguments);
@@ -3155,7 +3155,7 @@
             /***/
         },
 
-        /***/ 890: /***/ (
+        /***/ 1897: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3164,8 +3164,8 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             const path = __nccwpck_require__(6928);
-            const fsStat = __nccwpck_require__(8274);
-            const utils = __nccwpck_require__(5516);
+            const fsStat = __nccwpck_require__(5831);
+            const utils = __nccwpck_require__(869);
             class Reader {
                 constructor(_settings) {
                     this._settings = _settings;
@@ -3202,7 +3202,7 @@
             /***/
         },
 
-        /***/ 249: /***/ (
+        /***/ 6686: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3210,10 +3210,10 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const stream_1 = __nccwpck_require__(2203);
-            const fsStat = __nccwpck_require__(8274);
-            const fsWalk = __nccwpck_require__(5182);
-            const reader_1 = __nccwpck_require__(890);
+            const stream_1 = __nccwpck_require__(4584);
+            const fsStat = __nccwpck_require__(5831);
+            const fsWalk = __nccwpck_require__(3187);
+            const reader_1 = __nccwpck_require__(1897);
             class ReaderStream extends reader_1.default {
                 constructor() {
                     super(...arguments);
@@ -3285,7 +3285,7 @@
             /***/
         },
 
-        /***/ 4942: /***/ (
+        /***/ 9701: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3293,9 +3293,9 @@
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            const fsStat = __nccwpck_require__(8274);
-            const fsWalk = __nccwpck_require__(5182);
-            const reader_1 = __nccwpck_require__(890);
+            const fsStat = __nccwpck_require__(5831);
+            const fsWalk = __nccwpck_require__(3187);
+            const reader_1 = __nccwpck_require__(1897);
             class ReaderSync extends reader_1.default {
                 constructor() {
                     super(...arguments);
@@ -3341,7 +3341,7 @@
             /***/
         },
 
-        /***/ 1601: /***/ (
+        /***/ 2862: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3452,7 +3452,7 @@
             /***/
         },
 
-        /***/ 2317: /***/ (__unused_webpack_module, exports) => {
+        /***/ 9756: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -3482,7 +3482,7 @@
             /***/
         },
 
-        /***/ 3340: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4129: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -3495,7 +3495,7 @@
             /***/
         },
 
-        /***/ 6709: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4978: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -3521,7 +3521,7 @@
             /***/
         },
 
-        /***/ 5516: /***/ (
+        /***/ 869: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3537,25 +3537,25 @@
                 exports.errno =
                 exports.array =
                     void 0;
-            const array = __nccwpck_require__(2317);
+            const array = __nccwpck_require__(9756);
             exports.array = array;
-            const errno = __nccwpck_require__(3340);
+            const errno = __nccwpck_require__(4129);
             exports.errno = errno;
-            const fs = __nccwpck_require__(6709);
+            const fs = __nccwpck_require__(4978);
             exports.fs = fs;
-            const path = __nccwpck_require__(605);
+            const path = __nccwpck_require__(9246);
             exports.path = path;
-            const pattern = __nccwpck_require__(8062);
+            const pattern = __nccwpck_require__(2203);
             exports.pattern = pattern;
-            const stream = __nccwpck_require__(2642);
+            const stream = __nccwpck_require__(3009);
             exports.stream = stream;
-            const string = __nccwpck_require__(6515);
+            const string = __nccwpck_require__(7268);
             exports.string = string;
 
             /***/
         },
 
-        /***/ 605: /***/ (
+        /***/ 9246: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3653,7 +3653,7 @@
             /***/
         },
 
-        /***/ 8062: /***/ (
+        /***/ 2203: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3687,8 +3687,8 @@
                 exports.isStaticPattern =
                     void 0;
             const path = __nccwpck_require__(6928);
-            const globParent = __nccwpck_require__(548);
-            const micromatch = __nccwpck_require__(5308);
+            const globParent = __nccwpck_require__(4909);
+            const micromatch = __nccwpck_require__(4081);
             const GLOBSTAR = "**";
             const ESCAPE_SYMBOL = "\\";
             const COMMON_GLOB_SYMBOLS_RE = /[*?]|^!/;
@@ -3927,7 +3927,7 @@
             /***/
         },
 
-        /***/ 2642: /***/ (
+        /***/ 3009: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -3936,7 +3936,7 @@
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.merge = void 0;
-            const merge2 = __nccwpck_require__(1656);
+            const merge2 = __nccwpck_require__(205);
             function merge(streams) {
                 const mergedStream = merge2(streams);
                 streams.forEach((stream) => {
@@ -3960,7 +3960,7 @@
             /***/
         },
 
-        /***/ 6515: /***/ (__unused_webpack_module, exports) => {
+        /***/ 7268: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -3977,7 +3977,7 @@
             /***/
         },
 
-        /***/ 5095: /***/ (
+        /***/ 5648: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -3986,7 +3986,7 @@
 
             /* eslint-disable no-var */
 
-            var reusify = __nccwpck_require__(795);
+            var reusify = __nccwpck_require__(726);
 
             function fastqueue(context, worker, _concurrency) {
                 if (typeof context === "function") {
@@ -4301,7 +4301,7 @@
             /***/
         },
 
-        /***/ 9793: /***/ (
+        /***/ 6156: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -4315,7 +4315,7 @@
              */
 
             const util = __nccwpck_require__(9023);
-            const toRegexRange = __nccwpck_require__(240);
+            const toRegexRange = __nccwpck_require__(7885);
 
             const isObject = (val) =>
                 val !== null && typeof val === "object" && !Array.isArray(val);
@@ -4601,14 +4601,14 @@
             /***/
         },
 
-        /***/ 548: /***/ (
+        /***/ 4909: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            var isGlob = __nccwpck_require__(9589);
+            var isGlob = __nccwpck_require__(536);
             var pathPosixDirname = __nccwpck_require__(6928).posix.dirname;
             var isWin32 = __nccwpck_require__(857).platform() === "win32";
 
@@ -4656,7 +4656,7 @@
             /***/
         },
 
-        /***/ 8018: /***/ (module) => {
+        /***/ 8507: /***/ (module) => {
             /*!
              * is-extglob <https://github.com/jonschlinkert/is-extglob>
              *
@@ -4681,7 +4681,7 @@
             /***/
         },
 
-        /***/ 9589: /***/ (
+        /***/ 536: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -4693,7 +4693,7 @@
              * Released under the MIT License.
              */
 
-            var isExtglob = __nccwpck_require__(8018);
+            var isExtglob = __nccwpck_require__(8507);
             var chars = { "{": "}", "(": ")", "[": "]" };
             var strictCheck = function (str) {
                 if (str[0] === "!") {
@@ -4873,7 +4873,7 @@
             /***/
         },
 
-        /***/ 8435: /***/ (module) => {
+        /***/ 3834: /***/ (module) => {
             "use strict";
             /*!
              * is-number <https://github.com/jonschlinkert/is-number>
@@ -4897,7 +4897,7 @@
             /***/
         },
 
-        /***/ 1450: /***/ (module) => {
+        /***/ 2279: /***/ (module) => {
             "use strict";
 
             const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
@@ -5021,7 +5021,7 @@
             /***/
         },
 
-        /***/ 1656: /***/ (
+        /***/ 205: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -5035,7 +5035,7 @@
              * Copyright (c) 2014-2020 Teambition
              * Licensed under the MIT license.
              */
-            const Stream = __nccwpck_require__(2203);
+            const Stream = __nccwpck_require__(4584);
             const PassThrough = Stream.PassThrough;
             const slice = Array.prototype.slice;
 
@@ -5183,7 +5183,7 @@
             /***/
         },
 
-        /***/ 5308: /***/ (
+        /***/ 4081: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -5191,9 +5191,9 @@
             "use strict";
 
             const util = __nccwpck_require__(9023);
-            const braces = __nccwpck_require__(1664);
-            const picomatch = __nccwpck_require__(5092);
-            const utils = __nccwpck_require__(8889);
+            const braces = __nccwpck_require__(3613);
+            const picomatch = __nccwpck_require__(4817);
+            const utils = __nccwpck_require__(820);
 
             const isEmptyString = (v) => v === "" || v === "./";
             const hasBraces = (v) => {
@@ -5708,7 +5708,7 @@
             /***/
         },
 
-        /***/ 214: /***/ (module) => {
+        /***/ 5657: /***/ (module) => {
             let p = process || {},
                 argv = p.argv || [],
                 env = p.env || {};
@@ -5801,19 +5801,19 @@
             /***/
         },
 
-        /***/ 5092: /***/ (
+        /***/ 4817: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            module.exports = __nccwpck_require__(4542);
+            module.exports = __nccwpck_require__(8975);
 
             /***/
         },
 
-        /***/ 4805: /***/ (
+        /***/ 9616: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -6005,15 +6005,15 @@
             /***/
         },
 
-        /***/ 2387: /***/ (
+        /***/ 398: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const constants = __nccwpck_require__(4805);
-            const utils = __nccwpck_require__(8889);
+            const constants = __nccwpck_require__(9616);
+            const utils = __nccwpck_require__(820);
 
             /**
              * Constants
@@ -7335,7 +7335,7 @@
             /***/
         },
 
-        /***/ 4542: /***/ (
+        /***/ 8975: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -7343,10 +7343,10 @@
             "use strict";
 
             const path = __nccwpck_require__(6928);
-            const scan = __nccwpck_require__(8799);
-            const parse = __nccwpck_require__(2387);
-            const utils = __nccwpck_require__(8889);
-            const constants = __nccwpck_require__(4805);
+            const scan = __nccwpck_require__(7620);
+            const parse = __nccwpck_require__(398);
+            const utils = __nccwpck_require__(820);
+            const constants = __nccwpck_require__(9616);
             const isObject = (val) =>
                 val && typeof val === "object" && !Array.isArray(val);
 
@@ -7747,14 +7747,14 @@
             /***/
         },
 
-        /***/ 8799: /***/ (
+        /***/ 7620: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const utils = __nccwpck_require__(8889);
+            const utils = __nccwpck_require__(820);
             const {
                 CHAR_ASTERISK /* * */,
                 CHAR_AT /* @ */,
@@ -7771,7 +7771,7 @@
                 CHAR_RIGHT_CURLY_BRACE /* } */,
                 CHAR_RIGHT_PARENTHESES /* ) */,
                 CHAR_RIGHT_SQUARE_BRACKET /* ] */
-            } = __nccwpck_require__(4805);
+            } = __nccwpck_require__(9616);
 
             const isPathSeparator = (code) => {
                 return (
@@ -8172,7 +8172,7 @@
             /***/
         },
 
-        /***/ 8889: /***/ (
+        /***/ 820: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -8186,7 +8186,7 @@
                 REGEX_REMOVE_BACKSLASH,
                 REGEX_SPECIAL_CHARS,
                 REGEX_SPECIAL_CHARS_GLOBAL
-            } = __nccwpck_require__(4805);
+            } = __nccwpck_require__(9616);
 
             exports.isObject = (val) =>
                 val !== null && typeof val === "object" && !Array.isArray(val);
@@ -8252,7 +8252,7 @@
             /***/
         },
 
-        /***/ 6169: /***/ (module) => {
+        /***/ 6732: /***/ (module) => {
             "use strict";
 
             class DatePart {
@@ -8296,14 +8296,14 @@
             /***/
         },
 
-        /***/ 920: /***/ (
+        /***/ 9247: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             const pos = (n) => {
                 n = n % 10;
@@ -8349,14 +8349,14 @@
             /***/
         },
 
-        /***/ 7593: /***/ (
+        /***/ 4666: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Hours extends DatePart {
                 constructor(opts = {}) {
@@ -8389,7 +8389,7 @@
             /***/
         },
 
-        /***/ 1390: /***/ (
+        /***/ 2737: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -8397,28 +8397,28 @@
             "use strict";
 
             module.exports = {
-                DatePart: __nccwpck_require__(6169),
-                Meridiem: __nccwpck_require__(2922),
-                Day: __nccwpck_require__(920),
-                Hours: __nccwpck_require__(7593),
-                Milliseconds: __nccwpck_require__(6890),
-                Minutes: __nccwpck_require__(563),
-                Month: __nccwpck_require__(4592),
-                Seconds: __nccwpck_require__(8627),
-                Year: __nccwpck_require__(4365)
+                DatePart: __nccwpck_require__(6732),
+                Meridiem: __nccwpck_require__(6112),
+                Day: __nccwpck_require__(9247),
+                Hours: __nccwpck_require__(4666),
+                Milliseconds: __nccwpck_require__(4483),
+                Minutes: __nccwpck_require__(4940),
+                Month: __nccwpck_require__(9011),
+                Seconds: __nccwpck_require__(5404),
+                Year: __nccwpck_require__(9316)
             };
 
             /***/
         },
 
-        /***/ 2922: /***/ (
+        /***/ 6112: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Meridiem extends DatePart {
                 constructor(opts = {}) {
@@ -8446,14 +8446,14 @@
             /***/
         },
 
-        /***/ 6890: /***/ (
+        /***/ 4483: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Milliseconds extends DatePart {
                 constructor(opts = {}) {
@@ -8486,14 +8486,14 @@
             /***/
         },
 
-        /***/ 563: /***/ (
+        /***/ 4940: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Minutes extends DatePart {
                 constructor(opts = {}) {
@@ -8525,14 +8525,14 @@
             /***/
         },
 
-        /***/ 4592: /***/ (
+        /***/ 9011: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Month extends DatePart {
                 constructor(opts = {}) {
@@ -8570,14 +8570,14 @@
             /***/
         },
 
-        /***/ 8627: /***/ (
+        /***/ 5404: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Seconds extends DatePart {
                 constructor(opts = {}) {
@@ -8609,14 +8609,14 @@
             /***/
         },
 
-        /***/ 4365: /***/ (
+        /***/ 9316: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(6169);
+            const DatePart = __nccwpck_require__(6732);
 
             class Year extends DatePart {
                 constructor(opts = {}) {
@@ -8646,7 +8646,7 @@
             /***/
         },
 
-        /***/ 1289: /***/ (
+        /***/ 1786: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -8709,15 +8709,15 @@
                 };
             }
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 erase = _require.erase,
                 cursor = _require.cursor;
 
-            const _require2 = __nccwpck_require__(6128),
+            const _require2 = __nccwpck_require__(3345),
                 style = _require2.style,
                 clear = _require2.clear,
                 figures = _require2.figures,
@@ -9063,21 +9063,21 @@
             /***/
         },
 
-        /***/ 3692: /***/ (
+        /***/ 5297: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 cursor = _require.cursor;
 
-            const MultiselectPrompt = __nccwpck_require__(9028);
+            const MultiselectPrompt = __nccwpck_require__(1753);
 
-            const _require2 = __nccwpck_require__(6128),
+            const _require2 = __nccwpck_require__(3345),
                 clear = _require2.clear,
                 style = _require2.style,
                 figures = _require2.figures;
@@ -9325,22 +9325,22 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5225: /***/ (
+        /***/ 3832: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(6128),
+            const _require = __nccwpck_require__(3345),
                 style = _require.style,
                 clear = _require.clear;
 
-            const _require2 = __nccwpck_require__(5069),
+            const _require2 = __nccwpck_require__(264),
                 erase = _require2.erase,
                 cursor = _require2.cursor;
             /**
@@ -9442,7 +9442,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7277: /***/ (
+        /***/ 9166: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -9505,20 +9505,20 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             }
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(6128),
+            const _require = __nccwpck_require__(3345),
                 style = _require.style,
                 clear = _require.clear,
                 figures = _require.figures;
 
-            const _require2 = __nccwpck_require__(5069),
+            const _require2 = __nccwpck_require__(264),
                 erase = _require2.erase,
                 cursor = _require2.cursor;
 
-            const _require3 = __nccwpck_require__(1390),
+            const _require3 = __nccwpck_require__(2737),
                 DatePart = _require3.DatePart,
                 Meridiem = _require3.Meridiem,
                 Day = _require3.Day,
@@ -9803,7 +9803,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1933: /***/ (
+        /***/ 6876: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -9811,35 +9811,35 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             module.exports = {
-                TextPrompt: __nccwpck_require__(9774),
-                SelectPrompt: __nccwpck_require__(6313),
-                TogglePrompt: __nccwpck_require__(9305),
-                DatePrompt: __nccwpck_require__(7277),
-                NumberPrompt: __nccwpck_require__(1176),
-                MultiselectPrompt: __nccwpck_require__(9028),
-                AutocompletePrompt: __nccwpck_require__(1289),
-                AutocompleteMultiselectPrompt: __nccwpck_require__(3692),
-                ConfirmPrompt: __nccwpck_require__(5225)
+                TextPrompt: __nccwpck_require__(1669),
+                SelectPrompt: __nccwpck_require__(3354),
+                TogglePrompt: __nccwpck_require__(8626),
+                DatePrompt: __nccwpck_require__(9166),
+                NumberPrompt: __nccwpck_require__(7995),
+                MultiselectPrompt: __nccwpck_require__(1753),
+                AutocompletePrompt: __nccwpck_require__(1786),
+                AutocompleteMultiselectPrompt: __nccwpck_require__(5297),
+                ConfirmPrompt: __nccwpck_require__(3832)
             };
 
             /***/
         },
 
-        /***/ 9028: /***/ (
+        /***/ 1753: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 cursor = _require.cursor;
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require2 = __nccwpck_require__(6128),
+            const _require2 = __nccwpck_require__(3345),
                 clear = _require2.clear,
                 figures = _require2.figures,
                 style = _require2.style,
@@ -10190,7 +10190,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1176: /***/ (
+        /***/ 7995: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -10253,15 +10253,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             }
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 cursor = _require.cursor,
                 erase = _require.erase;
 
-            const _require2 = __nccwpck_require__(6128),
+            const _require2 = __nccwpck_require__(3345),
                 style = _require2.style,
                 figures = _require2.figures,
                 clear = _require2.clear,
@@ -10536,7 +10536,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2667: /***/ (
+        /***/ 9340: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -10545,16 +10545,16 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             const readline = __nccwpck_require__(3785);
 
-            const _require = __nccwpck_require__(6128),
+            const _require = __nccwpck_require__(3345),
                 action = _require.action;
 
             const EventEmitter = __nccwpck_require__(4434);
 
-            const _require2 = __nccwpck_require__(5069),
+            const _require2 = __nccwpck_require__(264),
                 beep = _require2.beep,
                 cursor = _require2.cursor;
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
             /**
              * Base prompt skeleton
              * @param {Stream} [opts.stdin] The Readable stream to listen to
@@ -10637,25 +10637,25 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6313: /***/ (
+        /***/ 3354: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(6128),
+            const _require = __nccwpck_require__(3345),
                 style = _require.style,
                 clear = _require.clear,
                 figures = _require.figures,
                 wrap = _require.wrap,
                 entriesToDisplay = _require.entriesToDisplay;
 
-            const _require2 = __nccwpck_require__(5069),
+            const _require2 = __nccwpck_require__(264),
                 cursor = _require2.cursor;
             /**
              * SelectPrompt Base Element
@@ -10877,7 +10877,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9774: /***/ (
+        /***/ 1669: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -10940,15 +10940,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             }
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 erase = _require.erase,
                 cursor = _require.cursor;
 
-            const _require2 = __nccwpck_require__(6128),
+            const _require2 = __nccwpck_require__(3345),
                 style = _require2.style,
                 clear = _require2.clear,
                 lines = _require2.lines,
@@ -11227,22 +11227,22 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9305: /***/ (
+        /***/ 8626: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
+            const color = __nccwpck_require__(2279);
 
-            const Prompt = __nccwpck_require__(2667);
+            const Prompt = __nccwpck_require__(9340);
 
-            const _require = __nccwpck_require__(6128),
+            const _require = __nccwpck_require__(3345),
                 style = _require.style,
                 clear = _require.clear;
 
-            const _require2 = __nccwpck_require__(5069),
+            const _require2 = __nccwpck_require__(264),
                 cursor = _require2.cursor,
                 erase = _require2.erase;
             /**
@@ -11373,7 +11373,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5607: /***/ (
+        /***/ 6424: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -11566,7 +11566,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             }
 
-            const prompts = __nccwpck_require__(5952);
+            const prompts = __nccwpck_require__(3823);
 
             const passOn = [
                 "suggest",
@@ -11751,7 +11751,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5952: /***/ (
+        /***/ 3823: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -11760,7 +11760,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             const $ = exports;
 
-            const el = __nccwpck_require__(1933);
+            const el = __nccwpck_require__(6876);
 
             const noop = (v) => v;
 
@@ -11984,7 +11984,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4996: /***/ (module) => {
+        /***/ 5367: /***/ (module) => {
             "use strict";
 
             module.exports = (key, isSelect) => {
@@ -12027,7 +12027,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6317: /***/ (
+        /***/ 9640: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -12110,9 +12110,9 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 return arr2;
             }
 
-            const strip = __nccwpck_require__(9242);
+            const strip = __nccwpck_require__(2867);
 
-            const _require = __nccwpck_require__(5069),
+            const _require = __nccwpck_require__(264),
                 erase = _require.erase,
                 cursor = _require.cursor;
 
@@ -12149,7 +12149,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4915: /***/ (module) => {
+        /***/ 8228: /***/ (module) => {
             "use strict";
 
             /**
@@ -12179,7 +12179,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2257: /***/ (module) => {
+        /***/ 3596: /***/ (module) => {
             "use strict";
 
             const main = {
@@ -12216,7 +12216,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6128: /***/ (
+        /***/ 3345: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -12224,27 +12224,27 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             module.exports = {
-                action: __nccwpck_require__(4996),
-                clear: __nccwpck_require__(6317),
-                style: __nccwpck_require__(1825),
-                strip: __nccwpck_require__(9242),
-                figures: __nccwpck_require__(2257),
-                lines: __nccwpck_require__(1875),
-                wrap: __nccwpck_require__(8926),
-                entriesToDisplay: __nccwpck_require__(4915)
+                action: __nccwpck_require__(5367),
+                clear: __nccwpck_require__(9640),
+                style: __nccwpck_require__(9012),
+                strip: __nccwpck_require__(2867),
+                figures: __nccwpck_require__(3596),
+                lines: __nccwpck_require__(8178),
+                wrap: __nccwpck_require__(1673),
+                entriesToDisplay: __nccwpck_require__(8228)
             };
 
             /***/
         },
 
-        /***/ 1875: /***/ (
+        /***/ 8178: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const strip = __nccwpck_require__(9242);
+            const strip = __nccwpck_require__(2867);
             /**
              * @param {string} msg
              * @param {number} perLine
@@ -12261,7 +12261,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9242: /***/ (module) => {
+        /***/ 2867: /***/ (module) => {
             "use strict";
 
             module.exports = (str) => {
@@ -12276,16 +12276,16 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1825: /***/ (
+        /***/ 9012: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const c = __nccwpck_require__(1450);
+            const c = __nccwpck_require__(2279);
 
-            const figures = __nccwpck_require__(2257); // rendering user input.
+            const figures = __nccwpck_require__(3596); // rendering user input.
 
             const styles = Object.freeze({
                 password: {
@@ -12348,7 +12348,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8926: /***/ (module) => {
+        /***/ 1673: /***/ (module) => {
             "use strict";
 
             /**
@@ -12391,7 +12391,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6346: /***/ (
+        /***/ 3731: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -12408,13 +12408,13 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             }
 
             module.exports = isNodeLT("8.6.0")
-                ? __nccwpck_require__(5607)
-                : __nccwpck_require__(5566);
+                ? __nccwpck_require__(6424)
+                : __nccwpck_require__(2643);
 
             /***/
         },
 
-        /***/ 8298: /***/ (module) => {
+        /***/ 8701: /***/ (module) => {
             "use strict";
 
             class DatePart {
@@ -12458,14 +12458,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5389: /***/ (
+        /***/ 604: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             const pos = (n) => {
                 n = n % 10;
@@ -12511,14 +12511,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 532: /***/ (
+        /***/ 1557: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Hours extends DatePart {
                 constructor(opts = {}) {
@@ -12551,7 +12551,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2435: /***/ (
+        /***/ 690: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -12559,28 +12559,28 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             module.exports = {
-                DatePart: __nccwpck_require__(8298),
-                Meridiem: __nccwpck_require__(5153),
-                Day: __nccwpck_require__(5389),
-                Hours: __nccwpck_require__(532),
-                Milliseconds: __nccwpck_require__(9641),
-                Minutes: __nccwpck_require__(7066),
-                Month: __nccwpck_require__(7073),
-                Seconds: __nccwpck_require__(3414),
-                Year: __nccwpck_require__(6861)
+                DatePart: __nccwpck_require__(8701),
+                Meridiem: __nccwpck_require__(6886),
+                Day: __nccwpck_require__(604),
+                Hours: __nccwpck_require__(1557),
+                Milliseconds: __nccwpck_require__(4102),
+                Minutes: __nccwpck_require__(7095),
+                Month: __nccwpck_require__(6140),
+                Seconds: __nccwpck_require__(9647),
+                Year: __nccwpck_require__(8057)
             };
 
             /***/
         },
 
-        /***/ 5153: /***/ (
+        /***/ 6886: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Meridiem extends DatePart {
                 constructor(opts = {}) {
@@ -12608,14 +12608,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9641: /***/ (
+        /***/ 4102: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Milliseconds extends DatePart {
                 constructor(opts = {}) {
@@ -12648,14 +12648,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7066: /***/ (
+        /***/ 7095: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Minutes extends DatePart {
                 constructor(opts = {}) {
@@ -12687,14 +12687,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7073: /***/ (
+        /***/ 6140: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Month extends DatePart {
                 constructor(opts = {}) {
@@ -12732,14 +12732,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3414: /***/ (
+        /***/ 9647: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Seconds extends DatePart {
                 constructor(opts = {}) {
@@ -12771,14 +12771,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6861: /***/ (
+        /***/ 8057: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const DatePart = __nccwpck_require__(8298);
+            const DatePart = __nccwpck_require__(8701);
 
             class Year extends DatePart {
                 constructor(opts = {}) {
@@ -12808,18 +12808,18 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8108: /***/ (
+        /***/ 6821: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { erase, cursor } = __nccwpck_require__(5069);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { erase, cursor } = __nccwpck_require__(264);
             const { style, clear, figures, wrap, entriesToDisplay } =
-                __nccwpck_require__(4599);
+                __nccwpck_require__(8052);
 
             const getVal = (arr, i) =>
                 arr[i] && (arr[i].value || arr[i].title || arr[i]);
@@ -13138,17 +13138,17 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5159: /***/ (
+        /***/ 9392: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
-            const { cursor } = __nccwpck_require__(5069);
-            const MultiselectPrompt = __nccwpck_require__(1395);
-            const { clear, style, figures } = __nccwpck_require__(4599);
+            const color = __nccwpck_require__(2279);
+            const { cursor } = __nccwpck_require__(264);
+            const MultiselectPrompt = __nccwpck_require__(416);
+            const { clear, style, figures } = __nccwpck_require__(8052);
             /**
              * MultiselectPrompt Base Element
              * @param {Object} opts Options
@@ -13385,15 +13385,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1062: /***/ (
+        /***/ 9573: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { style, clear } = __nccwpck_require__(4599);
-            const { erase, cursor } = __nccwpck_require__(5069);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { style, clear } = __nccwpck_require__(8052);
+            const { erase, cursor } = __nccwpck_require__(264);
 
             /**
              * ConfirmPrompt Base Element
@@ -13493,17 +13493,17 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9140: /***/ (
+        /***/ 9305: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { style, clear, figures } = __nccwpck_require__(4599);
-            const { erase, cursor } = __nccwpck_require__(5069);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { style, clear, figures } = __nccwpck_require__(8052);
+            const { erase, cursor } = __nccwpck_require__(264);
             const {
                 DatePart,
                 Meridiem,
@@ -13514,7 +13514,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 Month,
                 Seconds,
                 Year
-            } = __nccwpck_require__(2435);
+            } = __nccwpck_require__(690);
 
             const regex =
                 /\\(.)|"((?:\\["\\]|[^"])+)"|(D[Do]?|d{3,4}|d)|(M{1,4})|(YY(?:YY)?)|([aA])|([Hh]{1,2})|(m{1,2})|(s{1,2})|(S{1,4})|./g;
@@ -13765,7 +13765,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 698: /***/ (
+        /***/ 2065: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -13773,32 +13773,32 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             module.exports = {
-                TextPrompt: __nccwpck_require__(5675),
-                SelectPrompt: __nccwpck_require__(4608),
-                TogglePrompt: __nccwpck_require__(4508),
-                DatePrompt: __nccwpck_require__(9140),
-                NumberPrompt: __nccwpck_require__(4989),
-                MultiselectPrompt: __nccwpck_require__(1395),
-                AutocompletePrompt: __nccwpck_require__(8108),
-                AutocompleteMultiselectPrompt: __nccwpck_require__(5159),
-                ConfirmPrompt: __nccwpck_require__(1062)
+                TextPrompt: __nccwpck_require__(7482),
+                SelectPrompt: __nccwpck_require__(221),
+                TogglePrompt: __nccwpck_require__(4589),
+                DatePrompt: __nccwpck_require__(9305),
+                NumberPrompt: __nccwpck_require__(9804),
+                MultiselectPrompt: __nccwpck_require__(416),
+                AutocompletePrompt: __nccwpck_require__(6821),
+                AutocompleteMultiselectPrompt: __nccwpck_require__(9392),
+                ConfirmPrompt: __nccwpck_require__(9573)
             };
 
             /***/
         },
 
-        /***/ 1395: /***/ (
+        /***/ 416: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
-            const { cursor } = __nccwpck_require__(5069);
-            const Prompt = __nccwpck_require__(3418);
+            const color = __nccwpck_require__(2279);
+            const { cursor } = __nccwpck_require__(264);
+            const Prompt = __nccwpck_require__(1607);
             const { clear, figures, style, wrap, entriesToDisplay } =
-                __nccwpck_require__(4599);
+                __nccwpck_require__(8052);
 
             /**
              * MultiselectPrompt Base Element
@@ -14128,15 +14128,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4989: /***/ (
+        /***/ 9804: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { cursor, erase } = __nccwpck_require__(5069);
-            const { style, figures, clear, lines } = __nccwpck_require__(4599);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { cursor, erase } = __nccwpck_require__(264);
+            const { style, figures, clear, lines } = __nccwpck_require__(8052);
 
             const isNumber = /[0-9]/;
             const isDef = (any) => any !== undefined;
@@ -14379,7 +14379,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3418: /***/ (
+        /***/ 1607: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -14387,10 +14387,10 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             const readline = __nccwpck_require__(3785);
-            const { action } = __nccwpck_require__(4599);
+            const { action } = __nccwpck_require__(8052);
             const EventEmitter = __nccwpck_require__(4434);
-            const { beep, cursor } = __nccwpck_require__(5069);
-            const color = __nccwpck_require__(1450);
+            const { beep, cursor } = __nccwpck_require__(264);
+            const color = __nccwpck_require__(2279);
 
             /**
              * Base prompt skeleton
@@ -14471,18 +14471,18 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4608: /***/ (
+        /***/ 221: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
             const { style, clear, figures, wrap, entriesToDisplay } =
-                __nccwpck_require__(4599);
-            const { cursor } = __nccwpck_require__(5069);
+                __nccwpck_require__(8052);
+            const { cursor } = __nccwpck_require__(264);
 
             /**
              * SelectPrompt Base Element
@@ -14696,15 +14696,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5675: /***/ (
+        /***/ 7482: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { erase, cursor } = __nccwpck_require__(5069);
-            const { style, clear, lines, figures } = __nccwpck_require__(4599);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { erase, cursor } = __nccwpck_require__(264);
+            const { style, clear, lines, figures } = __nccwpck_require__(8052);
 
             /**
              * TextPrompt Base Element
@@ -14952,15 +14952,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4508: /***/ (
+        /***/ 4589: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
-            const color = __nccwpck_require__(1450);
-            const Prompt = __nccwpck_require__(3418);
-            const { style, clear } = __nccwpck_require__(4599);
-            const { cursor, erase } = __nccwpck_require__(5069);
+            const color = __nccwpck_require__(2279);
+            const Prompt = __nccwpck_require__(1607);
+            const { style, clear } = __nccwpck_require__(8052);
+            const { cursor, erase } = __nccwpck_require__(264);
 
             /**
              * TogglePrompt Base Element
@@ -15086,14 +15086,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5566: /***/ (
+        /***/ 2643: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const prompts = __nccwpck_require__(6333);
+            const prompts = __nccwpck_require__(3724);
 
             const passOn = [
                 "suggest",
@@ -15237,7 +15237,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6333: /***/ (
+        /***/ 3724: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -15245,7 +15245,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             const $ = exports;
-            const el = __nccwpck_require__(698);
+            const el = __nccwpck_require__(2065);
             const noop = (v) => v;
 
             function toPrompt(type, args, opts = {}) {
@@ -15464,7 +15464,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8353: /***/ (module) => {
+        /***/ 944: /***/ (module) => {
             "use strict";
 
             module.exports = (key, isSelect) => {
@@ -15508,15 +15508,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6082: /***/ (
+        /***/ 8553: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const strip = __nccwpck_require__(7733);
-            const { erase, cursor } = __nccwpck_require__(5069);
+            const strip = __nccwpck_require__(702);
+            const { erase, cursor } = __nccwpck_require__(264);
 
             const width = (str) => [...strip(str)].length;
 
@@ -15540,7 +15540,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7758: /***/ (module) => {
+        /***/ 8039: /***/ (module) => {
             "use strict";
 
             /**
@@ -15569,7 +15569,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9350: /***/ (module) => {
+        /***/ 7357: /***/ (module) => {
             "use strict";
 
             const main = {
@@ -15607,7 +15607,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4599: /***/ (
+        /***/ 8052: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -15615,27 +15615,27 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             "use strict";
 
             module.exports = {
-                action: __nccwpck_require__(8353),
-                clear: __nccwpck_require__(6082),
-                style: __nccwpck_require__(7802),
-                strip: __nccwpck_require__(7733),
-                figures: __nccwpck_require__(9350),
-                lines: __nccwpck_require__(9268),
-                wrap: __nccwpck_require__(7487),
-                entriesToDisplay: __nccwpck_require__(7758)
+                action: __nccwpck_require__(944),
+                clear: __nccwpck_require__(8553),
+                style: __nccwpck_require__(7941),
+                strip: __nccwpck_require__(702),
+                figures: __nccwpck_require__(7357),
+                lines: __nccwpck_require__(6103),
+                wrap: __nccwpck_require__(1722),
+                entriesToDisplay: __nccwpck_require__(8039)
             };
 
             /***/
         },
 
-        /***/ 9268: /***/ (
+        /***/ 6103: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const strip = __nccwpck_require__(7733);
+            const strip = __nccwpck_require__(702);
 
             /**
              * @param {string} msg
@@ -15653,7 +15653,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7733: /***/ (module) => {
+        /***/ 702: /***/ (module) => {
             "use strict";
 
             module.exports = (str) => {
@@ -15669,15 +15669,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7802: /***/ (
+        /***/ 7941: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
         ) => {
             "use strict";
 
-            const c = __nccwpck_require__(1450);
-            const figures = __nccwpck_require__(9350);
+            const c = __nccwpck_require__(2279);
+            const figures = __nccwpck_require__(7357);
 
             // rendering user input.
             const styles = Object.freeze({
@@ -15736,7 +15736,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7487: /***/ (module) => {
+        /***/ 1722: /***/ (module) => {
             "use strict";
 
             /**
@@ -15780,7 +15780,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6682: /***/ (module) => {
+        /***/ 6987: /***/ (module) => {
             /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
             let promise;
 
@@ -15802,7 +15802,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 795: /***/ (module) => {
+        /***/ 726: /***/ (module) => {
             "use strict";
 
             function reusify(Constructor) {
@@ -15840,7 +15840,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7601: /***/ (
+        /***/ 7940: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -15848,7 +15848,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /*! run-parallel. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
             module.exports = runParallel;
 
-            const queueMicrotask = __nccwpck_require__(6682);
+            const queueMicrotask = __nccwpck_require__(6987);
 
             function runParallel(tasks, cb) {
                 let results, pending, keys;
@@ -15904,7 +15904,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5069: /***/ (module) => {
+        /***/ 264: /***/ (module) => {
             "use strict";
 
             const ESC = "\x1B";
@@ -15966,7 +15966,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 240: /***/ (
+        /***/ 7885: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -15979,7 +15979,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
              * Released under the MIT License.
              */
 
-            const isNumber = __nccwpck_require__(8435);
+            const isNumber = __nccwpck_require__(3834);
 
             const toRegexRange = (min, max, options) => {
                 if (isNumber(min) === false) {
@@ -16298,7 +16298,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 901: /***/ (
+        /***/ 5876: /***/ (
             module,
             __unused_webpack_exports,
             __nccwpck_require__
@@ -16431,7 +16431,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8632: /***/ (
+        /***/ 2975: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16440,8 +16440,8 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.commanderCore = void 0;
-            const option_1 = __nccwpck_require__(3376);
-            const commander_1 = __nccwpck_require__(7252);
+            const option_1 = __nccwpck_require__(4661);
+            const commander_1 = __nccwpck_require__(3867);
             exports.commanderCore = (function () {
                 const { optionConversion } = option_1.optionUtility;
                 const program = new commander_1.Command("create-react-template")
@@ -16500,7 +16500,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1012: /***/ function (
+        /***/ 2199: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16514,12 +16514,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.nameCommand = nameCommand;
-            const result_1 = __nccwpck_require__(3648);
-            const option_1 = __nccwpck_require__(3376);
-            const is_1 = __nccwpck_require__(3161);
-            const prompts_1 = __importDefault(__nccwpck_require__(6346));
-            const validate_npm_name_1 = __nccwpck_require__(5830);
-            const core_1 = __nccwpck_require__(8632);
+            const result_1 = __nccwpck_require__(4053);
+            const option_1 = __nccwpck_require__(4661);
+            const is_1 = __nccwpck_require__(2460);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            const validate_npm_name_1 = __nccwpck_require__(7823);
+            const core_1 = __nccwpck_require__(2975);
             async function nameCommand(optionName) {
                 const { isSome, optionConversion } = option_1.optionUtility;
                 const { onPromptState } = core_1.commanderCore;
@@ -16568,7 +16568,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 342: /***/ function (
+        /***/ 6661: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16582,12 +16582,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.techStackCommand = techStackCommand;
-            const prompts_1 = __importDefault(__nccwpck_require__(6346));
-            const core_static_1 = __nccwpck_require__(331);
-            const is_1 = __nccwpck_require__(3161);
-            const option_1 = __nccwpck_require__(3376);
-            const result_1 = __nccwpck_require__(3648);
-            const core_1 = __nccwpck_require__(8632);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            const core_static_1 = __nccwpck_require__(4770);
+            const is_1 = __nccwpck_require__(2460);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const core_1 = __nccwpck_require__(2975);
             async function techStackCommand(optionTech) {
                 const { isSome } = option_1.optionUtility;
                 const { createOk, createNg, checkPromiseReturn, isNG } =
@@ -16629,7 +16629,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8322: /***/ function (
+        /***/ 4545: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16643,11 +16643,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.cssCommand = cssCommand;
-            const is_1 = __nccwpck_require__(3161);
-            const option_1 = __nccwpck_require__(3376);
-            const result_1 = __nccwpck_require__(3648);
-            const prompts_1 = __importDefault(__nccwpck_require__(6346));
-            const core_1 = __nccwpck_require__(8632);
+            const is_1 = __nccwpck_require__(2460);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            const core_1 = __nccwpck_require__(2975);
             async function cssCommand(optionCss) {
                 const { isSome, optionConversion } = option_1.optionUtility;
                 const { createOk, createNg, checkPromiseReturn, isNG } =
@@ -16692,7 +16692,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 8917: /***/ function (
+        /***/ 9506: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16706,12 +16706,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.frameworkCommand = frameworkCommand;
-            const is_1 = __nccwpck_require__(3161);
-            const option_1 = __nccwpck_require__(3376);
-            const result_1 = __nccwpck_require__(3648);
-            const prompts_1 = __importDefault(__nccwpck_require__(6346));
-            const core_1 = __nccwpck_require__(8632);
-            const picocolors_1 = __nccwpck_require__(214);
+            const is_1 = __nccwpck_require__(2460);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            const core_1 = __nccwpck_require__(2975);
+            const picocolors_1 = __nccwpck_require__(5657);
             async function frameworkCommand(optionFramework) {
                 const { isSome } = option_1.optionUtility;
                 const { createNg, createOk, checkPromiseReturn, isNG } =
@@ -16767,7 +16767,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5941: /***/ function (
+        /***/ 6029: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16781,12 +16781,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.libCli = libCli;
-            const react_static_1 = __nccwpck_require__(5273);
-            const is_1 = __nccwpck_require__(3161);
-            const option_1 = __nccwpck_require__(3376);
-            const result_1 = __nccwpck_require__(3648);
-            const core_1 = __nccwpck_require__(8632);
-            const prompts_1 = __importDefault(__nccwpck_require__(6346));
+            const react_static_1 = __nccwpck_require__(5426);
+            const is_1 = __nccwpck_require__(2460);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const core_1 = __nccwpck_require__(2975);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
             async function libCli(optionLibs) {
                 const {
                     isSome,
@@ -16848,7 +16848,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 827: /***/ (
+        /***/ 8904: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16857,8 +16857,8 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.copy = copy;
-            const result_1 = __nccwpck_require__(3648);
-            const fast_glob_1 = __nccwpck_require__(7666);
+            const result_1 = __nccwpck_require__(4053);
+            const fast_glob_1 = __nccwpck_require__(1915);
             const promises_1 = __nccwpck_require__(1455);
             const node_path_1 = __nccwpck_require__(6760);
             const identity = (x) => x;
@@ -16912,7 +16912,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 467: /***/ (
+        /***/ 1522: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16923,7 +16923,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             exports.isFolderEmpty = isFolderEmpty;
             const node_fs_1 = __nccwpck_require__(3024);
             const node_path_1 = __nccwpck_require__(6760);
-            const picocolors_1 = __nccwpck_require__(214);
+            const picocolors_1 = __nccwpck_require__(5657);
             function isFolderEmpty(root, name) {
                 const validFiles = [
                     ".DS_Store",
@@ -16986,7 +16986,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5830: /***/ function (
+        /***/ 7823: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17001,7 +17001,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.validateNpmName = validateNpmName;
             const validate_npm_package_name_1 = __importDefault(
-                __nccwpck_require__(901)
+                __nccwpck_require__(5876)
             );
             function validateNpmName(name) {
                 const nameValidation = (0, validate_npm_package_name_1.default)(
@@ -17022,7 +17022,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3694: /***/ function (
+        /***/ 7021: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17036,13 +17036,13 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.addPackage = addPackage;
-            const result_1 = __nccwpck_require__(3648);
+            const result_1 = __nccwpck_require__(4053);
             const node_fs_1 = __nccwpck_require__(3024);
             const node_path_1 = __importDefault(__nccwpck_require__(6760));
-            const copy_1 = __nccwpck_require__(827);
-            const found_file_1 = __nccwpck_require__(5052);
+            const copy_1 = __nccwpck_require__(8904);
+            const found_file_1 = __nccwpck_require__(9041);
             const promises_1 = __importDefault(__nccwpck_require__(1943));
-            const picocolors_1 = __nccwpck_require__(214);
+            const picocolors_1 = __nccwpck_require__(5657);
             async function addPackage({ root, css, libs }) {
                 const { isNG, createOk, checkPromiseReturn, checkPromiseVoid } =
                     result_1.resultUtility;
@@ -17235,7 +17235,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9042: /***/ (
+        /***/ 9415: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17247,15 +17247,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             exports.notify = notify;
             exports.errorExit = errorExit;
             const node_path_1 = __nccwpck_require__(6760);
-            const validate_npm_name_1 = __nccwpck_require__(5830);
+            const validate_npm_name_1 = __nccwpck_require__(7823);
             const node_fs_1 = __nccwpck_require__(3024);
-            const picocolors_1 = __nccwpck_require__(214);
-            const result_1 = __nccwpck_require__(3648);
-            const core_1 = __nccwpck_require__(8632);
-            const name_1 = __nccwpck_require__(1012);
-            const error_1 = __nccwpck_require__(5183);
-            const tech_stack_1 = __nccwpck_require__(342);
-            const core_2 = __nccwpck_require__(1667);
+            const picocolors_1 = __nccwpck_require__(5657);
+            const result_1 = __nccwpck_require__(4053);
+            const core_1 = __nccwpck_require__(2975);
+            const name_1 = __nccwpck_require__(2199);
+            const error_1 = __nccwpck_require__(2088);
+            const tech_stack_1 = __nccwpck_require__(6661);
+            const core_2 = __nccwpck_require__(6864);
             const handleSigTerm = () => process.exit(0);
             process.on("SIGTERM", handleSigTerm);
             process.on("SIGINT", handleSigTerm);
@@ -17325,7 +17325,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 331: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4770: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -17336,7 +17336,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1667: /***/ (
+        /***/ 6864: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17345,9 +17345,9 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.createApp = createApp;
-            const result_1 = __nccwpck_require__(3648);
-            const react_installer_1 = __nccwpck_require__(1531);
-            const react_setting_1 = __nccwpck_require__(1887);
+            const result_1 = __nccwpck_require__(4053);
+            const react_installer_1 = __nccwpck_require__(8062);
+            const react_setting_1 = __nccwpck_require__(338);
             async function createApp({ appPath, tech }) {
                 const { isNG } = result_1.resultUtility;
                 switch (tech) {
@@ -17368,7 +17368,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1531: /***/ function (
+        /***/ 8062: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17452,12 +17452,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             exports.reactInstaller = reactInstaller;
             const node_path_1 = __importStar(__nccwpck_require__(6760));
             const node_fs_1 = __nccwpck_require__(3024);
-            const is_folder_empty_1 = __nccwpck_require__(467);
-            const picocolors_1 = __nccwpck_require__(214);
-            const install_lib_1 = __nccwpck_require__(3694);
-            const option_1 = __nccwpck_require__(3376);
-            const result_1 = __nccwpck_require__(3648);
-            const copy_1 = __nccwpck_require__(827);
+            const is_folder_empty_1 = __nccwpck_require__(1522);
+            const picocolors_1 = __nccwpck_require__(5657);
+            const install_lib_1 = __nccwpck_require__(7021);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const copy_1 = __nccwpck_require__(8904);
             const promises_1 = __importDefault(__nccwpck_require__(1943));
             async function reactInstaller({ appPath, material }) {
                 const { isNG, createNg, checkPromiseVoid, checkPromiseReturn } =
@@ -17555,7 +17555,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 1887: /***/ function (
+        /***/ 338: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17570,14 +17570,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.reactCli = reactCli;
             const path_1 = __importDefault(__nccwpck_require__(6928));
-            const core_1 = __nccwpck_require__(8632);
-            const css_1 = __nccwpck_require__(8322);
-            const framework_1 = __nccwpck_require__(8917);
-            const lib_1 = __nccwpck_require__(5941);
-            const result_1 = __nccwpck_require__(3648);
-            const found_file_1 = __nccwpck_require__(5052);
-            const option_1 = __nccwpck_require__(3376);
-            const react_static_1 = __nccwpck_require__(5273);
+            const core_1 = __nccwpck_require__(2975);
+            const css_1 = __nccwpck_require__(4545);
+            const framework_1 = __nccwpck_require__(9506);
+            const lib_1 = __nccwpck_require__(6029);
+            const result_1 = __nccwpck_require__(4053);
+            const found_file_1 = __nccwpck_require__(9041);
+            const option_1 = __nccwpck_require__(4661);
+            const react_static_1 = __nccwpck_require__(5426);
             async function reactCli() {
                 const {
                     optionReactFramework,
@@ -17644,7 +17644,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5273: /***/ (__unused_webpack_module, exports) => {
+        /***/ 5426: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -17688,7 +17688,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5183: /***/ (
+        /***/ 2088: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17697,7 +17697,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.cliErrorLog = cliErrorLog;
-            const picocolors_1 = __nccwpck_require__(214);
+            const picocolors_1 = __nccwpck_require__(5657);
             function cliErrorLog(err) {
                 console.error((0, picocolors_1.red)(err.message));
                 console.error((0, picocolors_1.red)(err.stack ?? ""));
@@ -17706,7 +17706,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5052: /***/ function (
+        /***/ 9041: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17721,7 +17721,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.foundFolder = foundFolder;
             const node_fs_1 = __importDefault(__nccwpck_require__(3024));
-            const result_1 = __nccwpck_require__(3648);
+            const result_1 = __nccwpck_require__(4053);
             function foundFolder(paths) {
                 const { createNg, createOk } = result_1.resultUtility;
                 for (const p of paths) {
@@ -17737,7 +17737,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3161: /***/ (
+        /***/ 2460: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17754,8 +17754,8 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             exports.isTechStack = isTechStack;
             exports.isCss = isCss;
             exports.isBoolean = isBoolean;
-            const core_static_1 = __nccwpck_require__(331);
-            const react_static_1 = __nccwpck_require__(5273);
+            const core_static_1 = __nccwpck_require__(4770);
+            const react_static_1 = __nccwpck_require__(5426);
             function isReactFramework(value) {
                 if (typeof value !== "string") {
                     return false;
@@ -17801,7 +17801,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3376: /***/ (
+        /***/ 4661: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17810,7 +17810,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.optionUtility = void 0;
-            const is_1 = __nccwpck_require__(3161);
+            const is_1 = __nccwpck_require__(2460);
             const basic = {
                 OPTION_SOME: "some",
                 OPTION_NONE: "none"
@@ -17855,7 +17855,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 3648: /***/ (__unused_webpack_module, exports) => {
+        /***/ 4053: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
@@ -18029,7 +18029,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2203: /***/ (module) => {
+        /***/ 4584: /***/ (module) => {
             "use strict";
             module.exports = require("stream");
 
@@ -18043,17 +18043,17 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 7252: /***/ (
+        /***/ 3867: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
         ) => {
-            const { Argument } = __nccwpck_require__(4577);
-            const { Command } = __nccwpck_require__(5509);
+            const { Argument } = __nccwpck_require__(1396);
+            const { Command } = __nccwpck_require__(2010);
             const { CommanderError, InvalidArgumentError } =
-                __nccwpck_require__(2850);
-            const { Help } = __nccwpck_require__(6141);
-            const { Option } = __nccwpck_require__(2171);
+                __nccwpck_require__(6801);
+            const { Help } = __nccwpck_require__(4672);
+            const { Option } = __nccwpck_require__(4154);
 
             exports.program = new Command();
 
@@ -18079,12 +18079,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4577: /***/ (
+        /***/ 1396: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
         ) => {
-            const { InvalidArgumentError } = __nccwpck_require__(2850);
+            const { InvalidArgumentError } = __nccwpck_require__(6801);
 
             class Argument {
                 /**
@@ -18244,7 +18244,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5509: /***/ (
+        /***/ 2010: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -18256,11 +18256,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             const process = __nccwpck_require__(1708);
 
             const { Argument, humanReadableArgName } =
-                __nccwpck_require__(4577);
-            const { CommanderError } = __nccwpck_require__(2850);
-            const { Help, stripColor } = __nccwpck_require__(6141);
-            const { Option, DualOptions } = __nccwpck_require__(2171);
-            const { suggestSimilar } = __nccwpck_require__(2393);
+                __nccwpck_require__(1396);
+            const { CommanderError } = __nccwpck_require__(6801);
+            const { Help, stripColor } = __nccwpck_require__(4672);
+            const { Option, DualOptions } = __nccwpck_require__(4154);
+            const { suggestSimilar } = __nccwpck_require__(7884);
 
             class Command extends EventEmitter {
                 /**
@@ -21302,7 +21302,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             /***/
         },
 
-        /***/ 2850: /***/ (__unused_webpack_module, exports) => {
+        /***/ 6801: /***/ (__unused_webpack_module, exports) => {
             /**
              * CommanderError class
              */
@@ -21346,12 +21346,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
             /***/
         },
 
-        /***/ 6141: /***/ (
+        /***/ 4672: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
         ) => {
-            const { humanReadableArgName } = __nccwpck_require__(4577);
+            const { humanReadableArgName } = __nccwpck_require__(1396);
 
             /**
              * TypeScript import types for JSDoc, used by Visual Studio Code IntelliSense and `npm run typescript-checkJS`
@@ -22187,12 +22187,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
             /***/
         },
 
-        /***/ 2171: /***/ (
+        /***/ 4154: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
         ) => {
-            const { InvalidArgumentError } = __nccwpck_require__(2850);
+            const { InvalidArgumentError } = __nccwpck_require__(6801);
 
             class Option {
                 /**
@@ -22591,7 +22591,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             /***/
         },
 
-        /***/ 2393: /***/ (__unused_webpack_module, exports) => {
+        /***/ 7884: /***/ (__unused_webpack_module, exports) => {
             const maxDistance = 3;
 
             function editDistance(a, b) {
@@ -22761,7 +22761,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         var exports = __webpack_exports__;
 
         Object.defineProperty(exports, "__esModule", { value: true });
-        const main_1 = __nccwpck_require__(9042);
+        const main_1 = __nccwpck_require__(9415);
         (0, main_1.run)()
             .then((path) => (0, main_1.notify)(path))
             .catch(() => (0, main_1.errorExit)());

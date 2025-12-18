@@ -2,14 +2,13 @@ import { describe, expect, it } from "vitest";
 import { optionUtility } from "@/utils/option";
 
 describe("optionUtility", () => {
-    const { createSome, createNone, optionConversion, isSome, isNone } =
-        optionUtility;
+    const { createSome, createNone, optionConversion } = optionUtility;
 
     it("createSome で作った値は isSome が true になる", () => {
         const some = createSome("value");
 
-        expect(isSome(some)).toBe(true);
-        if (isSome(some)) {
+        expect(some.isSome).toBeTruthy();
+        if (some.isSome) {
             expect(some.value).toBe("value");
         }
     });
@@ -40,16 +39,16 @@ describe("optionUtility", () => {
     it("createNone で作った値は isNone が true になる", () => {
         const none = createNone();
 
-        expect(isNone(none)).toBe(true);
+        expect(none.isNone).toBeTruthy();
     });
 
     it("isSome は some でない場合 false を返す", () => {
         const none = createNone();
-        expect(isSome(none)).toBeFalsy();
+        expect(none.isSome).toBeFalsy();
     });
 
     it("isNone は none でない場合 false を返す", () => {
-        const some = createNone();
-        expect(isNone(some)).toBeTruthy();
+        const some = createSome("value");
+        expect(some.isNone).toBeFalsy();
     });
 });

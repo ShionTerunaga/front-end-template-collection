@@ -7,11 +7,15 @@ const basic = {
 
 interface Some<T> {
     readonly kind: typeof basic.OPTION_SOME;
+    readonly isSome: true;
+    readonly isNone: false;
     readonly value: T;
 }
 
 interface None {
     readonly kind: typeof basic.OPTION_NONE;
+    readonly isSome: false;
+    readonly isNone: true;
 }
 
 export type Option<T> = Some<NonNullable<T>> | None;
@@ -22,13 +26,17 @@ export const optionUtility = (function () {
     const createSome = <T>(value: NonNullable<T>): Option<T> => {
         return Object.freeze({
             kind: OPTION_SOME,
+            isSome: true,
+            isNone: false,
             value
         });
     };
 
     const createNone = (): Option<never> => {
         return Object.freeze({
-            kind: OPTION_NONE
+            kind: OPTION_NONE,
+            isSome: false,
+            isNone: true
         });
     };
 
@@ -42,21 +50,9 @@ export const optionUtility = (function () {
         return createSome(value);
     };
 
-    const isSome = <T extends NonNullable<unknown>>(
-        opt: Option<T>
-    ): opt is Some<T> => {
-        return opt.kind === OPTION_SOME;
-    };
-
-    const isNone = <T>(opt: Option<T>): opt is None => {
-        return opt.kind === OPTION_NONE;
-    };
-
     return Object.freeze({
         createSome,
         createNone,
-        isSome,
-        isNone,
         optionConversion
     });
 })();

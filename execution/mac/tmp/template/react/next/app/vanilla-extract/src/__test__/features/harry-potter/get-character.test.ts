@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { optionUtility } from "@/utils/option";
 import { appConfig } from "@/shared/config/config";
 import { APIRes, getCharacter } from "@/features/harry-potter";
-import { resultUtility } from "@/utils/result";
 
 const mockAPIData: APIRes = [
     {
@@ -42,7 +41,6 @@ describe("getCharacter", () => {
         vi.stubGlobal("fetch", mockFetch);
     });
     const { createSome, createNone } = optionUtility;
-    const { isOK, isNG } = resultUtility;
 
     it("APIのURLを設定していない場合", async () => {
         vi.spyOn(appConfig, "apiKey", "get").mockReturnValue(createNone());
@@ -74,7 +72,7 @@ describe("getCharacter", () => {
 
         expect(result.kind).toBe("ng");
 
-        if (isOK(result)) return;
+        if (result.isOk) return;
 
         expect(result.err.status).toBe(5001);
         expect(result.err.message).toBe("サーバーエラーです");
@@ -97,7 +95,7 @@ describe("getCharacter", () => {
 
         expect(result.kind).toBe("ng");
 
-        if (isOK(result)) return;
+        if (result.isOk) return;
 
         expect(result.err.status).toBe(9999);
         expect(result.err.message).toBe("不明なエラーが発生しました");
@@ -117,8 +115,7 @@ describe("getCharacter", () => {
 
         expect(result.kind).toBe("ng");
 
-        if (isOK(result)) return;
-
+        if (result.isOk) return;
         expect(result.err.status).toBe(5000);
         expect(result.err.message).toBe("スキームエラーが発生しました");
     });
