@@ -37,8 +37,7 @@ export interface FetchErrorScheme {
 }
 
 export const fetcherErrorScheme: FetchErrorScheme = (function () {
-  const { httpCustomStatusScheme, httpErrorStatusResponse, httpErrorMessage } =
-    createHttpScheme
+  const { httpCustomStatusScheme, httpErrorStatusResponse, httpErrorMessage } = createHttpScheme
 
   /**API仕様で変更 */
   const fetcherErrorStatusScheme: FetcherErrorStatusScheme = {

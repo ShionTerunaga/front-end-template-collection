@@ -9,17 +9,10 @@ interface FetcherBaseError extends CustomError {
 export type FetcherError = FetcherBaseError | HttpError
 
 export const createFetcherError = (function () {
-  const {
-    returnBadRequest,
-    returnNoPermission,
-    returnNotFoundAPIUrl,
-    returnInternalServerError,
-  } = createHttpError
-  const {
-    fetchErrorMessage,
-    fetcherErrorStatusScheme,
-    httpErrorStatusResponse,
-  } = fetcherErrorScheme
+  const { returnBadRequest, returnNoPermission, returnNotFoundAPIUrl, returnInternalServerError } =
+    createHttpError
+  const { fetchErrorMessage, fetcherErrorStatusScheme, httpErrorStatusResponse } =
+    fetcherErrorScheme
 
   const createFetcher = ({
     status,
