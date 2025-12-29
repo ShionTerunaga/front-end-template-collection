@@ -5,11 +5,15 @@ const basic = {
 
 interface OK<T> {
     readonly kind: typeof basic.RESULT_OK
+    readonly isOk: true
+    readonly isErr: false
     readonly value: T
 }
 
 interface NG<E> {
     readonly kind: typeof basic.RESULT_NG
+    readonly isOk: false
+    readonly isErr: true
     readonly err: E
 }
 
@@ -100,21 +104,11 @@ export const resultUtility = (function () {
         }
     }
 
-    const isOK = <T extends NonNullable<unknown>, E>(
-        res: Result<T, E>,
-    ): res is OK<T> => {
-        return res.kind === RESULT_OK
-    }
-
-    const isNG = <T, E extends NonNullable<unknown>>(
-        res: Result<T, E>,
-    ): res is NG<E> => {
-        return res.kind === RESULT_NG
-    }
-
     const createOk = <T>(value: NonNullable<T>): Result<T, never> => {
         return Object.freeze({
             kind: RESULT_OK,
+            isOk: true,
+            isErr: false,
             value,
         })
     }
@@ -122,6 +116,8 @@ export const resultUtility = (function () {
     const createNg = <E>(err: NonNullable<E>): Result<never, E> => {
         return Object.freeze({
             kind: RESULT_NG,
+            isOk: false,
+            isErr: true,
             err,
         })
     }
@@ -132,8 +128,6 @@ export const resultUtility = (function () {
         checkResultVoid,
         checkPromiseReturn,
         checkPromiseVoid,
-        isOK,
-        isNG,
         createOk,
         createNg,
     })

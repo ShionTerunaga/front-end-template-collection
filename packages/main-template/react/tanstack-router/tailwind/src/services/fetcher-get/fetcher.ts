@@ -27,10 +27,10 @@ export async function fetcher<T extends ZodType>({
         returnInternalServerError,
     } = createFetcherError
 
-    const { isNone, createNone, createSome } = optionUtility
-    const { isNG, createNg, createOk, checkPromiseReturn } = resultUtility
+    const { createNone, createSome } = optionUtility
+    const { createNg, createOk, checkPromiseReturn } = resultUtility
 
-    if (isNone(url)) {
+    if (url.isNone) {
         return createNg(returnNotSetApiUrl)
     }
 
@@ -39,7 +39,7 @@ export async function fetcher<T extends ZodType>({
         err: returnFetchFunctionError,
     })
 
-    if (isNG(res)) {
+    if (res.isErr) {
         return res
     }
 
