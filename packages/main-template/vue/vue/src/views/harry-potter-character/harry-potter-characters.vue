@@ -5,16 +5,14 @@ import { gridBoxBaseStyles, titleStyles } from './harry-potter-characters.css'
 import Card from '@/components/layout/card/card.vue'
 
 const { isLoading, characters, error } = useGetCharacters()
-
-console.log(characters)
 </script>
 
 <template>
   <main>
     <h1 :class="titleStyles">{{ ja.app.harryPotter.title }}</h1>
 
-    <div v-if="isLoading">Loading...</div>
-    <div v-else-if="error.isSome">Error: {{ error.value.message }}</div>
+    <p v-if="isLoading">Loading...</p>
+    <p v-else-if="error.isSome">Error: {{ error.value.message }}</p>
 
     <div v-else-if="characters.isSome" :class="gridBoxBaseStyles">
       <Card

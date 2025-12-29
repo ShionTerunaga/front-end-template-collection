@@ -39,7 +39,7 @@ export async function fetcher<T extends ZodType>({
     err: returnFetchFunctionError,
   })
 
-  if (res.isErr === true) {
+  if (res.isErr) {
     return res
   }
 
