@@ -1,9 +1,6 @@
 <template>
-    <div :class="container">
-        <h1 :class="heading">vanilla-extract is configured 🎉</h1>
-    </div>
+    <NuxtLayout>
+        <NuxtRouteAnnouncer />
+        <NuxtPage />
+    </NuxtLayout>
 </template>
-
-<script setup lang="ts">
-import { container, heading } from "./styles.css";
-</script>
