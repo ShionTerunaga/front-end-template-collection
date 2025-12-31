@@ -1,8 +1,8 @@
-import { optionUtility } from './option'
-import type { Option } from './option'
+import { optionUtility } from "./option";
+import type { Option } from "./option";
 
 export function envParse(env: string | undefined): Option<string> {
-  const { optionConversion } = optionUtility
+    const { optionConversion } = optionUtility;
 
-  return optionConversion(env)
+    return optionConversion(env);
 }

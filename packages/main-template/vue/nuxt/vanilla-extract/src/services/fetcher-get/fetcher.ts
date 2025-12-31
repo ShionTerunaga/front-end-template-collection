@@ -1,78 +1,81 @@
-import { core, ZodType } from 'zod'
-import { type Option, optionUtility } from '@/utils/option'
-import { type Result, resultUtility } from '@/utils/result'
-import { createHttpScheme } from '@/utils/error/http'
-import { createFetcherError, type FetcherError } from '@/utils/error/fetcher/fetcher-error'
+import { core, ZodType } from "zod";
+import { type Option, optionUtility } from "@/utils/option";
+import { type Result, resultUtility } from "@/utils/result";
+import { createHttpScheme } from "@/utils/error/http";
+import {
+    createFetcherError,
+    type FetcherError
+} from "@/utils/error/fetcher/fetcher-error";
 
 export async function fetcher<T extends ZodType>({
-  url,
-  scheme,
-  cache,
+    url,
+    scheme,
+    cache
 }: {
-  url: Option<string>
-  scheme: T
-  cache?: RequestCache
+    url: Option<string>;
+    scheme: T;
+    cache?: RequestCache;
 }): Promise<Result<Option<core.output<T>>, FetcherError>> {
-  const { notFound, forbidden, badRequest, internalServerError } =
-    createHttpScheme.httpErrorStatusResponse
+    const { notFound, forbidden, badRequest, internalServerError } =
+        createHttpScheme.httpErrorStatusResponse;
 
-  const {
-    returnNotSetApiUrl,
-    returnNotFoundAPIUrl,
-    returnNoPermission,
-    returnBadRequest,
-    returnSchemeError,
-    returnUnknownError,
-    returnFetchFunctionError,
-    returnInternalServerError,
-  } = createFetcherError
+    const {
+        returnNotSetApiUrl,
+        returnNotFoundAPIUrl,
+        returnNoPermission,
+        returnBadRequest,
+        returnSchemeError,
+        returnUnknownError,
+        returnFetchFunctionError,
+        returnInternalServerError
+    } = createFetcherError;
 
-  const { createNone, createSome } = optionUtility
-  const { createNg, createOk, checkPromiseReturn } = resultUtility
+    const { createNone, createSome } = optionUtility;
+    const { createNg, createOk, checkPromiseReturn } = resultUtility;
 
-  if (url.isNone) {
-    return createNg(returnNotSetApiUrl)
-  }
-
-  const res = await checkPromiseReturn({
-    fn: () => fetch(url.value, { cache }),
-    err: returnFetchFunctionError,
-  })
-
-  if (res.isErr) {
-    return res
-  }
-
-  if (!res.value.ok) {
-    const status = res.value.status
-
-    switch (status) {
-      case notFound:
-        return createNg(returnNotFoundAPIUrl)
-      case forbidden:
-        return createNg(returnNoPermission)
-      case badRequest:
-        return createNg(returnBadRequest)
-      case internalServerError:
-        return createNg(returnInternalServerError)
-      default:
-        return createNg(returnUnknownError)
+    if (url.isNone) {
+        return createNg(returnNotSetApiUrl);
     }
-  }
 
-  const resValue = await res.value.json()
+    const res = await checkPromiseReturn({
+        fn: () => fetch(url.value, { cache }),
+        err: returnFetchFunctionError
+    });
 
-  const judgeType = scheme.safeParse(resValue)
+    if (res.isErr) {
+        return res;
+    }
 
-  if (judgeType.error !== undefined) {
-    return createNg(returnSchemeError)
-  }
+    if (!res.value.ok) {
+        const status = res.value.status;
 
-  const okValue = judgeType.data
+        switch (status) {
+            case notFound:
+                return createNg(returnNotFoundAPIUrl);
+            case forbidden:
+                return createNg(returnNoPermission);
+            case badRequest:
+                return createNg(returnBadRequest);
+            case internalServerError:
+                return createNg(returnInternalServerError);
+            default:
+                return createNg(returnUnknownError);
+        }
+    }
 
-  if (okValue === undefined || okValue === null) {
-    return createOk(createNone())
-  }
+    const resValue = await res.value.json();
 
-  return createOk(createSome(okValue))
+    const judgeType = scheme.safeParse(resValue);
+
+    if (judgeType.error !== undefined) {
+        return createNg(returnSchemeError);
+    }
+
+    const okValue = judgeType.data;
+
+    if (okValue === undefined || okValue === null) {
+        return createOk(createNone());
+    }
+
+    return createOk(createSome(okValue));
 }
