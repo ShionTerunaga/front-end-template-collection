@@ -11,7 +11,7 @@ export async function getCharacter(
     cache?: RequestCache
 ): Promise<Result<Option<Array<APIView>>, FetcherError>> {
     return await hasParseFetcher({
-        url: appConfig.apiKey,
+        url: appConfig().apiKey,
         scheme: APIScheme,
         cache,
         parse: parseApi
