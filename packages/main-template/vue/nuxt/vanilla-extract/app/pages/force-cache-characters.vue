@@ -1,7 +1,7 @@
 <template>
-    <NoStoreCharacters />
+    <ForceCacheCharacters />
 </template>
 
 <script setup lang="ts">
-import NoStoreCharacters from "~/screen/force-cache-character/force-cache-characters.vue";
+import ForceCacheCharacters from "~/screen/force-cache-characters/force-cache-characters.vue";
 </script>

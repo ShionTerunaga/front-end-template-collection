@@ -3,7 +3,7 @@ import { CharacterList } from "~/components/view";
 import { getCharacter } from "~/features/harry-potter";
 import { ja } from "~/shared/lang/ja";
 
-const characterList = await getCharacter("force-cache");
+const characterList = await getCharacter("no-store");
 </script>
 
 <template>
