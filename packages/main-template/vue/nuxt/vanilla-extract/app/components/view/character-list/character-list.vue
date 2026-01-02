@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { type Result } from "~/utils/result";
 import { type Option } from "~/utils/option";
 import type { APIView } from "~/features/harry-potter";
 import type { FetcherError } from "~/utils/error/fetcher";
@@ -8,7 +7,9 @@ import characterListStyle from "./harry-potter-characters.css";
 import { Card } from "~/components/layout";
 
 const props = defineProps<{
-    characterList: Result<Option<Array<APIView>>, FetcherError>;
+    characterList: Option<Array<APIView>>;
+    isLoading: boolean;
+    error: Option<FetcherError>;
     title: string;
 }>();
 </script>
@@ -16,17 +17,19 @@ const props = defineProps<{
 <template>
     <main>
         <h1 :class="characterListStyle.titleStyles">{{ props.title }}</h1>
+
         <Error
-            v-if="props.characterList.isErr"
-            :errorMessage="props.characterList.err.message"
+            v-if="props.error.isSome"
+            :errorMessage="props.error.value.message"
         />
+        <p v-else-if="props.isLoading">loading...</p>
         <Error
-            v-else-if="props.characterList.value.isNone"
+            v-else-if="props.characterList.isNone"
             error-message="データがありません"
         />
         <div v-else :class="characterListStyle.gridBoxBaseStyles">
             <Card
-                v-for="character in props.characterList.value.value"
+                v-for="character in props.characterList.value"
                 :key="character.id"
                 :title="character.name"
                 :src="character.image"

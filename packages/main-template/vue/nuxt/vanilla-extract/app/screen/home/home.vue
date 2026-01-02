@@ -9,6 +9,10 @@
         <NuxtLink to="/no-store-characters">
             {{ ja.app.home.toNoStoreHarryPotterLink }}
         </NuxtLink>
+        <br />
+        <NuxtLink to="/dynamic-characters">
+            {{ ja.app.home.toDynamicHaryyPotterLink }}
+        </NuxtLink>
     </section>
 </template>
 
