@@ -3,44 +3,93 @@ import { root } from "./base";
 import { run } from "./copy-logic";
 
 export function vueCopy() {
-    const srcVueDir = path.join(
+    const srcVueVanillaExtractDir = path.join(
         root,
         "packages",
         "main-template",
         "vue",
-        "vue"
+        "vue",
+        "vanilla-extract"
     );
 
-    const destVuePack = path.join(
+    const destVueVanillaExtractPack = path.join(
         root,
         "packages",
         "create-template",
         "template",
         "vue",
-        "vue"
+        "vue",
+        "vanilla-extract"
     );
 
-    const destVueMac = path.join(
+    const destVueVanillaExtractMac = path.join(
         root,
         "execution",
         "mac",
         "tmp",
         "template",
         "vue",
-        "vue"
+        "vue",
+        "vanilla-extract"
     );
 
-    const destVueExe = path.join(
+    const destVueVanillaExtractExe = path.join(
         root,
         "execution",
         "win",
         "tmp",
         "template",
         "vue",
-        "vue"
+        "vue",
+        "vanilla-extract"
     );
 
-    run(srcVueDir, destVuePack);
-    run(srcVueDir, destVueMac);
-    run(srcVueDir, destVueExe);
+    run(srcVueVanillaExtractDir, destVueVanillaExtractPack);
+    run(srcVueVanillaExtractDir, destVueVanillaExtractMac);
+    run(srcVueVanillaExtractDir, destVueVanillaExtractExe);
+
+    const srcNuxtVanillaExtractDir = path.join(
+        root,
+        "packages",
+        "main-template",
+        "vue",
+        "nuxt",
+        "vanilla-extract"
+    );
+
+    const destNuxtVanillaExtractPack = path.join(
+        root,
+        "packages",
+        "create-template",
+        "template",
+        "vue",
+        "nuxt",
+        "vanilla-extract"
+    );
+
+    const destNuxtVanillaExtractMac = path.join(
+        root,
+        "execution",
+        "mac",
+        "tmp",
+        "template",
+        "vue",
+        "nuxt",
+        "vanilla-extract"
+    );
+
+    const destNuxtVanillaExtractExe = path.join(
+        root,
+        "execution",
+        "win",
+        "tmp",
+        "template",
+        "vue",
+        "nuxt",
+        "vanilla-extract"
+    );
+
+    run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractPack);
+    run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractMac);
+    run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractExe);
 }
