@@ -11,4 +11,4 @@
 /// <reference path="types/nitro-middleware.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
 
-export {}
+export {};

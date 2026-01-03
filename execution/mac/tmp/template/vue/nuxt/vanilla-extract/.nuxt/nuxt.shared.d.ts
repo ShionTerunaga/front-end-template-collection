@@ -3,4 +3,4 @@
 /// <reference path="image/providers.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
 
-export {}
+export {};

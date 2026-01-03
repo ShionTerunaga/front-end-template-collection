@@ -1,32 +1,35 @@
-import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRuntimeConfig } from 'nuxt/schema'
-  interface SharedRuntimeConfig {
-   app: {
-      buildId: string,
+import {
+    RuntimeConfig as UserRuntimeConfig,
+    PublicRuntimeConfig as UserPublicRuntimeConfig
+} from "nuxt/schema";
+interface SharedRuntimeConfig {
+    app: {
+        buildId: string;
 
-      baseURL: string,
+        baseURL: string;
 
-      buildAssetsDir: string,
+        buildAssetsDir: string;
 
-      cdnURL: string,
-   },
+        cdnURL: string;
+    };
 
-   nitro: {
-      envPrefix: string,
-   },
-  }
-  interface SharedPublicRuntimeConfig {
-   NUXT_PUBLIC_API_KEY: string,
-  }
-declare module '@nuxt/schema' {
-  interface RuntimeConfig extends UserRuntimeConfig {}
-  interface PublicRuntimeConfig extends UserPublicRuntimeConfig {}
+    nitro: {
+        envPrefix: string;
+    };
 }
-declare module 'nuxt/schema' {
-  interface RuntimeConfig extends SharedRuntimeConfig {}
-  interface PublicRuntimeConfig extends SharedPublicRuntimeConfig {}
+interface SharedPublicRuntimeConfig {
+    NUXT_PUBLIC_API_KEY: string;
 }
-declare module 'vue' {
-        interface ComponentCustomProperties {
-          $config: UserRuntimeConfig
-        }
-      }
+declare module "@nuxt/schema" {
+    interface RuntimeConfig extends UserRuntimeConfig {}
+    interface PublicRuntimeConfig extends UserPublicRuntimeConfig {}
+}
+declare module "nuxt/schema" {
+    interface RuntimeConfig extends SharedRuntimeConfig {}
+    interface PublicRuntimeConfig extends SharedPublicRuntimeConfig {}
+}
+declare module "vue" {
+    interface ComponentCustomProperties {
+        $config: UserRuntimeConfig;
+    }
+}

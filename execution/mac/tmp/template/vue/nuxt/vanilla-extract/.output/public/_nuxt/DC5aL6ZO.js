@@ -1,1 +1,51 @@
-import{_ as p}from"./CRBzsCOQ.js";import{j as e}from"./BZyC13uY.js";import{e as o,c as m,o as r,a as i,b as u,t,f as a,w as l,d as f,g as h}from"./Bj09C4Z5.js";const d=o({__name:"home",setup(c){return(n,s)=>{const _=p;return r(),m("section",null,[i("h1",null,t(a(e).app.home.title),1),u(_,{to:"/force-cache-characters"},{default:l(()=>[f(t(a(e).app.home.toForceCacheHarryPotterLink),1)]),_:1})])}}}),N=o({__name:"index",setup(c){return(n,s)=>(r(),h(d))}});export{N as default};
+import { _ as p } from "./CRBzsCOQ.js";
+import { j as e } from "./BZyC13uY.js";
+import {
+    e as o,
+    c as m,
+    o as r,
+    a as i,
+    b as u,
+    t,
+    f as a,
+    w as l,
+    d as f,
+    g as h
+} from "./Bj09C4Z5.js";
+const d = o({
+        __name: "home",
+        setup(c) {
+            return (n, s) => {
+                const _ = p;
+                return (
+                    r(),
+                    m("section", null, [
+                        i("h1", null, t(a(e).app.home.title), 1),
+                        u(
+                            _,
+                            { to: "/force-cache-characters" },
+                            {
+                                default: l(() => [
+                                    f(
+                                        t(
+                                            a(e).app.home
+                                                .toForceCacheHarryPotterLink
+                                        ),
+                                        1
+                                    )
+                                ]),
+                                _: 1
+                            }
+                        )
+                    ])
+                );
+            };
+        }
+    }),
+    N = o({
+        __name: "index",
+        setup(c) {
+            return (n, s) => (r(), h(d));
+        }
+    });
+export { N as default };
