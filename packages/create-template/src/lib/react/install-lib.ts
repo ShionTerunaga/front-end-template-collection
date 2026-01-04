@@ -1,7 +1,7 @@
 import { noop, Noop, Result, resultUtility } from "../../utils/result";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { ReactCss, ReactLibrarySettings } from "../../template/react.static";
+import { ReactCss, ReactLibrarySettings } from "../../template/react-static";
 import { copy } from "../../helper/copy";
 import { foundFolder } from "../../utils/found-file";
 import fs from "fs/promises";

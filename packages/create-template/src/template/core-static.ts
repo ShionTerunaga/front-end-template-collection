@@ -1,5 +1,5 @@
 import { Option } from "../utils/option";
-import { ReactCss, ReactLibrarySettings } from "./react.static";
+import { ReactCss, ReactLibrarySettings } from "./react-static";
 
 export const techStacks = ["react"] as const;
 export type TechStack = (typeof techStacks)[number];
@@ -14,4 +14,9 @@ export interface TechMaterial {
     path: string;
     lib: Option<TechStackList>;
     styleSheet: Option<TechStackCss>;
+}
+
+export interface RunSuccess {
+    name: string;
+    tech: TechStack;
 }

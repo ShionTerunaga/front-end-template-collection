@@ -2,12 +2,13 @@ import {
     type Lib,
     libsArray,
     selectLibList
-} from "../../template/react.static";
-import { isBoolean, isLib, isLibsArray } from "../../utils/is";
+} from "../../template/react-static";
+import { isBoolean } from "../../utils/is";
 import { type Option, optionUtility } from "../../utils/option";
 import { type Result, resultUtility } from "../../utils/result";
-import { commanderCore } from "../common/core";
+import { commanderCore } from "../common/command-core";
 import prompts from "prompts";
+import { isLib, isLibsArray } from "./react-is";
 
 export async function libCli(
     optionLibs: Option<unknown>

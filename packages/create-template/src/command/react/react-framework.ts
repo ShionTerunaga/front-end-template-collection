@@ -1,9 +1,9 @@
-import { isReactFramework } from "../../utils/is";
 import { optionUtility, type Option } from "../../utils/option";
 import { resultUtility } from "../../utils/result";
 import prompts from "prompts";
-import { commanderCore } from "../common/core";
+import { commanderCore } from "../common/command-core";
 import { blue } from "picocolors";
+import { isReactFramework } from "./react-is";
 
 export async function frameworkCommand(optionFramework: Option<unknown>) {
     const { isSome } = optionUtility;

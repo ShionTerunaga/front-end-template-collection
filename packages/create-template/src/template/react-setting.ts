@@ -1,13 +1,13 @@
 import path from "path";
-import { commanderCore } from "../command/common/core";
-import { cssCommand } from "../command/react/css";
-import { frameworkCommand } from "../command/react/framework";
-import { libCli } from "../command/react/lib";
+import { commanderCore } from "../command/common/command-core";
+import { cssReactCommand } from "../command/react/react-css";
+import { frameworkCommand } from "../command/react/react-framework";
+import { libCli } from "../command/react/react-lib";
 import { Result, resultUtility } from "../utils/result";
-import { TechMaterial } from "./core.static";
+import { TechMaterial } from "./core-static";
 import { foundFolder } from "../utils/found-file";
 import { optionUtility } from "../utils/option";
-import { librarySetting } from "./react.static";
+import { librarySetting } from "./react-static";
 
 export async function reactCli(): Promise<Result<TechMaterial, Error>> {
     const { optionReactFramework, optionCss, optionUseAllComponents } =
@@ -21,7 +21,7 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
         return frameworResult;
     }
 
-    const cssResult = await cssCommand(optionCss);
+    const cssResult = await cssReactCommand(optionCss);
 
     if (isNG(cssResult)) {
         return cssResult;

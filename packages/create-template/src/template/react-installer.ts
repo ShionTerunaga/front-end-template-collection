@@ -3,9 +3,9 @@ import { mkdirSync } from "node:fs";
 import { isFolderEmpty } from "../helper/is-folder-empty";
 import { green } from "picocolors";
 import { addPackage } from "../lib/react/install-lib";
-import { type Option, optionUtility } from "../utils/option";
+import { optionUtility } from "../utils/option";
 import { Noop, Result, resultUtility } from "../utils/result";
-import { TechMaterial } from "./core.static";
+import { TechMaterial } from "./core-static";
 import { copy } from "../helper/copy";
 import fs from "fs/promises";
 
@@ -16,8 +16,7 @@ export async function reactInstaller({
     appPath: string;
     material: TechMaterial;
 }): Promise<Result<Noop, Error>> {
-    const { isNG, createNg, checkPromiseVoid, checkPromiseReturn } =
-        resultUtility;
+    const { isNG, createNg, checkPromiseVoid } = resultUtility;
     const { isNone } = optionUtility;
     const { path: templatePath, styleSheet, lib } = material;
 

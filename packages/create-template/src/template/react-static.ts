@@ -11,8 +11,8 @@ export type Framework = (typeof frameworks)[number];
 /**
  * CSS
  */
-export const csses = ["tailwind", "vanilla-extract"] as const;
-export type ReactCss = (typeof csses)[number];
+export const reactCSSes = ["tailwind", "vanilla-extract"] as const;
+export type ReactCss = (typeof reactCSSes)[number];
 
 export interface InstallTemplateArgs {
     appName: string;
