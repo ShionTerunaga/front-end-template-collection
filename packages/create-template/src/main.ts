@@ -2,26 +2,25 @@ import { basename, resolve } from "node:path";
 import { validateNpmName } from "./helper/validate-npm-name";
 import { existsSync } from "node:fs";
 import { bold, red, green } from "picocolors";
-import { resultUtility } from "./utils/result";
-import { commanderCore } from "./command/common/core";
-import { nameCommand } from "./command/common/name";
+import { commanderCore } from "./command/common/command-core";
+import { nameCommand } from "./command/common/project-name";
 import { cliErrorLog } from "./utils/error";
 import { techStackCommand } from "./command/common/tech-stack";
-import { createApp } from "./template/core";
+import { createApp } from "./template/core/core";
+import { RunSuccess, TechStack } from "./template/core/core-static";
+import { reactCallback } from "./then";
 
 const handleSigTerm = () => process.exit(0);
 
 process.on("SIGTERM", handleSigTerm);
 process.on("SIGINT", handleSigTerm);
 
-export async function run(): Promise<string> {
-    const { isNG } = resultUtility;
-
+export async function run(): Promise<RunSuccess> {
     const { optionName, optionTechStack } = commanderCore;
 
     const projectName = await nameCommand(optionName);
 
-    if (isNG(projectName)) {
+    if (projectName.isErr) {
         cliErrorLog(projectName.err);
         process.exit(1);
     }
@@ -31,8 +30,9 @@ export async function run(): Promise<string> {
 
     const techStack = await techStackCommand(optionTechStack);
 
-    if (isNG(techStack)) {
+    if (techStack.isErr) {
         cliErrorLog(techStack.err);
+
         process.exit(1);
     }
 
@@ -61,20 +61,29 @@ export async function run(): Promise<string> {
         tech: techStack.value
     });
 
-    if (isNG(installResult)) {
+    if (installResult.isErr) {
         cliErrorLog(installResult.err);
         process.exit(1);
     }
 
-    return projectName.value;
+    return {
+        name: projectName.value,
+        tech: techStack.value
+    };
 }
 
-export function notify(projectPath: string): void {
-    console.log("cd " + projectPath);
+function techInstallInfo(techStack: TechStack) {
+    switch (techStack) {
+        case "react": {
+            reactCallback();
+        }
+    }
+}
 
-    console.log(`Package install: \n\n ex) npm install`);
+export function notify(projectMaterial: RunSuccess): void {
+    console.log("cd " + projectMaterial.name);
 
-    console.log(`Application launch: \n\n ex) npm run dev`);
+    techInstallInfo(projectMaterial.tech);
 
     console.log();
 

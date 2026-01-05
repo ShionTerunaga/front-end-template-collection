@@ -17,6 +17,10 @@
         "test:react-dev-win": "cd test/react/test-dev && pnpm test:win",
         "test:react-pack-mac": "pnpm build:tmp && pnpm cp:cli-mac && cd test/react/test-pack && pnpm test:mac",
         "test:react-pack-win": "pnpm build:tmp && pnpm cp:cli-win && cd test/react/test-pack && pnpm test:win",
+        "test:vue-dev-mac": "cd test/vue/test-dev && pnpm test:mac",
+        "test:vue-dev-win": "cd test/vue/test-dev && pnpm test:win",
+        "test:vue-pack-mac": "pnpm build:tmp && pnpm cp:cli-mac && cd test/vue/test-pack && pnpm test:mac",
+        "test:vue-pack-win": "pnpm build:tmp && pnpm cp:cli-win && cd test/vue/test-pack && pnpm test:win",
         "lib:storybook": "cd packages/lib && pnpm storybook",
         "lib:test": "cd packages/lib && pnpm test"
     },

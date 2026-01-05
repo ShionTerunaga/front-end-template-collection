@@ -16431,7 +16431,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2975: /***/ (
+        /***/ 9175: /***/ (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16460,8 +16460,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         "specify the tech stack(react)"
                     )
                     .option(
-                        "-f, --framework <framework>",
+                        "--rf, --react-framework <reactFramework>",
                         "framework to use (tanstack-router | next/app | next/pages)"
+                    )
+                    .option(
+                        "--vf, --vue-framework <vueFramework>",
+                        "vue framework to use (vue-router | nuxt)"
                     )
                     .option(
                         "-c,--css <css>",
@@ -16474,7 +16478,10 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     .parse(process.argv);
                 const opts = program.opts();
                 const optionName = optionConversion(opts.name);
-                const optionReactFramework = optionConversion(opts.framework);
+                const optionReactFramework = optionConversion(
+                    opts.reactFramework
+                );
+                const optionVueFramework = optionConversion(opts.vueFramework);
                 const optionTechStack = optionConversion(opts.techStack);
                 const optionCss = optionConversion(opts.css);
                 const optionUseAllComponents = optionConversion(
@@ -16491,6 +16498,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     onPromptState,
                     optionName,
                     optionReactFramework,
+                    optionVueFramework,
                     optionTechStack,
                     optionCss,
                     optionUseAllComponents
@@ -16500,7 +16508,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2199: /***/ function (
+        /***/ 3491: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16519,16 +16527,12 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             const is_1 = __nccwpck_require__(2460);
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
             const validate_npm_name_1 = __nccwpck_require__(7823);
-            const core_1 = __nccwpck_require__(2975);
+            const command_core_1 = __nccwpck_require__(9175);
             async function nameCommand(optionName) {
-                const { isSome, optionConversion } = option_1.optionUtility;
-                const { onPromptState } = core_1.commanderCore;
-                const { createOk, checkPromiseReturn, isNG } =
-                    result_1.resultUtility;
-                if (
-                    isSome(optionName) &&
-                    (0, is_1.isString)(optionName.value)
-                ) {
+                const { optionConversion } = option_1.optionUtility;
+                const { onPromptState } = command_core_1.commanderCore;
+                const { createOk, checkPromiseReturn } = result_1.resultUtility;
+                if (optionName.isSome && (0, is_1.isString)(optionName.value)) {
                     return createOk(optionName.value.trim());
                 }
                 const response = await checkPromiseReturn({
@@ -16555,11 +16559,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return new Error("Prompt failed: Unknown error");
                     }
                 });
-                if (isNG(response)) {
+                if (response.isErr) {
                     return response;
                 }
                 const name = optionConversion(response.value.path);
-                if (isSome(name) && (0, is_1.isString)(name.value)) {
+                if (name.isSome && (0, is_1.isString)(name.value)) {
                     return createOk(name.value.trim());
                 }
                 return createOk("my-project");
@@ -16583,19 +16587,17 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.techStackCommand = techStackCommand;
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
-            const core_static_1 = __nccwpck_require__(4770);
-            const is_1 = __nccwpck_require__(2460);
-            const option_1 = __nccwpck_require__(4661);
+            const core_static_1 = __nccwpck_require__(2519);
             const result_1 = __nccwpck_require__(4053);
-            const core_1 = __nccwpck_require__(2975);
+            const command_core_1 = __nccwpck_require__(9175);
+            const react_is_1 = __nccwpck_require__(1566);
             async function techStackCommand(optionTech) {
-                const { isSome } = option_1.optionUtility;
-                const { createOk, createNg, checkPromiseReturn, isNG } =
+                const { createOk, createNg, checkPromiseReturn } =
                     result_1.resultUtility;
-                const { onPromptState } = core_1.commanderCore;
+                const { onPromptState } = command_core_1.commanderCore;
                 if (
-                    isSome(optionTech) &&
-                    (0, is_1.isTechStack)(optionTech.value)
+                    optionTech.isSome &&
+                    (0, react_is_1.isTechStack)(optionTech.value)
                 ) {
                     return createOk(optionTech.value);
                 }
@@ -16616,11 +16618,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return new Error("Prompt failed: Unknown error");
                     }
                 });
-                if (isNG(response)) {
+                if (response.isErr) {
                     return response;
                 }
                 const techStack = response.value.techStack;
-                if ((0, is_1.isTechStack)(techStack)) {
+                if ((0, react_is_1.isTechStack)(techStack)) {
                     return createOk(techStack);
                 }
                 return createNg(new Error("Tech stack selection is invalid"));
@@ -16629,7 +16631,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4545: /***/ function (
+        /***/ 41: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16643,17 +16645,16 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.cssCommand = cssCommand;
-            const is_1 = __nccwpck_require__(2460);
             const option_1 = __nccwpck_require__(4661);
             const result_1 = __nccwpck_require__(4053);
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
-            const core_1 = __nccwpck_require__(2975);
-            async function cssCommand(optionCss) {
-                const { isSome, optionConversion } = option_1.optionUtility;
-                const { createOk, createNg, checkPromiseReturn, isNG } =
+            const command_core_1 = __nccwpck_require__(9175);
+            async function cssCommand({ optionCss, isCss, csses }) {
+                const { optionConversion } = option_1.optionUtility;
+                const { createOk, createNg, checkPromiseReturn } =
                     result_1.resultUtility;
-                const { onPromptState } = core_1.commanderCore;
-                if (isSome(optionCss) && (0, is_1.isCss)(optionCss.value)) {
+                const { onPromptState } = command_core_1.commanderCore;
+                if (optionCss.isSome && isCss(optionCss.value)) {
                     return createOk(optionCss.value);
                 }
                 const response = await checkPromiseReturn({
@@ -16663,13 +16664,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                             type: "select",
                             name: "css",
                             message: "Select a CSS framework for your project:",
-                            choices: [
-                                { title: "tailwindCSS", value: "tailwind" },
-                                {
-                                    title: "vanilla-extract ",
-                                    value: "vanilla-extract"
-                                }
-                            ],
+                            choices: csses,
                             initial: 0
                         }),
                     err: (e) => {
@@ -16679,11 +16674,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return new Error("Prompt failed: Unknown error");
                     }
                 });
-                if (isNG(response)) {
+                if (response.isErr) {
                     return response;
                 }
                 const css = optionConversion(response.value.css);
-                if (isSome(css) && (0, is_1.isCss)(css.value)) {
+                if (css.isSome && isCss(css.value)) {
                     return createOk(css.value);
                 }
                 return createNg(new Error("CSS selection is invalid"));
@@ -16692,7 +16687,33 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 9506: /***/ function (
+        /***/ 263: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.cssReactCommand = cssReactCommand;
+            const react_is_1 = __nccwpck_require__(1566);
+            const css_core_1 = __nccwpck_require__(41);
+            async function cssReactCommand(optionReactCss) {
+                const choises = [
+                    { title: "tailwindCSS", value: "tailwind" },
+                    { title: "vanilla-extract ", value: "vanilla-extract" }
+                ];
+                return await (0, css_core_1.cssCommand)({
+                    optionCss: optionReactCss,
+                    isCss: react_is_1.isReactCss,
+                    csses: choises
+                });
+            }
+
+            /***/
+        },
+
+        /***/ 1900: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16706,20 +16727,18 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.frameworkCommand = frameworkCommand;
-            const is_1 = __nccwpck_require__(2460);
-            const option_1 = __nccwpck_require__(4661);
             const result_1 = __nccwpck_require__(4053);
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
-            const core_1 = __nccwpck_require__(2975);
+            const command_core_1 = __nccwpck_require__(9175);
             const picocolors_1 = __nccwpck_require__(5657);
+            const react_is_1 = __nccwpck_require__(1566);
             async function frameworkCommand(optionFramework) {
-                const { isSome } = option_1.optionUtility;
-                const { createNg, createOk, checkPromiseReturn, isNG } =
+                const { createNg, createOk, checkPromiseReturn } =
                     result_1.resultUtility;
-                const { onPromptState } = core_1.commanderCore;
+                const { onPromptState } = command_core_1.commanderCore;
                 if (
-                    isSome(optionFramework) &&
-                    (0, is_1.isReactFramework)(optionFramework.value)
+                    optionFramework.isSome &&
+                    (0, react_is_1.isReactFramework)(optionFramework.value)
                 ) {
                     return createOk(optionFramework.value);
                 }
@@ -16754,11 +16773,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return new Error("Prompt failed: Unknown error");
                     }
                 });
-                if (isNG(response)) {
+                if (response.isErr) {
                     return response;
                 }
                 const framework = response.value.framework;
-                if ((0, is_1.isReactFramework)(framework)) {
+                if ((0, react_is_1.isReactFramework)(framework)) {
                     return createOk(framework);
                 }
                 return createNg(new Error("Framework selection is invalid"));
@@ -16767,7 +16786,53 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 6029: /***/ function (
+        /***/ 1566: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.isReactFramework = isReactFramework;
+            exports.isLibsArray = isLibsArray;
+            exports.isLib = isLib;
+            exports.isTechStack = isTechStack;
+            exports.isReactCss = isReactCss;
+            const core_static_1 = __nccwpck_require__(2519);
+            const react_static_1 = __nccwpck_require__(5727);
+            const is_1 = __nccwpck_require__(2460);
+            function isReactFramework(value) {
+                if (typeof value !== "string") {
+                    return false;
+                }
+                return react_static_1.frameworks.includes(value);
+            }
+            function isLibsArray(value) {
+                return (
+                    (0, is_1.isArray)(value) &&
+                    value.every((item) =>
+                        react_static_1.libsArray.includes(item)
+                    )
+                );
+            }
+            function isLib(value) {
+                return react_static_1.libsArray.includes(value);
+            }
+            function isTechStack(value) {
+                if (typeof value !== "string") {
+                    return false;
+                }
+                return core_static_1.techStacks.includes(value);
+            }
+            function isReactCss(value) {
+                return react_static_1.reactCSSes.includes(value);
+            }
+
+            /***/
+        },
+
+        /***/ 9171: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -16781,25 +16846,21 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.libCli = libCli;
-            const react_static_1 = __nccwpck_require__(5426);
+            const react_static_1 = __nccwpck_require__(5727);
             const is_1 = __nccwpck_require__(2460);
             const option_1 = __nccwpck_require__(4661);
             const result_1 = __nccwpck_require__(4053);
-            const core_1 = __nccwpck_require__(2975);
+            const command_core_1 = __nccwpck_require__(9175);
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            const react_is_1 = __nccwpck_require__(1566);
             async function libCli(optionLibs) {
-                const {
-                    isSome,
-                    isNone,
-                    optionConversion,
-                    createSome,
-                    createNone
-                } = option_1.optionUtility;
-                const { createOk, checkPromiseReturn, isNG, createNg } =
+                const { optionConversion, createSome, createNone } =
+                    option_1.optionUtility;
+                const { createOk, checkPromiseReturn, createNg } =
                     result_1.resultUtility;
-                const { onPromptState } = core_1.commanderCore;
+                const { onPromptState } = command_core_1.commanderCore;
                 if (
-                    isSome(optionLibs) &&
+                    optionLibs.isSome &&
                     (0, is_1.isBoolean)(optionLibs.value) &&
                     optionLibs.value
                 ) {
@@ -16825,17 +16886,17 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return new Error("Failed to select packages");
                     }
                 });
-                if (isNG(response)) {
+                if (response.isErr) {
                     return response;
                 }
                 const selectedLibs = optionConversion(response.value.packages);
-                if (isNone(selectedLibs)) {
+                if (selectedLibs.isNone) {
                     return createOk(createNone());
                 }
                 const value = selectedLibs.value;
-                const resultSelected = (0, is_1.isLibsArray)(value)
+                const resultSelected = (0, react_is_1.isLibsArray)(value)
                     ? createOk(createSome(value))
-                    : (0, is_1.isLib)(value)
+                    : (0, react_is_1.isLib)(value)
                       ? createOk(createSome([value]))
                       : createNg(
                             new Error(
@@ -16843,6 +16904,93 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                             )
                         );
                 return resultSelected;
+            }
+
+            /***/
+        },
+
+        /***/ 3259: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.vueCssCommander = vueCssCommander;
+            const vue_is_1 = __nccwpck_require__(7165);
+            const css_core_1 = __nccwpck_require__(41);
+            async function vueCssCommander(optionVueCss) {
+                const choises = [
+                    { title: "vanilla-extract", value: "vanilla-extract" }
+                ];
+                return await (0, css_core_1.cssCommand)({
+                    optionCss: optionVueCss,
+                    isCss: vue_is_1.isVueCss,
+                    csses: choises
+                });
+            }
+
+            /***/
+        },
+
+        /***/ 6152: /***/ function (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) {
+            "use strict";
+
+            var __importDefault =
+                (this && this.__importDefault) ||
+                function (mod) {
+                    return mod && mod.__esModule ? mod : { default: mod };
+                };
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.vueFrameworkCommand = vueFrameworkCommand;
+            const picocolors_1 = __nccwpck_require__(5657);
+            const result_1 = __nccwpck_require__(4053);
+            const command_core_1 = __nccwpck_require__(9175);
+            const vue_is_1 = __nccwpck_require__(7165);
+            const prompts_1 = __importDefault(__nccwpck_require__(3731));
+            async function vueFrameworkCommand(optionVueFramework) {
+                const { onPromptState } = command_core_1.commanderCore;
+                const { createOk, checkPromiseReturn, createNg } =
+                    result_1.resultUtility;
+                if (
+                    optionVueFramework.isSome &&
+                    (0, vue_is_1.isVueFramework)(optionVueFramework.value)
+                ) {
+                    return createOk(optionVueFramework.value);
+                }
+                const styleFramework = (0, picocolors_1.blue)("framework");
+                const response = await checkPromiseReturn({
+                    fn: async () =>
+                        await (0, prompts_1.default)({
+                            onState: onPromptState,
+                            type: "select",
+                            name: "framework",
+                            message: `Select a ${styleFramework} for your project:`,
+                            choices: [
+                                { title: "Vue router", value: "vue-router" }
+                            ],
+                            initial: 0
+                        }),
+                    err: (e) => {
+                        if (e instanceof Error) {
+                            return new Error(`Prompt failed: ${e.message}`);
+                        }
+                        return new Error("Prompt failed: Unknown error");
+                    }
+                });
+                if (response.isErr) {
+                    return response;
+                }
+                const framework = response.value.framework;
+                if ((0, vue_is_1.isVueFramework)(framework)) {
+                    return createOk(framework);
+                }
+                return createNg(new Error("Framework selection is invalid"));
             }
 
             /***/
@@ -16867,7 +17015,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 dest,
                 { cwd, rename = identity, parents = true }
             ) {
-                const { createNg, createOk, isNG, checkPromiseReturn } =
+                const { createNg, createOk, checkPromiseReturn } =
                     result_1.resultUtility;
                 const sources = typeof src === "string" ? [src] : src;
                 if (sources.length === 0 || dest === "") {
@@ -16884,7 +17032,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         }),
                     err: () => new Error("Failed to glob source files")
                 });
-                if (isNG(sourceFiles)) {
+                if (sourceFiles.isErr) {
                     return sourceFiles;
                 }
                 const destRelativeToCwd = cwd
@@ -17044,7 +17192,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             const promises_1 = __importDefault(__nccwpck_require__(1943));
             const picocolors_1 = __nccwpck_require__(5657);
             async function addPackage({ root, css, libs }) {
-                const { isNG, createOk, checkPromiseReturn, checkPromiseVoid } =
+                const { createOk, checkPromiseReturn, checkPromiseVoid } =
                     result_1.resultUtility;
                 if (libs.length === 0) {
                     console.log("✅ No additional packages selected.");
@@ -17095,7 +17243,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     const resultPath = (0, found_file_1.foundFolder)(
                         templatePath
                     );
-                    if (isNG(resultPath)) {
+                    if (resultPath.isErr) {
                         return resultPath;
                     }
                     //copy packages
@@ -17103,7 +17251,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         parents: true,
                         cwd: resultPath.value
                     });
-                    if (isNG(res)) {
+                    if (res.isErr) {
                         return res;
                     }
                     if (lib.storybook) {
@@ -17135,7 +17283,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         ];
                         const storybookResultPath = (0,
                         found_file_1.foundFolder)(storybookTemplatePath);
-                        if (isNG(storybookResultPath)) {
+                        if (storybookResultPath.isErr) {
                             return storybookResultPath;
                         }
                         const storyRes = await (0, copy_1.copy)(
@@ -17146,7 +17294,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                                 cwd: storybookResultPath.value
                             }
                         );
-                        if (isNG(storyRes)) {
+                        if (storyRes.isErr) {
                             return storyRes;
                         }
                     }
@@ -17180,7 +17328,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         const testResultPath = (0, found_file_1.foundFolder)(
                             testTemplatePath
                         );
-                        if (isNG(testResultPath)) {
+                        if (testResultPath.isErr) {
                             return testResultPath;
                         }
                         const testRes = await (0, copy_1.copy)(
@@ -17191,7 +17339,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                                 cwd: testResultPath.value
                             }
                         );
-                        if (isNG(testRes)) {
+                        if (testRes.isErr) {
                             return testRes;
                         }
                     }
@@ -17206,7 +17354,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         await promises_1.default.readFile(pkgPath, "utf8"),
                     err: () => new Error(`Failed to read template.info.json`)
                 });
-                if (isNG(raw)) {
+                if (raw.isErr) {
                     return raw;
                 }
                 const existingInfo = JSON.parse(raw.value || "{}");
@@ -17221,7 +17369,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     },
                     err: () => new Error(`Failed to update template.info.json`)
                 });
-                if (isNG(writeResult)) {
+                if (writeResult.isErr) {
                     return writeResult;
                 }
                 const libNames = libs.map((l) => l.lib).join(", ");
@@ -17250,20 +17398,22 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             const validate_npm_name_1 = __nccwpck_require__(7823);
             const node_fs_1 = __nccwpck_require__(3024);
             const picocolors_1 = __nccwpck_require__(5657);
-            const result_1 = __nccwpck_require__(4053);
-            const core_1 = __nccwpck_require__(2975);
-            const name_1 = __nccwpck_require__(2199);
+            const command_core_1 = __nccwpck_require__(9175);
+            const project_name_1 = __nccwpck_require__(3491);
             const error_1 = __nccwpck_require__(2088);
             const tech_stack_1 = __nccwpck_require__(6661);
-            const core_2 = __nccwpck_require__(6864);
+            const core_1 = __nccwpck_require__(9948);
+            const then_1 = __nccwpck_require__(1149);
             const handleSigTerm = () => process.exit(0);
             process.on("SIGTERM", handleSigTerm);
             process.on("SIGINT", handleSigTerm);
             async function run() {
-                const { isNG } = result_1.resultUtility;
-                const { optionName, optionTechStack } = core_1.commanderCore;
-                const projectName = await (0, name_1.nameCommand)(optionName);
-                if (isNG(projectName)) {
+                const { optionName, optionTechStack } =
+                    command_core_1.commanderCore;
+                const projectName = await (0, project_name_1.nameCommand)(
+                    optionName
+                );
+                if (projectName.isErr) {
                     (0, error_1.cliErrorLog)(projectName.err);
                     process.exit(1);
                 }
@@ -17272,7 +17422,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 const techStack = await (0, tech_stack_1.techStackCommand)(
                     optionTechStack
                 );
-                if (isNG(techStack)) {
+                if (techStack.isErr) {
                     (0, error_1.cliErrorLog)(techStack.err);
                     process.exit(1);
                 }
@@ -17293,20 +17443,29 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     );
                     process.exit(1);
                 }
-                const installResult = await (0, core_2.createApp)({
+                const installResult = await (0, core_1.createApp)({
                     appPath,
                     tech: techStack.value
                 });
-                if (isNG(installResult)) {
+                if (installResult.isErr) {
                     (0, error_1.cliErrorLog)(installResult.err);
                     process.exit(1);
                 }
-                return projectName.value;
+                return {
+                    name: projectName.value,
+                    tech: techStack.value
+                };
             }
-            function notify(projectPath) {
-                console.log("cd " + projectPath);
-                console.log(`Package install: \n\n ex) npm install`);
-                console.log(`Application launch: \n\n ex) npm run dev`);
+            function techInstallInfo(techStack) {
+                switch (techStack) {
+                    case "react": {
+                        (0, then_1.reactCallback)();
+                    }
+                }
+            }
+            function notify(projectMaterial) {
+                console.log("cd " + projectMaterial.name);
+                techInstallInfo(projectMaterial.tech);
                 console.log();
                 console.log(
                     (0, picocolors_1.bold)(
@@ -17325,154 +17484,36 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 4770: /***/ (__unused_webpack_module, exports) => {
-            "use strict";
-
-            Object.defineProperty(exports, "__esModule", { value: true });
-            exports.techStackSelectList = exports.techStacks = void 0;
-            exports.techStacks = ["react"];
-            exports.techStackSelectList = [{ title: "React", value: "react" }];
-
-            /***/
-        },
-
-        /***/ 6864: /***/ (
-            __unused_webpack_module,
-            exports,
-            __nccwpck_require__
-        ) => {
-            "use strict";
-
-            Object.defineProperty(exports, "__esModule", { value: true });
-            exports.createApp = createApp;
-            const result_1 = __nccwpck_require__(4053);
-            const react_installer_1 = __nccwpck_require__(8062);
-            const react_setting_1 = __nccwpck_require__(338);
-            async function createApp({ appPath, tech }) {
-                const { isNG } = result_1.resultUtility;
-                switch (tech) {
-                    case "react": {
-                        const materialResult = await (0,
-                        react_setting_1.reactCli)();
-                        if (isNG(materialResult)) {
-                            return materialResult;
-                        }
-                        return await (0, react_installer_1.reactInstaller)({
-                            appPath,
-                            material: materialResult.value
-                        });
-                    }
-                }
-            }
-
-            /***/
-        },
-
-        /***/ 8062: /***/ function (
+        /***/ 2347: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
         ) {
             "use strict";
 
-            var __createBinding =
-                (this && this.__createBinding) ||
-                (Object.create
-                    ? function (o, m, k, k2) {
-                          if (k2 === undefined) k2 = k;
-                          var desc = Object.getOwnPropertyDescriptor(m, k);
-                          if (
-                              !desc ||
-                              ("get" in desc
-                                  ? !m.__esModule
-                                  : desc.writable || desc.configurable)
-                          ) {
-                              desc = {
-                                  enumerable: true,
-                                  get: function () {
-                                      return m[k];
-                                  }
-                              };
-                          }
-                          Object.defineProperty(o, k2, desc);
-                      }
-                    : function (o, m, k, k2) {
-                          if (k2 === undefined) k2 = k;
-                          o[k2] = m[k];
-                      });
-            var __setModuleDefault =
-                (this && this.__setModuleDefault) ||
-                (Object.create
-                    ? function (o, v) {
-                          Object.defineProperty(o, "default", {
-                              enumerable: true,
-                              value: v
-                          });
-                      }
-                    : function (o, v) {
-                          o["default"] = v;
-                      });
-            var __importStar =
-                (this && this.__importStar) ||
-                (function () {
-                    var ownKeys = function (o) {
-                        ownKeys =
-                            Object.getOwnPropertyNames ||
-                            function (o) {
-                                var ar = [];
-                                for (var k in o)
-                                    if (
-                                        Object.prototype.hasOwnProperty.call(
-                                            o,
-                                            k
-                                        )
-                                    )
-                                        ar[ar.length] = k;
-                                return ar;
-                            };
-                        return ownKeys(o);
-                    };
-                    return function (mod) {
-                        if (mod && mod.__esModule) return mod;
-                        var result = {};
-                        if (mod != null)
-                            for (var k = ownKeys(mod), i = 0; i < k.length; i++)
-                                if (k[i] !== "default")
-                                    __createBinding(result, mod, k[i]);
-                        __setModuleDefault(result, mod);
-                        return result;
-                    };
-                })();
             var __importDefault =
                 (this && this.__importDefault) ||
                 function (mod) {
                     return mod && mod.__esModule ? mod : { default: mod };
                 };
             Object.defineProperty(exports, "__esModule", { value: true });
-            exports.reactInstaller = reactInstaller;
-            const node_path_1 = __importStar(__nccwpck_require__(6760));
+            exports.typescriptTemplateInstall = typescriptTemplateInstall;
+            const result_1 = __nccwpck_require__(4053);
+            const promises_1 = __importDefault(__nccwpck_require__(1943));
+            const node_path_1 = __importDefault(__nccwpck_require__(6760));
             const node_fs_1 = __nccwpck_require__(3024);
             const is_folder_empty_1 = __nccwpck_require__(1522);
-            const picocolors_1 = __nccwpck_require__(5657);
-            const install_lib_1 = __nccwpck_require__(7021);
-            const option_1 = __nccwpck_require__(4661);
-            const result_1 = __nccwpck_require__(4053);
             const copy_1 = __nccwpck_require__(8904);
-            const promises_1 = __importDefault(__nccwpck_require__(1943));
-            async function reactInstaller({ appPath, material }) {
-                const { isNG, createNg, checkPromiseVoid, checkPromiseReturn } =
+            const picocolors_1 = __nccwpck_require__(5657);
+            async function typescriptTemplateInstall({
+                root,
+                appName,
+                material
+            }) {
+                const { createNg, createOk, checkPromiseVoid } =
                     result_1.resultUtility;
-                const { isNone } = option_1.optionUtility;
-                const { path: templatePath, styleSheet, lib } = material;
+                const { path: templatePath } = material;
                 const copySource = ["**/*"];
-                const root = (0, node_path_1.resolve)(appPath);
-                const appName = (0, node_path_1.basename)(appPath);
-                if (isNone(styleSheet)) {
-                    return createNg(new Error("CSS option is required"));
-                }
-                if (isNone(lib)) {
-                    return createNg(new Error("Library option is required"));
-                }
                 (0, node_fs_1.mkdirSync)(root, { recursive: true });
                 if (!(0, is_folder_empty_1.isFolderEmpty)(root, appName)) {
                     return createNg(
@@ -17504,7 +17545,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         }
                     }
                 });
-                if (isNG(res)) {
+                if (res.isErr) {
                     return res;
                 }
                 const pkgPath = node_path_1.default.join(root, "package.json");
@@ -17523,7 +17564,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         );
                     }
                 });
-                if (isNG(exists)) {
+                if (exists.isErr) {
                     return exists;
                 }
                 const raw = await promises_1.default.readFile(pkgPath, "utf8");
@@ -17542,8 +17583,104 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     },
                     err: () => new Error(`Failed to update package.json name`)
                 });
-                if (isNG(writeResult)) {
+                if (writeResult.isErr) {
                     return writeResult;
+                }
+                return createOk(result_1.noop);
+            }
+
+            /***/
+        },
+
+        /***/ 2519: /***/ (__unused_webpack_module, exports) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.techStackSelectList = exports.techStacks = void 0;
+            exports.techStacks = ["react", "vue"];
+            exports.techStackSelectList = [
+                { title: "React", value: "react" },
+                { title: "Vue", value: "vue" }
+            ];
+
+            /***/
+        },
+
+        /***/ 9948: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.createApp = createApp;
+            const react_installer_1 = __nccwpck_require__(241);
+            const vue_setting_1 = __nccwpck_require__(7377);
+            const vue_install_1 = __nccwpck_require__(8198);
+            const react_setting_1 = __nccwpck_require__(6877);
+            async function createApp({ appPath, tech }) {
+                switch (tech) {
+                    case "react": {
+                        const materialResult = await (0,
+                        react_setting_1.reactCli)();
+                        if (materialResult.isErr) {
+                            return materialResult;
+                        }
+                        return await (0, react_installer_1.reactInstaller)({
+                            appPath,
+                            material: materialResult.value
+                        });
+                    }
+                    case "vue": {
+                        const materialResult = await (0,
+                        vue_setting_1.vueCli)();
+                        if (materialResult.isErr) {
+                            return materialResult;
+                        }
+                        return await (0, vue_install_1.vueInstaller)({
+                            appPath,
+                            material: materialResult.value
+                        });
+                    }
+                }
+            }
+
+            /***/
+        },
+
+        /***/ 241: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.reactInstaller = reactInstaller;
+            const node_path_1 = __nccwpck_require__(6760);
+            const install_lib_1 = __nccwpck_require__(7021);
+            const result_1 = __nccwpck_require__(4053);
+            const typescript_template_install_1 = __nccwpck_require__(2347);
+            async function reactInstaller({ appPath, material }) {
+                const { createNg } = result_1.resultUtility;
+                const { styleSheet, lib } = material;
+                const root = (0, node_path_1.resolve)(appPath);
+                const appName = (0, node_path_1.basename)(appPath);
+                if (styleSheet.isNone) {
+                    return createNg(new Error("CSS option is required"));
+                }
+                if (lib.isNone) {
+                    return createNg(new Error("Library option is required"));
+                }
+                const installResult = await (0,
+                typescript_template_install_1.typescriptTemplateInstall)({
+                    root,
+                    appName,
+                    material
+                });
+                if (installResult.isErr) {
+                    return installResult;
                 }
                 return await (0, install_lib_1.addPackage)({
                     root,
@@ -17555,7 +17692,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 338: /***/ function (
+        /***/ 6877: /***/ function (
             __unused_webpack_module,
             exports,
             __nccwpck_require__
@@ -17570,37 +17707,37 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.reactCli = reactCli;
             const path_1 = __importDefault(__nccwpck_require__(6928));
-            const core_1 = __nccwpck_require__(2975);
-            const css_1 = __nccwpck_require__(4545);
-            const framework_1 = __nccwpck_require__(9506);
-            const lib_1 = __nccwpck_require__(6029);
+            const command_core_1 = __nccwpck_require__(9175);
+            const react_css_1 = __nccwpck_require__(263);
+            const react_framework_1 = __nccwpck_require__(1900);
+            const react_lib_1 = __nccwpck_require__(9171);
             const result_1 = __nccwpck_require__(4053);
             const found_file_1 = __nccwpck_require__(9041);
             const option_1 = __nccwpck_require__(4661);
-            const react_static_1 = __nccwpck_require__(5426);
+            const react_static_1 = __nccwpck_require__(5727);
             async function reactCli() {
                 const {
                     optionReactFramework,
                     optionCss,
                     optionUseAllComponents
-                } = core_1.commanderCore;
-                const { isNG, createOk } = result_1.resultUtility;
-                const { createSome, isNone, createNone } =
-                    option_1.optionUtility;
-                const frameworResult = await (0, framework_1.frameworkCommand)(
-                    optionReactFramework
-                );
-                if (isNG(frameworResult)) {
+                } = command_core_1.commanderCore;
+                const { createOk } = result_1.resultUtility;
+                const { createSome, createNone } = option_1.optionUtility;
+                const frameworResult = await (0,
+                react_framework_1.frameworkCommand)(optionReactFramework);
+                if (frameworResult.isErr) {
                     return frameworResult;
                 }
-                const cssResult = await (0, css_1.cssCommand)(optionCss);
-                if (isNG(cssResult)) {
+                const cssResult = await (0, react_css_1.cssReactCommand)(
+                    optionCss
+                );
+                if (cssResult.isErr) {
                     return cssResult;
                 }
-                const resultSelected = await (0, lib_1.libCli)(
+                const resultSelected = await (0, react_lib_1.libCli)(
                     optionUseAllComponents
                 );
-                if (isNG(resultSelected)) {
+                if (resultSelected.isErr) {
                     return resultSelected;
                 }
                 const templatePath = [
@@ -17615,6 +17752,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         __dirname,
                         "..",
                         "..",
+                        "..",
                         "template",
                         "react",
                         frameworResult.value,
@@ -17622,11 +17760,11 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     )
                 ];
                 const resultPath = (0, found_file_1.foundFolder)(templatePath);
-                if (isNG(resultPath)) {
+                if (resultPath.isErr) {
                     return resultPath;
                 }
                 const libs = resultSelected.value;
-                const selectLib = isNone(libs)
+                const selectLib = libs.isNone
                     ? createNone()
                     : createSome(
                           react_static_1.librarySetting.filter((item) =>
@@ -17644,14 +17782,14 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 5426: /***/ (__unused_webpack_module, exports) => {
+        /***/ 5727: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
             exports.librarySetting =
                 exports.selectLibList =
                 exports.libsArray =
-                exports.csses =
+                exports.reactCSSes =
                 exports.frameworks =
                     void 0;
             /**
@@ -17661,7 +17799,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /**
              * CSS
              */
-            exports.csses = ["tailwind", "vanilla-extract"];
+            exports.reactCSSes = ["tailwind", "vanilla-extract"];
             /**
              * Library definitions
              */
@@ -17684,6 +17822,160 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     storybook: true
                 }
             ];
+
+            /***/
+        },
+
+        /***/ 8198: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.vueInstaller = vueInstaller;
+            const node_path_1 = __nccwpck_require__(6760);
+            const result_1 = __nccwpck_require__(4053);
+            const typescript_template_install_1 = __nccwpck_require__(2347);
+            async function vueInstaller({ appPath, material }) {
+                const { createNg } = result_1.resultUtility;
+                const { styleSheet } = material;
+                if (styleSheet.isNone) {
+                    return createNg(new Error("CSS option is required"));
+                }
+                const root = (0, node_path_1.resolve)(appPath);
+                const appName = (0, node_path_1.basename)(appPath);
+                const installResult = await (0,
+                typescript_template_install_1.typescriptTemplateInstall)({
+                    root,
+                    appName,
+                    material
+                });
+                return installResult;
+            }
+
+            /***/
+        },
+
+        /***/ 7165: /***/ (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.isVueFramework = isVueFramework;
+            exports.isVueCss = isVueCss;
+            const vue_static_1 = __nccwpck_require__(1667);
+            function isVueFramework(value) {
+                return (
+                    typeof value === "string" &&
+                    vue_static_1.vueFramework.includes(value)
+                );
+            }
+            function isVueCss(value) {
+                return (
+                    typeof value === "string" &&
+                    vue_static_1.vueCSSes.includes(value)
+                );
+            }
+
+            /***/
+        },
+
+        /***/ 7377: /***/ function (
+            __unused_webpack_module,
+            exports,
+            __nccwpck_require__
+        ) {
+            "use strict";
+
+            var __importDefault =
+                (this && this.__importDefault) ||
+                function (mod) {
+                    return mod && mod.__esModule ? mod : { default: mod };
+                };
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.vueCli = vueCli;
+            const path_1 = __importDefault(__nccwpck_require__(6928));
+            const command_core_1 = __nccwpck_require__(9175);
+            const vue_css_1 = __nccwpck_require__(3259);
+            const vue_framework_1 = __nccwpck_require__(6152);
+            const option_1 = __nccwpck_require__(4661);
+            const result_1 = __nccwpck_require__(4053);
+            const found_file_1 = __nccwpck_require__(9041);
+            async function vueCli() {
+                const { optionCss, optionVueFramework } =
+                    command_core_1.commanderCore;
+                const { createNone, createSome } = option_1.optionUtility;
+                const { createOk } = result_1.resultUtility;
+                const frameworkResult = await (0,
+                vue_framework_1.vueFrameworkCommand)(optionVueFramework);
+                if (frameworkResult.isErr) {
+                    return frameworkResult;
+                }
+                const cssResult = await (0, vue_css_1.vueCssCommander)(
+                    optionCss
+                );
+                if (cssResult.isErr) {
+                    return cssResult;
+                }
+                const templatePath = [
+                    path_1.default.join(
+                        __dirname,
+                        "template",
+                        "vue",
+                        frameworkResult.value,
+                        cssResult.value
+                    ),
+                    path_1.default.join(
+                        __dirname,
+                        "..",
+                        "..",
+                        "..",
+                        "template",
+                        "vue",
+                        frameworkResult.value,
+                        cssResult.value
+                    )
+                ];
+                const resultPath = (0, found_file_1.foundFolder)(templatePath);
+                if (resultPath.isErr) {
+                    return resultPath;
+                }
+                const techMaterial = {
+                    path: resultPath.value,
+                    styleSheet: createSome(cssResult.value),
+                    lib: createNone()
+                };
+                return createOk(techMaterial);
+            }
+
+            /***/
+        },
+
+        /***/ 1667: /***/ (__unused_webpack_module, exports) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.vueCSSes = exports.vueFramework = void 0;
+            exports.vueFramework = ["vue-router", "nuxt"];
+            exports.vueCSSes = ["vanilla-extract"];
+
+            /***/
+        },
+
+        /***/ 1149: /***/ (__unused_webpack_module, exports) => {
+            "use strict";
+
+            Object.defineProperty(exports, "__esModule", { value: true });
+            exports.reactCallback = reactCallback;
+            function reactCallback() {
+                console.log(`Package install: \n\n ex) npm install`);
+                console.log(`Application launch: \n\n ex) npm run dev`);
+            }
 
             /***/
         },
@@ -17737,31 +18029,15 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             /***/
         },
 
-        /***/ 2460: /***/ (
-            __unused_webpack_module,
-            exports,
-            __nccwpck_require__
-        ) => {
+        /***/ 2460: /***/ (__unused_webpack_module, exports) => {
             "use strict";
 
             Object.defineProperty(exports, "__esModule", { value: true });
-            exports.isReactFramework = isReactFramework;
             exports.isNull = isNull;
             exports.isUndefined = isUndefined;
             exports.isString = isString;
-            exports.isLibsArray = isLibsArray;
-            exports.isLib = isLib;
-            exports.isTechStack = isTechStack;
-            exports.isCss = isCss;
+            exports.isArray = isArray;
             exports.isBoolean = isBoolean;
-            const core_static_1 = __nccwpck_require__(4770);
-            const react_static_1 = __nccwpck_require__(5426);
-            function isReactFramework(value) {
-                if (typeof value !== "string") {
-                    return false;
-                }
-                return react_static_1.frameworks.includes(value);
-            }
             function isNull(value) {
                 return value === null;
             }
@@ -17773,26 +18049,6 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             }
             function isArray(value) {
                 return Array.isArray(value);
-            }
-            function isLibsArray(value) {
-                return (
-                    isArray(value) &&
-                    value.every((item) =>
-                        react_static_1.libsArray.includes(item)
-                    )
-                );
-            }
-            function isLib(value) {
-                return react_static_1.libsArray.includes(value);
-            }
-            function isTechStack(value) {
-                if (typeof value !== "string") {
-                    return false;
-                }
-                return core_static_1.techStacks.includes(value);
-            }
-            function isCss(value) {
-                return react_static_1.csses.includes(value);
             }
             function isBoolean(value) {
                 return typeof value === "boolean";
@@ -17820,12 +18076,16 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 const createSome = (value) => {
                     return Object.freeze({
                         kind: OPTION_SOME,
+                        isSome: true,
+                        isNone: false,
                         value
                     });
                 };
                 const createNone = () => {
                     return Object.freeze({
-                        kind: OPTION_NONE
+                        kind: OPTION_NONE,
+                        isSome: false,
+                        isNone: true
                     });
                 };
                 const optionConversion = (value) => {
@@ -17837,17 +18097,9 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     }
                     return createSome(value);
                 };
-                const isSome = (opt) => {
-                    return opt.kind === OPTION_SOME;
-                };
-                const isNone = (opt) => {
-                    return opt.kind === OPTION_NONE;
-                };
                 return Object.freeze({
                     createSome,
                     createNone,
-                    isSome,
-                    isNone,
                     optionConversion
                 });
             })();
@@ -17904,21 +18156,19 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                         return createNg(err(e));
                     }
                 };
-                const isOK = (res) => {
-                    return res.kind === RESULT_OK;
-                };
-                const isNG = (res) => {
-                    return res.kind === RESULT_NG;
-                };
                 const createOk = (value) => {
                     return Object.freeze({
                         kind: RESULT_OK,
+                        isOk: true,
+                        isErr: false,
                         value
                     });
                 };
                 const createNg = (err) => {
                     return Object.freeze({
                         kind: RESULT_NG,
+                        isOk: false,
+                        isErr: true,
                         err
                     });
                 };
@@ -17928,8 +18178,6 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                     checkResultVoid,
                     checkPromiseReturn,
                     checkPromiseVoid,
-                    isOK,
-                    isNG,
                     createOk,
                     createNg
                 });
