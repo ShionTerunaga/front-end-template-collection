@@ -14,8 +14,12 @@ export const commanderCore = (function () {
         .option("-n, --name <name>", "specify the project name")
         .option("-t, --tech-stack <techStack>", "specify the tech stack(react)")
         .option(
-            "-f, --framework <framework>",
+            "--rf, --react-framework <reactFramework>",
             "framework to use (tanstack-router | next/app | next/pages)"
+        )
+        .option(
+            "--vf, --vue-framework <vueFramework>",
+            "vue framework to use (vue-router | nuxt)"
         )
         .option(
             "-c,--css <css>",
@@ -27,7 +31,7 @@ export const commanderCore = (function () {
     const opts = program.opts();
 
     const optionName = optionConversion(opts.name);
-    const optionReactFramework = optionConversion(opts.framework);
+    const optionReactFramework = optionConversion(opts.reactFramework);
     const optionTechStack = optionConversion(opts.techStack);
     const optionCss = optionConversion(opts.css);
     const optionUseAllComponents = optionConversion(opts.useAllComponents);

@@ -2,7 +2,7 @@ import {
     type Lib,
     libsArray,
     selectLibList
-} from "../../template/react-static";
+} from "../../template/react/react-static";
 import { isBoolean } from "../../utils/is";
 import { type Option, optionUtility } from "../../utils/option";
 import { type Result, resultUtility } from "../../utils/result";

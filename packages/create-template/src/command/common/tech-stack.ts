@@ -1,5 +1,8 @@
 import prompts from "prompts";
-import { TechStack, techStackSelectList } from "../../template/core-static";
+import {
+    TechStack,
+    techStackSelectList
+} from "../../template/core/core-static";
 import { optionUtility, type Option } from "../../utils/option";
 import { Result, resultUtility } from "../../utils/result";
 import { commanderCore } from "./command-core";

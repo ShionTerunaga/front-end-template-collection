@@ -1,4 +1,4 @@
-import { TechStack, techStacks } from "../../template/core-static";
+import { TechStack, techStacks } from "../../template/core/core-static";
 import {
     Framework,
     frameworks,
@@ -6,7 +6,7 @@ import {
     libsArray,
     ReactCss,
     reactCSSes
-} from "../../template/react-static";
+} from "../../template/react/react-static";
 import { isArray } from "../../utils/is";
 
 export function isReactFramework(value: unknown): value is Framework {

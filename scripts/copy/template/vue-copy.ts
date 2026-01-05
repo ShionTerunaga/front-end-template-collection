@@ -8,7 +8,7 @@ export function vueCopy() {
         "packages",
         "main-template",
         "vue",
-        "vue",
+        "vue-router",
         "vanilla-extract"
     );
 
@@ -18,7 +18,7 @@ export function vueCopy() {
         "create-template",
         "template",
         "vue",
-        "vue",
+        "vue-router",
         "vanilla-extract"
     );
 
@@ -29,7 +29,7 @@ export function vueCopy() {
         "tmp",
         "template",
         "vue",
-        "vue",
+        "vue-router",
         "vanilla-extract"
     );
 
@@ -40,7 +40,7 @@ export function vueCopy() {
         "tmp",
         "template",
         "vue",
-        "vue",
+        "vue-router",
         "vanilla-extract"
     );
 

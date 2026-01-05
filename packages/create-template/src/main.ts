@@ -7,8 +7,8 @@ import { commanderCore } from "./command/common/command-core";
 import { nameCommand } from "./command/common/project-name";
 import { cliErrorLog } from "./utils/error";
 import { techStackCommand } from "./command/common/tech-stack";
-import { createApp } from "./template/core";
-import { RunSuccess, TechStack } from "./template/core-static";
+import { createApp } from "./template/core/core";
+import { RunSuccess, TechStack } from "./template/core/core-static";
 import { reactCallback } from "./then";
 
 const handleSigTerm = () => process.exit(0);
