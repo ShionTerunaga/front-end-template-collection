@@ -1,12 +1,9 @@
-import path, { resolve, basename } from "node:path";
-import { mkdirSync } from "node:fs";
-import { isFolderEmpty } from "../../helper/is-folder-empty";
-import { green } from "picocolors";
+import { resolve, basename } from "node:path";
 import { addPackage } from "../../lib/react/install-lib";
 import { Noop, Result, resultUtility } from "../../utils/result";
 import { TechMaterial } from "../core/core-static";
-import { copy } from "../../helper/copy";
-import fs from "fs/promises";
+
+import { typescriptTemplateInstall } from "../common/typescript-template-install";
 
 export async function reactInstaller({
     appPath,
@@ -15,10 +12,8 @@ export async function reactInstaller({
     appPath: string;
     material: TechMaterial;
 }): Promise<Result<Noop, Error>> {
-    const { createNg, checkPromiseVoid } = resultUtility;
-    const { path: templatePath, styleSheet, lib } = material;
-
-    const copySource = ["**/*"];
+    const { createNg } = resultUtility;
+    const { styleSheet, lib } = material;
 
     const root = resolve(appPath);
     const appName = basename(appPath);
@@ -31,84 +26,14 @@ export async function reactInstaller({
         return createNg(new Error("Library option is required"));
     }
 
-    mkdirSync(root, { recursive: true });
-
-    if (!isFolderEmpty(root, appName)) {
-        return createNg(
-            new Error(
-                `The directory ${appName} is not empty. Please choose a different project name or remove the existing directory.\n`
-            )
-        );
-    }
-
-    console.log(`Creating a new React app in ${green(root)}.`);
-    console.log();
-
-    process.chdir(root);
-
-    const res = await copy(copySource, root, {
-        parents: true,
-        cwd: templatePath,
-        rename: (name) => {
-            switch (name) {
-                case "gitignore":
-                    return `.${name}`;
-                case "env":
-                    return `.${name}`;
-                case "package-template.json":
-                    return "package.json";
-                case "README.sample.md":
-                    return "README.md";
-                default:
-                    return name;
-            }
-        }
+    const installResult = await typescriptTemplateInstall({
+        root,
+        appName,
+        material
     });
 
-    if (res.isErr) {
-        return res;
-    }
-
-    const pkgPath = path.join(root, "package.json");
-
-    const exists = await checkPromiseVoid({
-        fn: async () => {
-            await fs.stat(pkgPath);
-        },
-        err: (e) => {
-            if (e instanceof Error) {
-                return new Error(`Failed to access package.json: ${e.message}`);
-            }
-            return new Error("Failed to access package.json: Unknown error");
-        }
-    });
-
-    if (exists.isErr) {
-        return exists;
-    }
-
-    const raw = await fs.readFile(pkgPath, "utf8");
-    const pkg = JSON.parse(raw || "{}");
-
-    if (!appName || typeof appName !== "string") {
-        return createNg(new Error("Invalid app name"));
-    }
-
-    pkg.name = appName;
-
-    const writeResult = await checkPromiseVoid({
-        fn: async () => {
-            await fs.writeFile(
-                pkgPath,
-                JSON.stringify(pkg, null, 2) + "\n",
-                "utf8"
-            );
-        },
-        err: () => new Error(`Failed to update package.json name`)
-    });
-
-    if (writeResult.isErr) {
-        return writeResult;
+    if (installResult.isErr) {
+        return installResult;
     }
 
     return await addPackage({ root, css: styleSheet.value, libs: lib.value });

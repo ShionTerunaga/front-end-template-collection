@@ -32,6 +32,7 @@ export const commanderCore = (function () {
 
     const optionName = optionConversion(opts.name);
     const optionReactFramework = optionConversion(opts.reactFramework);
+    const optionVueFramework = optionConversion(opts.vueFramework);
     const optionTechStack = optionConversion(opts.techStack);
     const optionCss = optionConversion(opts.css);
     const optionUseAllComponents = optionConversion(opts.useAllComponents);
@@ -52,6 +53,7 @@ export const commanderCore = (function () {
         onPromptState,
         optionName,
         optionReactFramework,
+        optionVueFramework,
         optionTechStack,
         optionCss,
         optionUseAllComponents

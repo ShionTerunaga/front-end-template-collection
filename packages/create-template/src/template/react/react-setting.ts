@@ -45,6 +45,7 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
             __dirname,
             "..",
             "..",
+            "..",
             "template",
             "react",
             frameworResult.value,

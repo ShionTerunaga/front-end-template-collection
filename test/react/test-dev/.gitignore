@@ -4,6 +4,12 @@ mac-nextpages-tailwind
 mac-nextpages-vanillaextract
 mac-tanstack-tailwind
 mac-tanstack-vanillaextract
+win-nextapp-tailwind
+win-nextapp-vanillaextract
+win-nextpages-tailwind
+win-nextpages-vanillaextract
+win-tanstack-tailwind
+win-tanstack-vanillaextract
 
 node_modules
 .DS_Store

@@ -3,14 +3,14 @@ import { isReactCss } from "./react-is";
 import { cssCommand } from "../css/css-core";
 import { ReactCss } from "../../template/react/react-static";
 
-export async function cssReactCommand(optionCss: Option<unknown>) {
+export async function cssReactCommand(optionReactCss: Option<unknown>) {
     const choises = [
         { title: "tailwindCSS", value: "tailwind" },
         { title: "vanilla-extract ", value: "vanilla-extract" }
     ];
 
     return await cssCommand<ReactCss>({
-        optionCss,
+        optionCss: optionReactCss,
         isCss: isReactCss,
         csses: choises
     });
