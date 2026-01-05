@@ -2,7 +2,6 @@ import { basename, resolve } from "node:path";
 import { validateNpmName } from "./helper/validate-npm-name";
 import { existsSync } from "node:fs";
 import { bold, red, green } from "picocolors";
-import { resultUtility } from "./utils/result";
 import { commanderCore } from "./command/common/command-core";
 import { nameCommand } from "./command/common/project-name";
 import { cliErrorLog } from "./utils/error";
@@ -17,13 +16,11 @@ process.on("SIGTERM", handleSigTerm);
 process.on("SIGINT", handleSigTerm);
 
 export async function run(): Promise<RunSuccess> {
-    const { isNG } = resultUtility;
-
     const { optionName, optionTechStack } = commanderCore;
 
     const projectName = await nameCommand(optionName);
 
-    if (isNG(projectName)) {
+    if (projectName.isErr) {
         cliErrorLog(projectName.err);
         process.exit(1);
     }
@@ -33,7 +30,7 @@ export async function run(): Promise<RunSuccess> {
 
     const techStack = await techStackCommand(optionTechStack);
 
-    if (isNG(techStack)) {
+    if (techStack.isErr) {
         cliErrorLog(techStack.err);
 
         process.exit(1);
@@ -64,7 +61,7 @@ export async function run(): Promise<RunSuccess> {
         tech: techStack.value
     });
 
-    if (isNG(installResult)) {
+    if (installResult.isErr) {
         cliErrorLog(installResult.err);
         process.exit(1);
     }

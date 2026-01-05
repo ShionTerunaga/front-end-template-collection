@@ -12,24 +12,24 @@ import { librarySetting } from "./react-static";
 export async function reactCli(): Promise<Result<TechMaterial, Error>> {
     const { optionReactFramework, optionCss, optionUseAllComponents } =
         commanderCore;
-    const { isNG, createOk } = resultUtility;
-    const { createSome, isNone, createNone } = optionUtility;
+    const { createOk } = resultUtility;
+    const { createSome, createNone } = optionUtility;
 
     const frameworResult = await frameworkCommand(optionReactFramework);
 
-    if (isNG(frameworResult)) {
+    if (frameworResult.isErr) {
         return frameworResult;
     }
 
     const cssResult = await cssReactCommand(optionCss);
 
-    if (isNG(cssResult)) {
+    if (cssResult.isErr) {
         return cssResult;
     }
 
     const resultSelected = await libCli(optionUseAllComponents);
 
-    if (isNG(resultSelected)) {
+    if (resultSelected.isErr) {
         return resultSelected;
     }
 
@@ -54,13 +54,13 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
 
     const resultPath = foundFolder(templatePath);
 
-    if (isNG(resultPath)) {
+    if (resultPath.isErr) {
         return resultPath;
     }
 
     const libs = resultSelected.value;
 
-    const selectLib = isNone(libs)
+    const selectLib = libs.isNone
         ? createNone()
         : createSome(
               librarySetting.filter((item) => libs.value.includes(item.lib))

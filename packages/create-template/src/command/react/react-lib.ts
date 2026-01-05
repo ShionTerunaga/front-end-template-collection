@@ -13,12 +13,11 @@ import { isLib, isLibsArray } from "./react-is";
 export async function libCli(
     optionLibs: Option<unknown>
 ): Promise<Result<Option<Array<Lib>>, Error>> {
-    const { isSome, isNone, optionConversion, createSome, createNone } =
-        optionUtility;
-    const { createOk, checkPromiseReturn, isNG, createNg } = resultUtility;
+    const { optionConversion, createSome, createNone } = optionUtility;
+    const { createOk, checkPromiseReturn, createNg } = resultUtility;
     const { onPromptState } = commanderCore;
 
-    if (isSome(optionLibs) && isBoolean(optionLibs.value) && optionLibs.value) {
+    if (optionLibs.isSome && isBoolean(optionLibs.value) && optionLibs.value) {
         return createOk(createSome([...libsArray]));
     }
 
@@ -42,13 +41,13 @@ export async function libCli(
         }
     });
 
-    if (isNG(response)) {
+    if (response.isErr) {
         return response;
     }
 
     const selectedLibs = optionConversion(response.value.packages);
 
-    if (isNone(selectedLibs)) {
+    if (selectedLibs.isNone) {
         return createOk(createNone());
     }
 

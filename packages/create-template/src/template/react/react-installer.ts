@@ -3,7 +3,6 @@ import { mkdirSync } from "node:fs";
 import { isFolderEmpty } from "../../helper/is-folder-empty";
 import { green } from "picocolors";
 import { addPackage } from "../../lib/react/install-lib";
-import { optionUtility } from "../../utils/option";
 import { Noop, Result, resultUtility } from "../../utils/result";
 import { TechMaterial } from "../core/core-static";
 import { copy } from "../../helper/copy";
@@ -16,8 +15,7 @@ export async function reactInstaller({
     appPath: string;
     material: TechMaterial;
 }): Promise<Result<Noop, Error>> {
-    const { isNG, createNg, checkPromiseVoid } = resultUtility;
-    const { isNone } = optionUtility;
+    const { createNg, checkPromiseVoid } = resultUtility;
     const { path: templatePath, styleSheet, lib } = material;
 
     const copySource = ["**/*"];
@@ -25,11 +23,11 @@ export async function reactInstaller({
     const root = resolve(appPath);
     const appName = basename(appPath);
 
-    if (isNone(styleSheet)) {
+    if (styleSheet.isNone) {
         return createNg(new Error("CSS option is required"));
     }
 
-    if (isNone(lib)) {
+    if (lib.isNone) {
         return createNg(new Error("Library option is required"));
     }
 
@@ -67,7 +65,7 @@ export async function reactInstaller({
         }
     });
 
-    if (isNG(res)) {
+    if (res.isErr) {
         return res;
     }
 
@@ -85,7 +83,7 @@ export async function reactInstaller({
         }
     });
 
-    if (isNG(exists)) {
+    if (exists.isErr) {
         return exists;
     }
 
@@ -109,7 +107,7 @@ export async function reactInstaller({
         err: () => new Error(`Failed to update package.json name`)
     });
 
-    if (isNG(writeResult)) {
+    if (writeResult.isErr) {
         return writeResult;
     }
 

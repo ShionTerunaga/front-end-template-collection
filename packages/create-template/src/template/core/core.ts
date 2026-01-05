@@ -1,4 +1,4 @@
-import { Noop, Result, resultUtility } from "../../utils/result";
+import type { Noop, Result } from "../../utils/result";
 import { type TechStack } from "./core-static";
 import { reactInstaller } from "../react/react-installer";
 import { reactCli } from "../react/react-setting";
@@ -10,13 +10,11 @@ export async function createApp({
     appPath: string;
     tech: TechStack;
 }): Promise<Result<Noop, Error>> {
-    const { isNG } = resultUtility;
-
     switch (tech) {
         case "react": {
             const materialResult = await reactCli();
 
-            if (isNG(materialResult)) {
+            if (materialResult.isErr) {
                 return materialResult;
             }
 

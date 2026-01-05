@@ -1,4 +1,4 @@
-import { optionUtility, type Option } from "../../utils/option";
+import { type Option } from "../../utils/option";
 import { resultUtility } from "../../utils/result";
 import prompts from "prompts";
 import { commanderCore } from "../common/command-core";
@@ -6,11 +6,10 @@ import { blue } from "picocolors";
 import { isReactFramework } from "./react-is";
 
 export async function frameworkCommand(optionFramework: Option<unknown>) {
-    const { isSome } = optionUtility;
-    const { createNg, createOk, checkPromiseReturn, isNG } = resultUtility;
+    const { createNg, createOk, checkPromiseReturn } = resultUtility;
     const { onPromptState } = commanderCore;
 
-    if (isSome(optionFramework) && isReactFramework(optionFramework.value)) {
+    if (optionFramework.isSome && isReactFramework(optionFramework.value)) {
         return createOk(optionFramework.value);
     }
 
@@ -38,7 +37,7 @@ export async function frameworkCommand(optionFramework: Option<unknown>) {
         }
     });
 
-    if (isNG(response)) {
+    if (response.isErr) {
         return response;
     }
 

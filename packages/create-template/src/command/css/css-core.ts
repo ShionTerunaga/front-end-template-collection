@@ -12,11 +12,11 @@ export async function cssCommand<T>({
     isCss: (value: unknown) => value is NonNullable<T>;
     csses: Choice[] | PrevCaller<string, Falsy | Choice[]>;
 }) {
-    const { isSome, optionConversion } = optionUtility;
-    const { createOk, createNg, checkPromiseReturn, isNG } = resultUtility;
+    const { optionConversion } = optionUtility;
+    const { createOk, createNg, checkPromiseReturn } = resultUtility;
     const { onPromptState } = commanderCore;
 
-    if (isSome(optionCss) && isCss(optionCss.value)) {
+    if (optionCss.isSome && isCss(optionCss.value)) {
         return createOk(optionCss.value);
     }
 
@@ -38,13 +38,13 @@ export async function cssCommand<T>({
         }
     });
 
-    if (isNG(response)) {
+    if (response.isErr) {
         return response;
     }
 
     const css = optionConversion(response.value.css);
 
-    if (isSome(css) && isCss(css.value)) {
+    if (css.isSome && isCss(css.value)) {
         return createOk(css.value);
     }
 

@@ -8,11 +8,11 @@ import { commanderCore } from "./command-core";
 export async function nameCommand(
     optionName: Option<unknown>
 ): Promise<Result<string, Error>> {
-    const { isSome, optionConversion } = optionUtility;
+    const { optionConversion } = optionUtility;
     const { onPromptState } = commanderCore;
-    const { createOk, checkPromiseReturn, isNG } = resultUtility;
+    const { createOk, checkPromiseReturn } = resultUtility;
 
-    if (isSome(optionName) && isString(optionName.value)) {
+    if (optionName.isSome && isString(optionName.value)) {
         return createOk(optionName.value.trim());
     }
 
@@ -43,13 +43,13 @@ export async function nameCommand(
         }
     });
 
-    if (isNG(response)) {
+    if (response.isErr) {
         return response;
     }
 
     const name = optionConversion(response.value.path);
 
-    if (isSome(name) && isString(name.value)) {
+    if (name.isSome && isString(name.value)) {
         return createOk(name.value.trim());
     }
 
