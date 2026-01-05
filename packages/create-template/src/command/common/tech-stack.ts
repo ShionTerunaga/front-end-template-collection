@@ -1,18 +1,20 @@
 import prompts from "prompts";
-import { TechStack, techStackSelectList } from "../../template/core.static";
-import { isTechStack } from "../../utils/is";
-import { optionUtility, type Option } from "../../utils/option";
+import {
+    TechStack,
+    techStackSelectList
+} from "../../template/core/core-static";
+import { type Option } from "../../utils/option";
 import { Result, resultUtility } from "../../utils/result";
-import { commanderCore } from "./core";
+import { commanderCore } from "./command-core";
+import { isTechStack } from "../react/react-is";
 
 export async function techStackCommand(
     optionTech: Option<unknown>
 ): Promise<Result<TechStack, Error>> {
-    const { isSome } = optionUtility;
-    const { createOk, createNg, checkPromiseReturn, isNG } = resultUtility;
+    const { createOk, createNg, checkPromiseReturn } = resultUtility;
     const { onPromptState } = commanderCore;
 
-    if (isSome(optionTech) && isTechStack(optionTech.value)) {
+    if (optionTech.isSome && isTechStack(optionTech.value)) {
         return createOk(optionTech.value);
     }
 
@@ -34,7 +36,7 @@ export async function techStackCommand(
         }
     });
 
-    if (isNG(response)) {
+    if (response.isErr) {
         return response;
     }
 

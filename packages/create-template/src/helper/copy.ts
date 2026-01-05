@@ -16,7 +16,7 @@ export async function copy(
     dest: string,
     { cwd, rename = identity, parents = true }: CopyOptions
 ): Promise<Result<() => void, Error>> {
-    const { createNg, createOk, isNG, checkPromiseReturn } = resultUtility;
+    const { createNg, createOk, checkPromiseReturn } = resultUtility;
 
     const sources = typeof src === "string" ? [src] : src;
 
@@ -36,7 +36,7 @@ export async function copy(
         err: () => new Error("Failed to glob source files")
     });
 
-    if (isNG(sourceFiles)) {
+    if (sourceFiles.isErr) {
         return sourceFiles;
     }
 

@@ -14,7 +14,9 @@ async function copyDir(src: string, dest: string, rel = ""): Promise<void> {
             name === "pnpm-lock.yaml" ||
             name === "dist" ||
             name === "coverage" ||
-            name === ".tanstack"
+            name === ".tanstack" ||
+            name === ".output" ||
+            name === ".nuxt"
         ) {
             continue;
         }
@@ -46,7 +48,7 @@ async function copyDir(src: string, dest: string, rel = ""): Promise<void> {
             try {
                 await fs.symlink(target, destPath);
             } catch {
-                console.error("failed to create symlink");
+                console.error("❌failed to create symlink\n");
             }
         }
     }
@@ -56,16 +58,16 @@ export async function run(srcAppDir: string, destBase: string): Promise<void> {
     try {
         const srcStat = await fs.stat(srcAppDir).catch(() => null);
         if (!srcStat || !srcStat.isDirectory()) {
-            console.error(`source directory not found: ${srcAppDir}`);
+            console.error(`❌source directory not found: ${srcAppDir}\n`);
             process.exit(1);
         }
 
         await fs.rm(destBase, { recursive: true, force: true }).catch(() => {});
         await copyDir(srcAppDir, destBase, "");
 
-        console.log("copy finished:", srcAppDir, "->", destBase);
+        console.log("✅copy finished:", srcAppDir, "->", destBase, "\n");
     } catch (err) {
-        console.error("copy failed:", err);
+        console.error("❌copy failed:", err + "\n");
         process.exit(1);
     }
 }

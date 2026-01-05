@@ -1,7 +1,10 @@
 import { noop, Noop, Result, resultUtility } from "../../utils/result";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { ReactCss, ReactLibrarySettings } from "../../template/react.static";
+import {
+    ReactCss,
+    ReactLibrarySettings
+} from "../../template/react/react-static";
 import { copy } from "../../helper/copy";
 import { foundFolder } from "../../utils/found-file";
 import fs from "fs/promises";
@@ -16,8 +19,7 @@ export async function addPackage({
     css: ReactCss;
     libs: ReactLibrarySettings;
 }): Promise<Result<Noop, Error>> {
-    const { isNG, createOk, checkPromiseReturn, checkPromiseVoid } =
-        resultUtility;
+    const { createOk, checkPromiseReturn, checkPromiseVoid } = resultUtility;
 
     if (libs.length === 0) {
         console.log("✅ No additional packages selected.");
@@ -58,7 +60,7 @@ export async function addPackage({
 
         const resultPath = foundFolder(templatePath);
 
-        if (isNG(resultPath)) {
+        if (resultPath.isErr) {
             return resultPath;
         }
 
@@ -68,7 +70,7 @@ export async function addPackage({
             cwd: resultPath.value
         });
 
-        if (isNG(res)) {
+        if (res.isErr) {
             return res;
         }
 
@@ -99,7 +101,7 @@ export async function addPackage({
 
             const storybookResultPath = foundFolder(storybookTemplatePath);
 
-            if (isNG(storybookResultPath)) {
+            if (storybookResultPath.isErr) {
                 return storybookResultPath;
             }
 
@@ -108,7 +110,7 @@ export async function addPackage({
                 cwd: storybookResultPath.value
             });
 
-            if (isNG(storyRes)) {
+            if (storyRes.isErr) {
                 return storyRes;
             }
         }
@@ -133,7 +135,7 @@ export async function addPackage({
 
             const testResultPath = foundFolder(testTemplatePath);
 
-            if (isNG(testResultPath)) {
+            if (testResultPath.isErr) {
                 return testResultPath;
             }
 
@@ -142,7 +144,7 @@ export async function addPackage({
                 cwd: testResultPath.value
             });
 
-            if (isNG(testRes)) {
+            if (testRes.isErr) {
                 return testRes;
             }
         }
@@ -157,7 +159,7 @@ export async function addPackage({
         err: () => new Error(`Failed to read template.info.json`)
     });
 
-    if (isNG(raw)) {
+    if (raw.isErr) {
         return raw;
     }
 
@@ -176,7 +178,7 @@ export async function addPackage({
         err: () => new Error(`Failed to update template.info.json`)
     });
 
-    if (isNG(writeResult)) {
+    if (writeResult.isErr) {
         return writeResult;
     }
 

@@ -23,7 +23,7 @@ function copyDir(src: string, dest: string) {
                     fs.unlinkSync(destPath);
                 } catch {}
                 fs.symlinkSync(real, destPath);
-            } catch (err) {
+            } catch {
                 // fallback to copy
                 fs.copyFileSync(srcPath, destPath);
             }
