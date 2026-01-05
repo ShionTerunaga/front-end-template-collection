@@ -16972,7 +16972,8 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                             name: "framework",
                             message: `Select a ${styleFramework} for your project:`,
                             choices: [
-                                { title: "Vue router", value: "vue-router" }
+                                { title: "Vue router", value: "vue-router" },
+                                { title: "Nuxt.js", value: "nuxt" }
                             ],
                             initial: 0
                         }),
