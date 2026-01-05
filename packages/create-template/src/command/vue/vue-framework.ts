@@ -25,7 +25,10 @@ export async function vueFrameworkCommand(
                 type: "select",
                 name: "framework",
                 message: `Select a ${styleFramework} for your project:`,
-                choices: [{ title: "Vue router", value: "vue-router" }],
+                choices: [
+                    { title: "Vue router", value: "vue-router" },
+                    { title: "Nuxt.js", value: "nuxt" }
+                ],
                 initial: 0
             }),
         err: (e) => {
