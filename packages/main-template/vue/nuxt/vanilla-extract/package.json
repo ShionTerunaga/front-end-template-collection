@@ -7,14 +7,17 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
+        "postinstall": "nuxt prepare",
+        "test:unit": "vitest run"
     },
     "dependencies": {
         "@nuxt/image": "2.0.0",
         "@vanilla-extract/css": "^1.18.0",
         "@vanilla-extract/vite-plugin": "^5.1.4",
+        "jsdom": "^27.4.0",
         "next": "link:",
         "nuxt": "^4.2.2",
+        "vitest": "^4.0.16",
         "vue": "^3.5.25",
         "vue-router": "^4.6.4",
         "zod": "^4.3.2"
