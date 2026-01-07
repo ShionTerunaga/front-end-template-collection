@@ -1,10 +1,10 @@
 import { core, ZodType } from 'zod'
-import { Option, optionUtility } from '@/utils/option'
-import { Result, resultUtility } from '@/utils/result'
+import { type Option, optionUtility } from '@/utils/option'
+import { type Result, resultUtility } from '@/utils/result'
 import { createHttpScheme } from '@/utils/error/http'
 import {
     createFetcherError,
-    FetcherError,
+    type FetcherError,
 } from '@/utils/error/fetcher/fetcher-error'
 
 export async function fetcher<T extends ZodType>({

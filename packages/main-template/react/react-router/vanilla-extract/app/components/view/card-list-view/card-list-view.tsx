@@ -16,9 +16,9 @@ export function CardListView<T extends APIView, S extends Props<T>>(
 
     return (
         <section>
-            <FontCenter>
-                <Heading>{title}</Heading>
-            </FontCenter>
+            <Heading>
+                <FontCenter>{title}</FontCenter>
+            </Heading>
 
             <GridBox>
                 {potters.map(({ id, image, name }) => (

@@ -7,6 +7,8 @@ export default function HomeView() {
         <Box as="main">
             <Heading>{ja.app.home.title}</Heading>
             <Link to="/server-loader">{ja.app.home.toServerLoaderPotter}</Link>
+            <br />
+            <Link to="/client-loader">{ja.app.home.toClientLoaderPotter}</Link>
         </Box>
     )
 }

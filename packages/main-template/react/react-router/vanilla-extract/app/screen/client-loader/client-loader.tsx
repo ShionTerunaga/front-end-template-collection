@@ -10,13 +10,13 @@ interface Props {
     characters: Result<Option<Array<APIView>>, FetcherError>
 }
 
-export default function ServerLoaderView<T extends Props>({
+export default function ClientLoaderView<T extends Props>({
     characters,
 }: CheckerProps<T, Props, 'Invalid props'>) {
     return (
         <CardLayout
             characters={characters}
-            title={ja.app.serverLoaderPotter.title}
+            title={ja.app.clientLoaderPotter.title}
         />
     )
 }
