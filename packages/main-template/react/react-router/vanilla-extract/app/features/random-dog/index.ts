@@ -1,1 +1,1 @@
-export * from "./service/get-random-dog";
+export * from './service/get-random-dog'
