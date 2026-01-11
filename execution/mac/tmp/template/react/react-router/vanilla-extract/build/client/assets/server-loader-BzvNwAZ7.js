@@ -1,1 +1,17 @@
-import{p as e,w as a}from"./chunk-WWGJGFF6-DYiR-IbF.js";import{C as s}from"./card-layout-Bvh3wAG5.js";import{j as n}from"./ja-C0CTg_GC.js";function i({characters:r}){return e.jsx(s,{characters:r,title:n.app.serverLoaderPotter.title})}function m({}){return[{title:"Server Loader"},{name:"description",content:"This is the server loader route."}]}const d=a(function({loaderData:t}){const o=t;return e.jsx(i,{characters:o})});export{d as default,m as meta};
+import { p as e, w as a } from './chunk-WWGJGFF6-DYiR-IbF.js'
+import { C as s } from './card-layout-Bvh3wAG5.js'
+import { j as n } from './ja-C0CTg_GC.js'
+function i({ characters: r }) {
+    return e.jsx(s, { characters: r, title: n.app.serverLoaderPotter.title })
+}
+function m({}) {
+    return [
+        { title: 'Server Loader' },
+        { name: 'description', content: 'This is the server loader route.' },
+    ]
+}
+const d = a(function ({ loaderData: t }) {
+    const o = t
+    return e.jsx(i, { characters: o })
+})
+export { d as default, m as meta }
