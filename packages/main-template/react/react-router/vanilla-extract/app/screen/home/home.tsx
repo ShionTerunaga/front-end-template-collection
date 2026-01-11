@@ -9,6 +9,8 @@ export default function HomeView() {
             <Link to="/server-loader">{ja.app.home.toServerLoaderPotter}</Link>
             <br />
             <Link to="/client-loader">{ja.app.home.toClientLoaderPotter}</Link>
+            <br />
+            <Link to="/server-action">{ja.app.home.toServerActionPotter}</Link>
         </Box>
     )
 }

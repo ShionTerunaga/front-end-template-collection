@@ -2,7 +2,7 @@ import type { CheckerProps } from '@/shared/types/object'
 import { headingFontStyle } from './heading.css'
 import { textColor, type TextTheme } from '@/shared/theme/design-system.css'
 import type { ChildrenOnly } from '@/shared/types/react'
-import type { CSSProperties, ElementType } from 'react'
+import { memo, type CSSProperties, type ElementType } from 'react'
 import classMerger from '@/utils/class-merger'
 
 /**
@@ -19,7 +19,7 @@ interface HeadingStyle {
 
 interface HeadingProps extends HeadingStyle, ChildrenOnly {}
 
-export function Heading<T extends HeadingProps>(
+export const Heading = memo(function <T extends HeadingProps>(
     props: CheckerProps<T, HeadingProps, 'Heading Props Error'>,
 ) {
     const {
@@ -38,4 +38,6 @@ export function Heading<T extends HeadingProps>(
             {children}
         </As>
     )
-}
+})
+
+Heading.displayName = 'Heading'

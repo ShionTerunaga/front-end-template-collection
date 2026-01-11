@@ -1,8 +1,8 @@
-import { resultUtility, Result } from '@/utils/result'
-import { RandomDogRes } from '../model/random-dog'
+import { resultUtility, type Result } from '@/utils/result'
+import type { RandomDogRes } from '../model/random-dog'
 import { createFetcherError } from '@/utils/error/fetcher'
-import { Option, optionUtility } from '@/utils/option'
-import { FetcherError } from '@/utils/error/fetcher'
+import { type Option, optionUtility } from '@/utils/option'
+import type { FetcherError } from '@/utils/error/fetcher'
 
 export function parseScheme(
     scheme: RandomDogRes,
