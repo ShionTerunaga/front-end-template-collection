@@ -279,6 +279,51 @@ export function reactCopy() {
     run(srcVanillaExtractSrcDir, destVanillaExtractSrcTanstackMac);
     run(srcVanillaExtractSrcDir, destVanillaExtractSrcTanstackExe);
 
+    const srcReactRouterVanillaExtractDir = path.join(
+        root,
+        "packages",
+        "main-template",
+        "react",
+        "react-router",
+        "vanilla-extract"
+    );
+
+    const destReactRouterVanillaExtractPack = path.join(
+        root,
+        "packages",
+        "create-template",
+        "template",
+        "react",
+        "react-router",
+        "vanilla-extract"
+    );
+
+    const destReactRouterVanillaExtractMac = path.join(
+        root,
+        "execution",
+        "mac",
+        "tmp",
+        "template",
+        "react",
+        "react-router",
+        "vanilla-extract"
+    );
+
+    const destReactRouterVanillaExtractExe = path.join(
+        root,
+        "execution",
+        "win",
+        "tmp",
+        "template",
+        "react",
+        "react-router",
+        "vanilla-extract"
+    );
+
+    run(srcReactRouterVanillaExtractDir, destReactRouterVanillaExtractPack);
+    run(srcReactRouterVanillaExtractDir, destReactRouterVanillaExtractMac);
+    run(srcReactRouterVanillaExtractDir, destReactRouterVanillaExtractExe);
+
     // lib copy
 
     const srcLibDir = path.join(root, "packages", "lib", "react", "src", "lib");
