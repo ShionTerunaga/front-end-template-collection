@@ -1,1 +1,73 @@
-import{p as h}from"./chunk-EPOLDU6W-CyFp4JB8.js";import{c as m}from"./ja-BCf0BCoW.js";var n={boxWidthStyle:{small:"_1q166nx0",middle:"_1q166nx1",big:"_1q166nx2",auto:"_1q166nx3",full:"_1q166nx4"},boxHeightStyle:{small:"_1q166nx5",middle:"_1q166nx6",big:"_1q166nx7",auto:"_1q166nx8",full:"_1q166nx9"},boxBorderRadiusStyle:{none:"_1q166nxa",small:"_1q166nxb",middle:"_1q166nxc",big:"_1q166nxd",full:"_1q166nxe"},border:{none:"_1q166nxf",thin:"_1q166nxg",middle:"_1q166nxh",thick:"_1q166nxi"},boxShadowStyle:{none:"_1q166nxj",small:"_1q166nxk",middle:"_1q166nxl",big:"_1q166nxm"},colorStyle:{white:"_1q166nxn",lightGray:"_1q166nxo",gray:"_1q166nxp",darkGray:"_1q166nxq",black:"_1q166nxr",red:"_1q166nxs",blue:"_1q166nxt",green:"_1q166nxu"}};function y(o){const{as:e="div",width:x="auto",height:l="auto",boxShadow:t="none",color:r="white",border:a="none",borderRadius:q="none",className:i="",style:_,children:d}=o,s=m([n.boxWidthStyle[x],n.boxHeightStyle[l],n.boxShadowStyle[t],n.colorStyle[r],n.border[a],n.boxBorderRadiusStyle[q],i]),b=e;return h.jsx(b,{className:s,style:_,children:d})}export{y as B};
+import { p as h } from './chunk-EPOLDU6W-CyFp4JB8.js'
+import { c as m } from './ja-BCf0BCoW.js'
+var n = {
+    boxWidthStyle: {
+        small: '_1q166nx0',
+        middle: '_1q166nx1',
+        big: '_1q166nx2',
+        auto: '_1q166nx3',
+        full: '_1q166nx4',
+    },
+    boxHeightStyle: {
+        small: '_1q166nx5',
+        middle: '_1q166nx6',
+        big: '_1q166nx7',
+        auto: '_1q166nx8',
+        full: '_1q166nx9',
+    },
+    boxBorderRadiusStyle: {
+        none: '_1q166nxa',
+        small: '_1q166nxb',
+        middle: '_1q166nxc',
+        big: '_1q166nxd',
+        full: '_1q166nxe',
+    },
+    border: {
+        none: '_1q166nxf',
+        thin: '_1q166nxg',
+        middle: '_1q166nxh',
+        thick: '_1q166nxi',
+    },
+    boxShadowStyle: {
+        none: '_1q166nxj',
+        small: '_1q166nxk',
+        middle: '_1q166nxl',
+        big: '_1q166nxm',
+    },
+    colorStyle: {
+        white: '_1q166nxn',
+        lightGray: '_1q166nxo',
+        gray: '_1q166nxp',
+        darkGray: '_1q166nxq',
+        black: '_1q166nxr',
+        red: '_1q166nxs',
+        blue: '_1q166nxt',
+        green: '_1q166nxu',
+    },
+}
+function y(o) {
+    const {
+            as: e = 'div',
+            width: x = 'auto',
+            height: l = 'auto',
+            boxShadow: t = 'none',
+            color: r = 'white',
+            border: a = 'none',
+            borderRadius: q = 'none',
+            className: i = '',
+            style: _,
+            children: d,
+        } = o,
+        s = m([
+            n.boxWidthStyle[x],
+            n.boxHeightStyle[l],
+            n.boxShadowStyle[t],
+            n.colorStyle[r],
+            n.border[a],
+            n.boxBorderRadiusStyle[q],
+            i,
+        ]),
+        b = e
+    return h.jsx(b, { className: s, style: _, children: d })
+}
+export { y as B }
