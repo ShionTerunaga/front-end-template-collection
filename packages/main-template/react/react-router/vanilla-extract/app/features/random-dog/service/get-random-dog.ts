@@ -1,5 +1,3 @@
-'use server'
-
 import { appConfig } from '@/shared/config/config'
 import type { Result } from '@/utils/result'
 import { type RandomDogRes, randomDogScheme } from '../model/random-dog'

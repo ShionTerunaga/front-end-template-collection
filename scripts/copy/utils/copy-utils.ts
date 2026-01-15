@@ -95,6 +95,33 @@ async function main() {
             "tanstack-router",
             "tailwind",
             "src"
+        ),
+        path.join(
+            repoRoot,
+            "packages",
+            "main-template",
+            "react",
+            "react-router",
+            "vanilla-extract",
+            "app"
+        ),
+        path.join(
+            repoRoot,
+            "packages",
+            "main-template",
+            "vue",
+            "vue-router",
+            "vanilla-extract",
+            "src"
+        ),
+        path.join(
+            repoRoot,
+            "packages",
+            "main-template",
+            "vue",
+            "nuxt",
+            "vanilla-extract",
+            "app"
         )
     ];
 

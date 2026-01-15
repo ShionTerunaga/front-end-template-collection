@@ -1,15 +1,15 @@
 export default function classMerger(classes: Array<string>): string {
-    const seen = new Set<string>();
-    const out: string[] = [];
+  const seen = new Set<string>()
+  const out: string[] = []
 
-    for (const cls of classes) {
-        if (cls === "") continue;
+  for (const cls of classes) {
+    if (cls === '') continue
 
-        if (!seen.has(cls)) {
-            seen.add(cls);
-            out.push(cls);
-        }
+    if (!seen.has(cls)) {
+      seen.add(cls)
+      out.push(cls)
     }
+  }
 
-    return out.join(" ");
+  return out.join(' ')
 }

@@ -1,4 +1,4 @@
-import type { Dict } from '@/shared/types/object'
+import type { Dict } from "@/shared/types/object";
 
 /**
  * オブジェクトから要素を省く関数（非破壊）
@@ -7,40 +7,40 @@ import type { Dict } from '@/shared/types/object'
  */
 export function isKeyOf<T extends object>(
     key: PropertyKey,
-    obj: T,
+    obj: T
 ): key is keyof T {
-    return typeof key === 'string' ||
-        typeof key === 'number' ||
-        typeof key === 'symbol'
+    return typeof key === "string" ||
+        typeof key === "number" ||
+        typeof key === "symbol"
         ? key in obj
-        : false
+        : false;
 }
 
 export function isOmitObject<T extends object, S extends keyof T>(
     currentObj: Dict<unknown>,
-    keys: S[],
+    keys: S[]
 ): currentObj is Omit<T, S> {
-    return keys.every((key) => !Object.keys(currentObj).includes(String(key)))
+    return keys.every((key) => !Object.keys(currentObj).includes(String(key)));
 }
 
 export function omitElementObject<T extends object, S extends keyof T>(
     obj: T,
-    keys: S[],
+    keys: S[]
 ): Omit<T, S> {
     const entries = Object.entries(obj).filter(([k]) => {
-        return !keys.some((key) => String(key) === k)
-    })
+        return !keys.some((key) => String(key) === k);
+    });
 
-    const typedResult: Dict<unknown> = {}
+    const typedResult: Dict<unknown> = {};
     for (const [k, v] of entries) {
         if (isKeyOf(k, obj)) {
-            typedResult[k] = v
+            typedResult[k] = v;
         }
     }
 
     if (!isOmitObject<T, S>(typedResult, keys)) {
-        throw new Error('型の変換に失敗しました')
+        throw new Error("型の変換に失敗しました");
     }
 
-    return typedResult
+    return typedResult;
 }
