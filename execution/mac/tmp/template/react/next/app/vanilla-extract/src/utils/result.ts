@@ -19,22 +19,22 @@ interface NG<E> {
 
 interface CheckResultReturn<T, E> {
     fn: () => NonNullable<T>;
-    err: NonNullable<E>;
+    err: (e: unknown) => Result<never, NonNullable<E>>;
 }
 
 interface CheckResultVoid<E> {
     fn: () => void;
-    err: NonNullable<E>;
+    err: (e: unknown) => Result<never, NonNullable<E>>;
 }
 
 interface CheckPromiseReturn<T, E> {
     fn: () => Promise<NonNullable<T>>;
-    err: NonNullable<E>;
+    err: (e: unknown) => Result<never, NonNullable<E>>;
 }
 
 interface CheckPromiseVoid<E> {
     fn: () => Promise<void>;
-    err: NonNullable<E>;
+    err: (e: unknown) => Result<never, NonNullable<E>>;
 }
 
 const UNIT_SYMBOL = Symbol("UNIT_SYMBOL");
@@ -60,8 +60,8 @@ export const resultUtility = (function () {
             const result = await fn();
 
             return createOk(result);
-        } catch {
-            return createNg(err);
+        } catch (e) {
+            return err(e);
         }
     };
 
@@ -73,8 +73,8 @@ export const resultUtility = (function () {
             await fn();
 
             return createOk(UNIT);
-        } catch {
-            return createNg(err);
+        } catch (e) {
+            return err(e);
         }
     };
 
@@ -86,8 +86,8 @@ export const resultUtility = (function () {
             const result = fn();
 
             return createOk(result);
-        } catch {
-            return createNg(err);
+        } catch (e) {
+            return err(e);
         }
     };
 
@@ -99,8 +99,8 @@ export const resultUtility = (function () {
             fn();
 
             return createOk(UNIT);
-        } catch {
-            return createNg(err);
+        } catch (e) {
+            return err(e);
         }
     };
 
