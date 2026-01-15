@@ -17,7 +17,8 @@ async function copyDir(src: string, dest: string, rel = ""): Promise<void> {
             name === ".tanstack" ||
             name === ".output" ||
             name === ".nuxt" ||
-            name === ".react-router"
+            name === ".react-router" ||
+            name === "build"
         ) {
             continue;
         }

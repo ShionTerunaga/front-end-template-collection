@@ -47,7 +47,7 @@ describe("resultUtility", () => {
     it("checkResultReturn は成功時に ok を返す", () => {
         const res = checkResultReturn({
             fn: () => "ret",
-            err: (e) => createNg("err")
+            err: () => createNg("err")
         });
 
         expect(res.isOk).toBeTruthy();
@@ -60,7 +60,7 @@ describe("resultUtility", () => {
             fn: () => {
                 throw new Error("boom");
             },
-            err: (e) => createNg("myErr")
+            err: () => createNg("myErr")
         });
 
         expect(res.isErr).toBeTruthy();
@@ -71,7 +71,7 @@ describe("resultUtility", () => {
     it("checkResultVoid は成功時に UNIT を返す", () => {
         const res = checkResultVoid({
             fn: () => {},
-            err: (e) => createNg("e")
+            err: () => createNg("e")
         });
 
         expect(res.isOk).toBeTruthy();
@@ -82,7 +82,7 @@ describe("resultUtility", () => {
     it("checkPromiseReturn は解決時に ok を返す", async () => {
         const res = await checkPromiseReturn({
             fn: async () => "async",
-            err: (e) => createNg("e")
+            err: () => createNg("e")
         });
 
         expect(res.isOk).toBeTruthy();
@@ -95,7 +95,7 @@ describe("resultUtility", () => {
             fn: async () => {
                 throw new Error("fail");
             },
-            err: (e) => createNg("err")
+            err: () => createNg("err")
         });
 
         expect(res.isErr).toBeTruthy();
@@ -106,7 +106,7 @@ describe("resultUtility", () => {
     it("checkPromiseVoid は成功時に UNIT を返す", async () => {
         const res = await checkPromiseVoid({
             fn: async () => {},
-            err: (e) => createNg("e")
+            err: () => createNg("e")
         });
 
         expect(res.isOk).toBeTruthy();
