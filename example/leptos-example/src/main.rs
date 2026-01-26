@@ -1,5 +1,6 @@
 mod app;
 mod components;
+mod router;
 
 use leptos::mount::mount_to_body;
 

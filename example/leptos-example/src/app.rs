@@ -1,24 +1,15 @@
+use crate::router::home::Home;
 use leptos::prelude::*;
-
-use crate::components::progress_bar::ProgressBar;
-
+use leptos_router::components::*;
+use leptos_router::path;
 
 #[component]
 pub fn App() -> impl IntoView {
-    let (count,set_count) = signal(0);
-
-
-    view! { 
-        <button
-            on:click=move |_| set_count.set(count.get() + 1)
-            style:color="red"
-        >
-            "Count: " {count}
-        </button>
-        <br/>
-        
-        <ProgressBar
-            progress=count
-        />
+    view! {
+        <Router>
+            <Routes fallback=|| view! { <div>"Not Found"</div> }>
+                <Route path=path!("") view=Home />
+            </Routes>
+        </Router>
     }
 }
