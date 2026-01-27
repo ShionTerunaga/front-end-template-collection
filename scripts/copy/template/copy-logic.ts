@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { ignores } from "./ignore";
 
 async function copyDir(src: string, dest: string, rel = ""): Promise<void> {
     await fs.mkdir(dest, { recursive: true });
@@ -8,16 +9,7 @@ async function copyDir(src: string, dest: string, rel = ""): Promise<void> {
     for (const ent of entries) {
         const name = ent.name;
         // Skip unwanted files/dirs anywhere under the copied tree
-        if (
-            name === "node_modules" ||
-            name === ".next" ||
-            name === "pnpm-lock.yaml" ||
-            name === "dist" ||
-            name === "coverage" ||
-            name === ".tanstack" ||
-            name === ".output" ||
-            name === ".nuxt"
-        ) {
+        if (ignores.includes(name)) {
             continue;
         }
 

@@ -36,7 +36,11 @@ export async function fetcher<T extends ZodType>({
 
   const res = await checkPromiseReturn({
     fn: () => fetch(url.value, { cache }),
-    err: returnFetchFunctionError,
+    err: (e) => {
+      console.error(e)
+
+      return createNg(returnFetchFunctionError)
+    },
   })
 
   if (res.isErr) {

@@ -18,15 +18,11 @@ steps below to ensure a smooth contribution process.
 
 ## 2. Install Dependencies
 
-1. **Install Global Tools**:
-    ```bash
-    npm i -g pnpm pkg
-    ```
-2. **Install Project Dependencies**:
+1. **Install Project Dependencies**:
     ```bash
     pnpm install
     ```
-3. **Set Up Git Hooks**:
+1. **Set Up Git Hooks**:
     ```bash
     pnpm exec lefthook install
     ```
