@@ -17,7 +17,7 @@
         "@vitest/coverage-v8": "^4.0.5",
         "jsdom": "^27.0.1",
         "motion": "^12.23.24",
-        "next": "16.0.10",
+        "next": "16.1.5",
         "react": "19.2.0",
         "react-dom": "19.2.0",
         "vite-tsconfig-paths": "^5.1.4",
@@ -34,7 +34,7 @@
         "eslint": "^9",
         "eslint-config-next": "16.0.1",
         "eslint-plugin-storybook": "^10.0.2",
-        "storybook": "^10.1.11",
+        "storybook": "^10.2.1",
         "tailwindcss": "^4",
         "typescript": "^5"
     }
