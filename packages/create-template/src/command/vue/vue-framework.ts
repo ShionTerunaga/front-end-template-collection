@@ -24,7 +24,7 @@ export async function vueFrameworkCommand(
                 onState: onPromptState,
                 type: "select",
                 name: "framework",
-                message: `Select a ${styleFramework} for your project:`,
+                message: `Select a framework for your project:`,
                 choices: [
                     { title: "Vue router", value: "vue-router" },
                     { title: "Nuxt.js", value: "nuxt" }

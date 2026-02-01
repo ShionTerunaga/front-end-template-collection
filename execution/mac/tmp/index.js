@@ -16730,7 +16730,6 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
             const result_1 = __nccwpck_require__(4053);
             const prompts_1 = __importDefault(__nccwpck_require__(3731));
             const command_core_1 = __nccwpck_require__(9175);
-            const picocolors_1 = __nccwpck_require__(5657);
             const react_is_1 = __nccwpck_require__(1566);
             async function frameworkCommand(optionFramework) {
                 const { createNg, createOk, checkPromiseReturn } =
@@ -16742,14 +16741,13 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                 ) {
                     return createOk(optionFramework.value);
                 }
-                const styleFramework = (0, picocolors_1.blue)("framework");
                 const response = await checkPromiseReturn({
                     fn: async () =>
                         await (0, prompts_1.default)({
                             onState: onPromptState,
                             type: "select",
                             name: "framework",
-                            message: `Select a ${styleFramework} for your project:`,
+                            message: `Select a framework for your project:`,
                             choices: [
                                 {
                                     title: "TanStack Router",
@@ -16970,7 +16968,7 @@ Filtered results for: ${this.inputValue ? this.inputValue : color.gray("Enter so
                             onState: onPromptState,
                             type: "select",
                             name: "framework",
-                            message: `Select a ${styleFramework} for your project:`,
+                            message: `Select a framework for your project:`,
                             choices: [
                                 { title: "Vue router", value: "vue-router" },
                                 { title: "Nuxt.js", value: "nuxt" }
