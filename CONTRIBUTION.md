@@ -18,6 +18,8 @@ steps below to ensure a smooth contribution process.
 
 ## 2. Install Dependencies
 
+1. **Install Nodejs**: https://nodejs.org/en/download
+1. **Install uv**: https://docs.astral.sh/uv/getting-started/installation/
 1. **Install Project Dependencies**:
     ```bash
     pnpm install
