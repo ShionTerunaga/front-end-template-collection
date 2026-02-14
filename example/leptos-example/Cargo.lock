@@ -762,8 +762,10 @@ dependencies = [
 name = "leptos-example"
 version = "0.1.0"
 dependencies = [
+ "gloo-net",
  "leptos",
  "leptos_router",
+ "serde",
 ]
 
 [[package]]
