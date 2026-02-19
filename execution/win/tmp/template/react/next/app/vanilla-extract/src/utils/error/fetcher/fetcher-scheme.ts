@@ -30,7 +30,7 @@ interface FetcherErrorMessageScheme extends HttpErrorStatusErrorMessage {
     returnUnknownError: string;
 }
 
-export interface FetchErrorScheme {
+interface FetchErrorScheme {
     httpErrorStatusResponse: HttpErrorStatusResponse;
     fetcherErrorStatusScheme: FetcherErrorStatusScheme;
     fetchErrorMessage: FetcherErrorMessageScheme;

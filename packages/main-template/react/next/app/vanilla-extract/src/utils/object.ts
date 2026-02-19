@@ -5,7 +5,7 @@ import type { Dict } from "@/shared/types/object";
  * - 元オブジェクトは変更しません
  * - `as` / `any` を使わず、型ガードでキーを検証します
  */
-export function isKeyOf<T extends object>(
+function isKeyOf<T extends object>(
     key: PropertyKey,
     obj: T
 ): key is keyof T {

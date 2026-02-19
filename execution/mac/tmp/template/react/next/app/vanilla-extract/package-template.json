@@ -1,5 +1,5 @@
 {
-    "name": "v16",
+    "name": "app-vanilla-extract",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -43,7 +43,7 @@
         "eslint-config-next": "16.0.1",
         "eslint-plugin-storybook": "^10.0.0",
         "jsdom": "^26.1.0",
-        "storybook": "^10.1.11",
+        "storybook": "^10.2.1",
         "typescript": "^5"
     }
 }
