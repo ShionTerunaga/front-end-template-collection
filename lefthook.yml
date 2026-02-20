@@ -9,11 +9,18 @@ pre-commit:
 post-merge:
     commands:
         install:
-            run: pnpm install
-#        settings:
-#            run:
-#                pnpm create:env && buid:tmp && pnpm buid:upgrade-mac && pnpm
-#                buid:upgrade-win
+            run: |
+                pnpm install
+                pnpm install:mt:rna-tw
+                pnpm install:mt:rna-ve
+                pnpm install:mt:rnp-tw
+                pnpm install:mt:rnp-ve
+                pnpm install:mt:rrr-ve
+                pnpm install:mt:rts-tw
+                pnpm install:mt:rts-ve
+                pnpm install:mt:vn-ve
+                pnpm install:mt:vvr-ve
+                pnpm create:env
 
 commit-msg:
     commands:
