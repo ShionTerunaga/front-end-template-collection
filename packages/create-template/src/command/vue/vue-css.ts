@@ -7,7 +7,10 @@ import { cssCommand } from "../css/css-core";
 export async function vueCssCommander(
     optionVueCss: Option<unknown>
 ): Promise<Result<VueCss, Error>> {
-    const choises = [{ title: "vanilla-extract", value: "vanilla-extract" }];
+    const choises = [
+        { title: "scoped-css", value: "scoped-css" },
+        { title: "vanilla-extract", value: "vanilla-extract" }
+    ];
 
     return await cssCommand({
         optionCss: optionVueCss,

@@ -23,7 +23,7 @@ export const commanderCore = (function () {
         )
         .option(
             "-c,--css <css>",
-            "select css framework (tailwind | vanilla-extract)"
+            "select css framework (tailwind | vanilla-extract | scoped-css)"
         )
         .option("--use-all-components", "install all available components")
         .parse(process.argv);

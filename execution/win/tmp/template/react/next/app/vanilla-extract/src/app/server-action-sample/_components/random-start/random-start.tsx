@@ -11,7 +11,7 @@ import { useState } from "react";
 function RandomStart() {
     const { createNone } = optionUtility;
 
-    const [dog, setDog] = useState<Option<RandomDogRes>>(createNone());
+    const [dog, setDog] = useState<Option<RandomDogRes>>(() => createNone());
     const [error, setError] = useState<boolean>(false);
 
     const handleClick = async () => {

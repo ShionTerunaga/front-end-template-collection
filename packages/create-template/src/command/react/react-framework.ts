@@ -13,15 +13,13 @@ export async function frameworkCommand(optionFramework: Option<unknown>) {
         return createOk(optionFramework.value);
     }
 
-    const styleFramework = blue("framework");
-
     const response = await checkPromiseReturn({
         fn: async () =>
             await prompts({
                 onState: onPromptState,
                 type: "select",
                 name: "framework",
-                message: `Select a ${styleFramework} for your project:`,
+                message: `Select a framework for your project:`,
                 choices: [
                     { title: "TanStack Router", value: "tanstack-router" },
                     { title: "Next.js (App Router)", value: "next/app" },

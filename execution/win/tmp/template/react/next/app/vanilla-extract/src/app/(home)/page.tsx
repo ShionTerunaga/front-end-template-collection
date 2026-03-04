@@ -2,6 +2,11 @@ import { Box, Heading } from "@/components/ui";
 import { ja } from "@/shared/lang/ja";
 import Link from "next/link";
 
+export const metadata = {
+    title: ja.app.home.title,
+    description: "Next.js サンプルアプリのホームページです。"
+};
+
 export default function Home() {
     return (
         <Box as="main">

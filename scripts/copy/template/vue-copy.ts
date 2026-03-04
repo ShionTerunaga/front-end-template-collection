@@ -48,6 +48,51 @@ export function vueCopy() {
     run(srcVueVanillaExtractDir, destVueVanillaExtractMac);
     run(srcVueVanillaExtractDir, destVueVanillaExtractExe);
 
+    const srcVueScopedCssDir = path.join(
+        root,
+        "packages",
+        "main-template",
+        "vue",
+        "vue-router",
+        "scoped-css"
+    );
+
+    const destVueScopedCssPack = path.join(
+        root,
+        "packages",
+        "create-template",
+        "template",
+        "vue",
+        "vue-router",
+        "scoped-css"
+    );
+
+    const destVueScopedCssMac = path.join(
+        root,
+        "execution",
+        "mac",
+        "tmp",
+        "template",
+        "vue",
+        "vue-router",
+        "scoped-css"
+    );
+
+    const destVueScopedCssExe = path.join(
+        root,
+        "execution",
+        "win",
+        "tmp",
+        "template",
+        "vue",
+        "vue-router",
+        "scoped-css"
+    );
+
+    run(srcVueScopedCssDir, destVueScopedCssPack);
+    run(srcVueScopedCssDir, destVueScopedCssMac);
+    run(srcVueScopedCssDir, destVueScopedCssExe);
+
     const srcNuxtVanillaExtractDir = path.join(
         root,
         "packages",
@@ -92,4 +137,49 @@ export function vueCopy() {
     run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractPack);
     run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractMac);
     run(srcNuxtVanillaExtractDir, destNuxtVanillaExtractExe);
+
+    const srcNuxtScopedCssDir = path.join(
+        root,
+        "packages",
+        "main-template",
+        "vue",
+        "nuxt",
+        "scoped-css"
+    );
+
+    const destNuxtScopedCssPack = path.join(
+        root,
+        "packages",
+        "create-template",
+        "template",
+        "vue",
+        "nuxt",
+        "scoped-css"
+    );
+
+    const destNuxtScopedCssMac = path.join(
+        root,
+        "execution",
+        "mac",
+        "tmp",
+        "template",
+        "vue",
+        "nuxt",
+        "scoped-css"
+    );
+
+    const destNuxtScopedCssExe = path.join(
+        root,
+        "execution",
+        "win",
+        "tmp",
+        "template",
+        "vue",
+        "nuxt",
+        "scoped-css"
+    );
+
+    run(srcNuxtScopedCssDir, destNuxtScopedCssPack);
+    run(srcNuxtScopedCssDir, destNuxtScopedCssMac);
+    run(srcNuxtScopedCssDir, destNuxtScopedCssExe);
 }

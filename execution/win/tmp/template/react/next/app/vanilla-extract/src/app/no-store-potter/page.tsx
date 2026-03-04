@@ -4,6 +4,13 @@ import { getCharacter } from "@/features/harry-potter";
 import { ja } from "@/shared/lang/ja";
 import { Suspense } from "react";
 
+export const metadata = {
+    title: ja.app.noStorePotter.title,
+    description: "no-store を使った Harry Potter データ取得ページです。"
+};
+
+export const dynamic = "force-dynamic";
+
 async function NoStorePotter() {
     const potters = await getCharacter("no-store");
 

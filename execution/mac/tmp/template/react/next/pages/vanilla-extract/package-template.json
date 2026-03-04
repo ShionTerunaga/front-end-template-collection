@@ -3,14 +3,14 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --webpack",
-        "build": "next build --webpack",
-        "start": "next start",
-        "lint": "eslint",
-        "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build",
-        "test": "vitest run",
-        "test:cv": "vitest --coverage"
+        "dev": "pnpm exec next dev --webpack",
+        "build": "pnpm exec next build --webpack",
+        "start": "pnpm exec next start",
+        "lint": "pnpm exec eslint",
+        "storybook": "pnpm exec storybook dev -p 6006",
+        "build-storybook": "pnpm exec storybook build",
+        "test": "pnpm exec vitest run",
+        "test:cv": "pnpm exec vitest --coverage"
     },
     "dependencies": {
         "@testing-library/react": "^16.3.0",
@@ -41,7 +41,7 @@
         "eslint-config-next": "16.0.1",
         "eslint-plugin-storybook": "^10.0.0",
         "jsdom": "^27.0.1",
-        "storybook": "^10.1.11",
+        "storybook": "^10.2.1",
         "typescript": "^5"
     }
 }
