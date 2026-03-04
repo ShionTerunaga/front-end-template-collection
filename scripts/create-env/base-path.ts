@@ -6,6 +6,8 @@ interface Base {
     mainNextAppBase: string;
     mainNextPagesBase: string;
     mainTanstackBase: string;
+    mainVueRouterBase: string;
+    mainNuxtBase: string;
 }
 
 export const basePaths: Base = {
@@ -22,5 +24,13 @@ export const basePaths: Base = {
     mainTanstackBase: path.resolve(
         __dirname,
         "../../packages/main-template/react/tanstack-router"
+    ),
+    mainVueRouterBase: path.resolve(
+        __dirname,
+        "../../packages/main-template/vue/vue-router"
+    ),
+    mainNuxtBase: path.resolve(
+        __dirname,
+        "../../packages/main-template/vue/nuxt"
     )
 };

@@ -4,6 +4,7 @@ import { Noop, Result, resultUtility } from "../../utils/result";
 import { TechMaterial } from "../core/core-static";
 
 import { typescriptTemplateInstall } from "../common/typescript-template-install";
+import { isReactCss } from "../../command/react/react-is";
 
 export async function reactInstaller({
     appPath,
@@ -34,6 +35,10 @@ export async function reactInstaller({
 
     if (installResult.isErr) {
         return installResult;
+    }
+
+    if (!isReactCss(styleSheet.value)) {
+        return createNg(new Error("Invalid CSS option"));
     }
 
     return await addPackage({ root, css: styleSheet.value, libs: lib.value });

@@ -4,11 +4,15 @@ import { Target } from "./create-env.type";
 import { examplesNext } from "./next-example-env";
 import { mainNextEnv } from "./next-main-env";
 import { tanstackRouterEnv } from "./tanstack-main";
+import { vueRouterEnv } from "./vue-router-main";
+import { nuxtEnv } from "./nuxt-main";
 
 const targets: Array<Target> = [
     ...examplesNext,
     ...mainNextEnv,
-    ...tanstackRouterEnv
+    ...tanstackRouterEnv,
+    ...vueRouterEnv,
+    ...nuxtEnv
 ];
 
 function ensureDirExists(dir: string) {

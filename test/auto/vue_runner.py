@@ -19,7 +19,7 @@ KEYBOARD = {
 def get_actions():
     return [
         {
-            "project_name": "vue-router-tailwind",
+            "project_name": "vue-router-scoped-css",
             "tech_stack": KEYBOARD["ArrowDown"] + KEYBOARD["Enter"],
             "framework": KEYBOARD["Enter"],
             "css": KEYBOARD["Enter"],
@@ -31,7 +31,7 @@ def get_actions():
             "css": KEYBOARD["ArrowDown"] + KEYBOARD["Enter"],
         },
         {
-            "project_name": "nuxt-tailwind",
+            "project_name": "nuxt-scoped-css",
             "tech_stack": KEYBOARD["ArrowDown"] + KEYBOARD["Enter"],
             "framework": KEYBOARD["ArrowDown"] + KEYBOARD["Enter"],
             "css": KEYBOARD["Enter"],
