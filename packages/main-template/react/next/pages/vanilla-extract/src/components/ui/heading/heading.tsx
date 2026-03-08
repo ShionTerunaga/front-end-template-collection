@@ -6,15 +6,13 @@ import { ElementType } from "react";
 import classMerger from "@/utils/class-merger";
 
 type HeadingFont = keyof typeof headingFontStyle;
-
 interface HeadingStyle {
     as?: Extract<ElementType, "h1" | "h2" | "h3">;
     fontStyle?: HeadingFont;
     color?: TextTheme;
-    style?: React.CSSProperties;
     className?: string;
+    style?: React.CSSProperties;
 }
-
 interface HeadingProps extends HeadingStyle, ChildrenOnly {}
 
 export function Heading<T extends HeadingProps>(
@@ -24,15 +22,15 @@ export function Heading<T extends HeadingProps>(
         as = "h1",
         fontStyle = "firstBig",
         color = "textNormal",
-        style,
         className = "",
+        style,
         children
     } = props;
 
     const cn = classMerger([
+        className,
         headingFontStyle[fontStyle],
-        textColor[color],
-        className
+        textColor[color]
     ]);
 
     const As = as;

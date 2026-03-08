@@ -42,13 +42,13 @@ export function Box<T extends BoxProps>(
     } = props;
 
     const cn = classMerger([
+        className,
         boxVariants.boxWidthStyle[width],
         boxVariants.boxHeightStyle[height],
         boxVariants.boxShadowStyle[boxShadow],
         boxVariants.colorStyle[color],
         boxVariants.border[border],
-        boxVariants.boxBorderRadiusStyle[borderRadius],
-        className
+        boxVariants.boxBorderRadiusStyle[borderRadius]
     ]);
 
     const As = as;
