@@ -64,7 +64,12 @@ function RandomStart() {
                 ])}
             >
                 {error ? (
-                    <p className={classMerger(["font-semibold", "text-red-700"])}>
+                    <p
+                        className={classMerger([
+                            "font-semibold",
+                            "text-red-700"
+                        ])}
+                    >
                         {ja.app.serverActionSample.error}
                     </p>
                 ) : dog.isSome ? (
