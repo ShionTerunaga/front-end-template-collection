@@ -1,6 +1,6 @@
 import { CheckerProps } from "@/shared/types/object";
-import { headingFontStyle } from "./heading.css";
-import { textColor, TextTheme } from "@/shared/theme/design-system.css";
+import { headingFontStyle } from "./heading.style"; // Tailwind variants
+import { textColor, TextTheme } from "@/shared/theme/design-system.style";
 import { ChildrenOnly } from "@/shared/types/react";
 import { ElementType } from "react";
 import classMerger from "@/utils/class-merger";
@@ -10,8 +10,8 @@ interface HeadingStyle {
     as?: Extract<ElementType, "h1" | "h2" | "h3">;
     fontStyle?: HeadingFont;
     color?: TextTheme;
-    className?: string;
     style?: React.CSSProperties;
+    className?: string;
 }
 interface HeadingProps extends HeadingStyle, ChildrenOnly {}
 
@@ -22,24 +22,24 @@ export function Heading<T extends HeadingProps>(
         as = "h1",
         fontStyle = "firstBig",
         color = "textNormal",
-        className = "",
         style,
+        className,
         children
     } = props;
 
     const cn = classMerger([
-        className,
         headingFontStyle[fontStyle],
-        textColor[color]
+        textColor[color],
+        className ? className : ""
     ]);
 
-    const As = as;
-
-    const asProps = {
+    const componentProps = {
         className: cn,
         style,
         children
     };
 
-    return <As {...asProps} />;
+    const Components = as;
+
+    return <Components {...componentProps} />;
 }

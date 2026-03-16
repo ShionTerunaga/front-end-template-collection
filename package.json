@@ -65,7 +65,9 @@
         "test:vue-dev": "cd test/auto && uv sync && uv run main.py vue dev",
         "test:vue-pack": "pnpm build:all && cd test/auto && uv sync && uv run main.py vue pack",
         "lib:storybook": "pnpm exec turbo run storybook --filter=lib",
-        "lib:test": "pnpm exec turbo run test --filter=lib"
+        "lib:test": "pnpm exec turbo run test --filter=lib",
+        "story:react-tw": "pnpm exec turbo run storybook --filter=./packages/ui/react/tailwind",
+        "story:react-ve": "pnpm exec turbo run storybook --filter=./packages/ui/react/vanilla-extract"
     },
     "dependencies": {
         "@commitlint/cli": "^19.8.1",

@@ -1,11 +1,15 @@
-import { CheckerProps } from "@/shared/types/object";
+import type { CheckerProps } from "@/shared/types/object";
 import { headingFontStyle } from "./heading.css";
-import { textColor, TextTheme } from "@/shared/theme/design-system.css";
-import { ChildrenOnly } from "@/shared/types/react";
-import { ElementType } from "react";
+import { textColor, type TextTheme } from "@/shared/theme/design-system.css";
+import type { ChildrenOnly } from "@/shared/types/react";
+import type { ElementType } from "react";
 import classMerger from "@/utils/class-merger";
 
-type HeadingFont = keyof typeof headingFontStyle;
+/**
+ * HeadingFont type
+ */
+export type HeadingFont = keyof typeof headingFontStyle;
+
 interface HeadingStyle {
     as?: Extract<ElementType, "h1" | "h2" | "h3">;
     fontStyle?: HeadingFont;
@@ -13,6 +17,7 @@ interface HeadingStyle {
     className?: string;
     style?: React.CSSProperties;
 }
+
 interface HeadingProps extends HeadingStyle, ChildrenOnly {}
 
 export function Heading<T extends HeadingProps>(
@@ -33,13 +38,12 @@ export function Heading<T extends HeadingProps>(
         textColor[color]
     ]);
 
-    const As = as;
-
-    const asProps = {
+    const componentProps = {
         className: cn,
         style,
         children
     };
 
-    return <As {...asProps} />;
+    const Components = as;
+    return <Components {...componentProps} />;
 }

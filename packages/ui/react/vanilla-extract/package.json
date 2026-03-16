@@ -1,9 +1,11 @@
 {
-    "name": "utils",
+    "name": "ui-react-vanilla-extract",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
         "test": "vitest run",
         "lint": "eslint \"./**/*.{ts,tsx,js,jsx}\" --ext .ts,.tsx,.js,.jsx"
     },
