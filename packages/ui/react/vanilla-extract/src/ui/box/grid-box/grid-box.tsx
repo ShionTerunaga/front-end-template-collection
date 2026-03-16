@@ -1,12 +1,12 @@
-import type { ChildrenOnly } from "@/shared/types/react";
+import type { ChildrenOnly } from "@/src/shared/types/react";
 import {
     gridBoxBaseStyles,
     gridBoxGap,
     gridBoxGridTemplate
 } from "./grid-box.css";
-import type { CheckerProps } from "@/shared/types/object";
+import type { CheckerProps } from "@/src/shared/types/object";
 import { Box } from "../main/box";
-import classMerger from "@/utils/class-merger";
+import classMerger from "@/src/utils/class-merger";
 
 interface Props extends ChildrenOnly {
     gap?: keyof typeof gridBoxGap;

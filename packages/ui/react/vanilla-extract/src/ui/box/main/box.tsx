@@ -1,8 +1,8 @@
-import type { ChildrenOnly } from "@/shared/types/react";
+import type { ChildrenOnly } from "@/src/shared/types/react";
 import { boxVariants } from "./box.css";
-import type { CheckerProps } from "@/shared/types/object";
+import type { CheckerProps } from "@/src/shared/types/object";
 import type { ElementType } from "react";
-import classMerger from "@/utils/class-merger";
+import classMerger from "@/src/utils/class-merger";
 
 /**
  * Box Width Type

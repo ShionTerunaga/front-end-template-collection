@@ -1,4 +1,4 @@
-import type { Dict } from "@/shared/types/object";
+import type { Dict } from "@/src/shared/types/object";
 
 /**
  * オブジェクトから要素を省く関数（非破壊）

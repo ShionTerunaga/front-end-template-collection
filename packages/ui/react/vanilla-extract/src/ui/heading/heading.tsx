@@ -1,9 +1,9 @@
-import type { CheckerProps } from "@/shared/types/object";
+import type { CheckerProps } from "@/src/shared/types/object";
 import { headingFontStyle } from "./heading.css";
 import { textColor, type TextTheme } from "@/shared/theme/design-system.css";
-import type { ChildrenOnly } from "@/shared/types/react";
+import type { ChildrenOnly } from "@/src/shared/types/react";
 import type { ElementType } from "react";
-import classMerger from "@/utils/class-merger";
+import classMerger from "@/src/utils/class-merger";
 
 /**
  * HeadingFont type

@@ -20,13 +20,11 @@ export function FontCenter<T extends Props>(
 
     const classNames = classMerger([fontCenterBaseStyle, className ?? ""]);
 
-    const componentProps = {
-        className: classNames,
-        style,
-        children
-    };
-
     const Component = as;
 
-    return <Component {...componentProps} />;
+    return (
+        <Component className={classNames} style={style}>
+            {children}
+        </Component>
+    );
 }
