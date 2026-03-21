@@ -1,6 +1,12 @@
 {
     "name": "create-frontend-template",
     "version": "0.5.0",
+    "description": "CLI for generating frontend templates",
+    "bin": {
+        "create-frontend-template": "./bin/index.js"
+    },
+    "files": ["bin"],
+    "preferGlobal": true,
     "packageManager": "pnpm@10.18.3",
     "scripts": {
         "install:cli": "CI=true pnpm install --filter ./packages/create-template",
