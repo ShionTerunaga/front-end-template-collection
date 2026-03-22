@@ -36,6 +36,7 @@
         "prettier": "^3.6.2"
     },
     "devDependencies": {
+        "@vercel/ncc": "^0.38.4",
         "@changesets/cli": "^2.29.7",
         "@tsconfig/node24": "^24.0.4",
         "@types/conf": "^3.0.3",

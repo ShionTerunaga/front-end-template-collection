@@ -45,6 +45,9 @@ importers:
       '@types/node':
         specifier: ^25.0.1
         version: 25.0.1
+      '@vercel/ncc':
+        specifier: ^0.38.4
+        version: 0.38.4
       '@vitejs/plugin-react':
         specifier: ^5.0.4
         version: 5.0.4(vite@7.3.1(@types/node@25.0.1)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.20.5)(yaml@2.8.2))
@@ -1567,6 +1570,10 @@ packages:
     resolution: {integrity: sha512-fTYNKUK3n4ApkUf2FEcO7mpqNKEHf9kDGg8DXlkqHtPxgwPhjuaajmDfQCSBsNgnA2SLI+CB5EO6kLQuKsw2Rw==}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
+
+  '@vercel/ncc@0.38.4':
+    resolution: {integrity: sha512-8LwjnlP39s08C08J5NstzriPvW1SP8Zfpp1BvC2sI35kPeZnHfxVkCwu4/+Wodgnd60UtT1n8K8zw+Mp7J9JmQ==}
+    hasBin: true
 
   '@vitejs/plugin-react@5.0.4':
     resolution: {integrity: sha512-La0KD0vGkVkSk6K+piWDKRUyg8Rl5iAIKRMH0vMJI0Eg47bq1eOxmoObAaQG37WMW9MSyk7Cs8EIWwJC1PtzKA==}
@@ -5435,6 +5442,8 @@ snapshots:
       - terser
       - tsx
       - yaml
+
+  '@vercel/ncc@0.38.4': {}
 
   '@vitejs/plugin-react@5.0.4(vite@7.3.1(@types/node@25.0.1)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.20.5)(yaml@2.8.2))':
     dependencies:
