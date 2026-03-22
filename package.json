@@ -3,6 +3,9 @@
     "version": "0.5.0",
     "description": "CLI for generating frontend templates",
     "license": "MIT",
+    "engines": {
+        "node": ">=24"
+    },
     "bin": {
         "create-frontend-template": "./bin/index.js"
     },
@@ -13,8 +16,8 @@
     "packageManager": "pnpm@10.18.3",
     "scripts": {
         "install:cli": "CI=true pnpm install --filter ./packages/create-template",
-        "cp:frontend-template:bin": "pnpm exec tsx scripts/copy/template/copy-frontend-template-bin.ts",
-        "build:all": "pnpm exec ncc build ./packages/create-template/src/index.ts -o ./bin && pnpm exec tsx scripts/write/bin-write.ts",
+        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts",
+        "build:all": "pnpm exec ncc build ./packages/create-template/src/index.ts -o ./bin && node scripts/write/bin-write.mts",
         "changeset": "changeset",
         "version-packages": "changeset version",
         "release:pr": "changeset version",
@@ -50,7 +53,6 @@
         "stream-browserify": "^3.0.0",
         "ts-loader": "^9.5.4",
         "tsconfig-paths": "^4.2.0",
-        "tsx": "^4.20.3",
         "turbo": "^2.0.0",
         "typescript": "^5.8.3"
     }

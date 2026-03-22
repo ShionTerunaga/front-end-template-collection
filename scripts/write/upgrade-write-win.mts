@@ -1,7 +1,11 @@
 import path from "path";
-import core from "./core";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import core from "./core.mts";
 
-async function upgradeWriteWin() {
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+async function upgradeWriteWin(): Promise<void> {
     const pathName = path.resolve(
         __dirname,
         "..",

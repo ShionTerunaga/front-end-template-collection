@@ -1,8 +1,12 @@
 import fs from "fs";
 import path from "path";
+import { dirname } from "path";
 import { execFileSync } from "child_process";
+import { fileURLToPath } from "url";
 
-function copyDir(src: string, dest: string) {
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+function copyDir(src: string, dest: string): void {
     const stat = fs.statSync(src);
 
     if (!stat.isDirectory()) {
@@ -36,14 +40,14 @@ function copyDir(src: string, dest: string) {
     }
 }
 
-function runGit(args: string[], cwd?: string) {
+function runGit(args: string[], cwd?: string): void {
     execFileSync("git", args, {
         cwd,
         stdio: "inherit"
     });
 }
 
-async function main() {
+async function main(): Promise<void> {
     const repoRoot = path.resolve(__dirname, "..", "..", "..");
     const tempRoot = path.join(repoRoot, ".tmp", "frontend-template");
     const checkoutDir = path.join(tempRoot, "repo");
@@ -56,15 +60,18 @@ async function main() {
 
     try {
         console.log("Cloning frontend-template...");
-        runGit([
-            "clone",
-            "--depth",
-            "1",
-            "--filter=blob:none",
-            "--sparse",
-            "https://github.com/ShionTerunaga/frontend-template",
-            checkoutDir
-        ]);
+        runGit(
+            [
+                "clone",
+                "--depth",
+                "1",
+                "--filter=blob:none",
+                "--sparse",
+                "https://github.com/ShionTerunaga/frontend-template",
+                checkoutDir
+            ],
+            undefined
+        );
 
         console.log("Checking out template directory...");
         runGit(["sparse-checkout", "set", "template"], checkoutDir);
@@ -87,7 +94,7 @@ async function main() {
     }
 }
 
-main().catch((error) => {
+main().catch((error: unknown) => {
     console.error("Failed to copy template into bin:", error);
     process.exit(1);
 });
