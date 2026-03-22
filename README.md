@@ -9,7 +9,7 @@ This project is inspired by `create-next-app`.
 Install directly from GitHub:
 
 ```bash
-npm i -g github:ShionTerunaga/frontend-template-cli
+npm i -g github:ShionTerunaga/frontend-template-cli#release
 ```
 
 ## Usage
