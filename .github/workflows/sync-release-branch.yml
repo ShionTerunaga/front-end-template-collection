@@ -36,19 +36,17 @@ jobs:
           echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
           echo "sha=${SHA}" >> "$GITHUB_OUTPUT"
 
-      - name: Fast-forward release branch to main
+      - name: Sync release branch to main
         run: |
           git fetch origin main
 
           if git ls-remote --exit-code --heads origin release >/dev/null 2>&1; then
             git fetch origin release
-            git checkout -B release origin/release
-            git merge --ff-only origin/main
-          else
-            git checkout -B release origin/main
+            git push --force-with-lease origin origin/main:release
+            exit 0
           fi
 
-          git push origin HEAD:release
+          git push origin origin/main:release
 
       - name: Create git tag
         env:
