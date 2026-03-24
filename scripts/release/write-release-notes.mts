@@ -1,22 +1,36 @@
 import fs from "node:fs";
+import { pathToFileURL } from "node:url";
 
-const version = process.env.VERSION;
-const outputPath = process.env.OUTPUT_PATH ?? "release-notes.md";
+export function getReleaseNotes(version: string, changelogPath = "CHANGELOG.md") {
+    const changelog = fs.readFileSync(changelogPath, "utf8");
+    const escapedVersion = version.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const sectionPattern = new RegExp(`^## ${escapedVersion}\\n([\\s\\S]*?)(?=^## |\\Z)`, "m");
+    const match = changelog.match(sectionPattern);
 
-if (!version) {
-    console.error("VERSION is required.");
-    process.exit(1);
+    if (!match) {
+        throw new Error(`Could not find CHANGELOG entry for version ${version}.`);
+    }
+
+    return `## ${version}\n${match[1].trim()}\n`;
 }
 
-const changelog = fs.readFileSync("CHANGELOG.md", "utf8");
-const escapedVersion = version.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const sectionPattern = new RegExp(`^## ${escapedVersion}\\n([\\s\\S]*?)(?=^## |\\Z)`, "m");
-const match = changelog.match(sectionPattern);
-
-if (!match) {
-    console.error(`Could not find CHANGELOG entry for version ${version}.`);
-    process.exit(1);
+export function writeReleaseNotes(version: string, outputPath = "release-notes.md") {
+    const notes = getReleaseNotes(version);
+    fs.writeFileSync(outputPath, notes);
 }
 
-const notes = `## ${version}\n${match[1].trim()}\n`;
-fs.writeFileSync(outputPath, notes);
+function main() {
+    const version = process.env.VERSION;
+    const outputPath = process.env.OUTPUT_PATH ?? "release-notes.md";
+
+    if (!version) {
+        console.error("VERSION is required.");
+        process.exit(1);
+    }
+
+    writeReleaseNotes(version, outputPath);
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    main();
+}

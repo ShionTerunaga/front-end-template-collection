@@ -31,10 +31,8 @@ jobs:
         run: |
           VERSION=$(node -p 'require("./package.json").version')
           TAG="v${VERSION}"
-          SHA=$(git rev-parse HEAD)
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
-          echo "sha=${SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Sync release branch to main
         run: |
@@ -60,28 +58,8 @@ jobs:
           git tag -a "$TAG" -m "$TAG"
           git push origin "$TAG"
 
-      - name: Extract release notes from changelog
-        id: release_notes
-        env:
-          VERSION: ${{ steps.version.outputs.version }}
-          OUTPUT_PATH: release-notes.md
-        run: |
-          node scripts/release/write-release-notes.mts
-          echo "path=${OUTPUT_PATH}" >> "$GITHUB_OUTPUT"
-
-      - name: Create GitHub Release
+      - name: Sync GitHub Release Notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ steps.version.outputs.tag }}
-          TARGET: ${{ steps.version.outputs.sha }}
-          NOTES_FILE: ${{ steps.release_notes.outputs.path }}
         run: |
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release $TAG already exists. Skipping."
-            exit 0
-          fi
-
-          gh release create "$TAG" \
-            --target "$TARGET" \
-            --title "$TAG" \
-            --notes-file "$NOTES_FILE"
+          node scripts/release/sync-github-release.mts
