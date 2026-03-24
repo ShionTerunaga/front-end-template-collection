@@ -1,9 +1,9 @@
 import ServerActionView from '@/screen/server-action/server-action'
 import type { Route } from './+types/home'
-import type { Result } from 'ts-common-by-teru'
+import type { Result } from 'ts-shared'
 import { getRandomDog } from '@/features/random-dog/service/get-random-dog'
 import type { RandomDogRes } from '@/features/random-dog/model/random-dog'
-import type { Option } from 'ts-common-by-teru'
+import type { Option } from 'ts-shared'
 import type { FetcherError } from '@/shared/error/fetcher'
 
 export function meta({}: Route.MetaArgs) {

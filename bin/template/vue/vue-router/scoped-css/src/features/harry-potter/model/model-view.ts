@@ -1,4 +1,4 @@
-import type { Option } from 'ts-common-by-teru'
+import type { Option } from 'ts-shared'
 
 export interface APIView {
   id: string

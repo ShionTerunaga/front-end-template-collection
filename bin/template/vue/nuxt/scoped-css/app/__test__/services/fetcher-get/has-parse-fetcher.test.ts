@@ -1,8 +1,8 @@
 import { hasParseFetcher } from "@/services/fetcher-get/has-parse-fetcher";
 import { z } from "zod";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { optionUtility } from "ts-common-by-teru";
-import { resultUtility } from "ts-common-by-teru";
+import { optionUtility } from "ts-shared";
+import { resultUtility } from "ts-shared";
 
 const mockFetch = vi.fn();
 

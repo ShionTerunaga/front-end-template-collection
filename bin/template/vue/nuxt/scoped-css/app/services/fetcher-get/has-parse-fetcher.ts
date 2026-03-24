@@ -1,6 +1,6 @@
 import { core, ZodType } from "zod";
-import { type Option, optionUtility } from "ts-common-by-teru";
-import { resultUtility, type Result } from "ts-common-by-teru";
+import { type Option, optionUtility } from "ts-shared";
+import { resultUtility, type Result } from "ts-shared";
 import { fetcher } from "./fetcher";
 import { type FetcherError } from "@/shared/error/fetcher/fetcher-error";
 

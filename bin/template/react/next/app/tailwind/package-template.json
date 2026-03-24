@@ -27,7 +27,7 @@
         "react": "19.2.0",
         "react-dom": "19.2.0",
         "style-loader": "^4.0.0",
-        "ts-common-by-teru": "github:ShionTerunaga/ts-common-by-teru#release",
+        "ts-shared": "github:ShionTerunaga/ts-shared#release",
         "vite-tsconfig-paths": "^5.1.4",
         "vitest": "^4.1.0",
         "zod": "^4.1.12"

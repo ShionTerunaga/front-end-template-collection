@@ -1,4 +1,4 @@
-import { classMerger } from 'ts-common-by-teru'
+import { classMerger } from 'ts-shared'
 
 // Tailwind class maps replacing vanilla-extract style/styleVariants
 export const gridBoxGap = {

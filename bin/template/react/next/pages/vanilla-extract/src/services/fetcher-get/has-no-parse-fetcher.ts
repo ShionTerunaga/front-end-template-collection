@@ -1,6 +1,6 @@
 import z from "zod";
-import { Option } from "ts-common-by-teru";
-import { Result } from "ts-common-by-teru";
+import { Option } from "ts-shared";
+import { Result } from "ts-shared";
 import { fetcher } from "./fetcher";
 import { FetcherError } from "@/shared/error/fetcher";
 

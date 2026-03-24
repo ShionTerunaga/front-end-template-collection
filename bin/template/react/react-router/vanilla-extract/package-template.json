@@ -24,7 +24,7 @@
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
         "react-router": "7.12.0",
-        "ts-common-by-teru": "github:ShionTerunaga/ts-common-by-teru#release",
+        "ts-shared": "github:ShionTerunaga/ts-shared#release",
         "vitest": "^4.1.0",
         "zod": "^4.3.5"
     },

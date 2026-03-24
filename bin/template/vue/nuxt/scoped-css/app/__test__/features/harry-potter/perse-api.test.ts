@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { optionUtility } from "ts-common-by-teru";
+import { optionUtility } from "ts-shared";
 import { type APIRes } from "@/features/harry-potter";
 import { parseApi } from "@/features/harry-potter/service/parse-api";
 

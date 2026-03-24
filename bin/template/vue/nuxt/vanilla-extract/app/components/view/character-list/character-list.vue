@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Option } from "ts-common-by-teru";
+import { type Option } from "ts-shared";
 import type { APIView } from "~/features/harry-potter";
 import type { FetcherError } from "~/shared/error/fetcher";
 import { Error } from "~/components/layout";

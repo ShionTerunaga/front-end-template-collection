@@ -1,4 +1,4 @@
-import { optionUtility, type Option } from 'ts-common-by-teru'
+import { optionUtility, type Option } from 'ts-shared'
 import { onMounted, ref } from 'vue'
 import type { APIView } from '../model/model-view'
 import { getCharacter } from '../service/get-character'

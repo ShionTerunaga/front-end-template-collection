@@ -2,7 +2,7 @@ import { CheckerProps } from "@/shared/types/object";
 import Image, { StaticImageData } from "next/image";
 import { CSSProperties } from "react";
 import { Box } from "@/components/ui";
-import { classMerger } from "ts-common-by-teru";
+import { classMerger } from "ts-shared";
 
 interface Props {
     key: number | string;

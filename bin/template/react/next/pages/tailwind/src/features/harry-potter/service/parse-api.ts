@@ -1,8 +1,8 @@
-import { resultUtility, Result } from "ts-common-by-teru";
+import { resultUtility, Result } from "ts-shared";
 import { APIRes } from "../model/model-res";
 import { APIView } from "../model/model-view";
-import { Option, optionUtility } from "ts-common-by-teru";
-import { isNull } from "ts-common-by-teru";
+import { Option, optionUtility } from "ts-shared";
+import { isNull } from "ts-shared";
 import { FetcherError } from "@/shared/error/fetcher";
 
 export function parseApi(

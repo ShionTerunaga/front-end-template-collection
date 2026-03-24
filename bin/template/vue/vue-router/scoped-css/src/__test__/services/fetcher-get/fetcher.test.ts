@@ -1,7 +1,7 @@
 import { fetcher } from '@/services/fetcher-get/fetcher'
 import { z } from 'zod'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { optionUtility } from 'ts-common-by-teru'
+import { optionUtility } from 'ts-shared'
 
 const mockFetch = vi.fn()
 

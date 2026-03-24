@@ -1,7 +1,7 @@
 import { APIView, getCharacter } from "@/features/harry-potter";
 import StaticGeneratorScreen from "@/screen/static-generator/static-generator";
-import { Result } from "ts-common-by-teru";
-import { Option } from "ts-common-by-teru";
+import { Result } from "ts-shared";
+import { Option } from "ts-shared";
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { FetcherError } from "@/shared/error/fetcher";
 

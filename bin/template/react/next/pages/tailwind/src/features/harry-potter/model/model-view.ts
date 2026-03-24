@@ -1,4 +1,4 @@
-import { Option } from "ts-common-by-teru";
+import { Option } from "ts-shared";
 
 export interface APIView {
     id: string;

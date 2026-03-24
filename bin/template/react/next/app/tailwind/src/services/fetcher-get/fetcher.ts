@@ -1,6 +1,6 @@
 import { core, ZodType } from "zod";
-import { Option, optionUtility } from "ts-common-by-teru";
-import { Result, resultUtility } from "ts-common-by-teru";
+import { Option, optionUtility } from "ts-shared";
+import { Result, resultUtility } from "ts-shared";
 import { createHttpScheme } from "@/shared/error/http";
 import {
     createFetcherError,

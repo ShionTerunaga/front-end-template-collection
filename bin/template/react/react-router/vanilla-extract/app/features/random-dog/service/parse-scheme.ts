@@ -1,7 +1,7 @@
-import { resultUtility, type Result } from 'ts-common-by-teru'
+import { resultUtility, type Result } from 'ts-shared'
 import type { RandomDogRes } from '../model/random-dog'
 import { createFetcherError } from '@/shared/error/fetcher'
-import { type Option, optionUtility } from 'ts-common-by-teru'
+import { type Option, optionUtility } from 'ts-shared'
 import type { FetcherError } from '@/shared/error/fetcher'
 
 export function parseScheme(

@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "csstype": "^3.2.3",
-    "ts-common-by-teru": "github:ShionTerunaga/ts-common-by-teru#release",
+    "ts-shared": "github:ShionTerunaga/ts-shared#release",
     "typescript-eslint": "^8.53.0",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3",

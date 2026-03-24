@@ -2,7 +2,7 @@ import { type CheckerProps } from "@/shared/types/object";
 import { type ChildrenOnly } from "@/shared/types/react";
 import { type CSSProperties } from "react";
 import fontCenterBaseStyle from "./font-center.css";
-import { classMerger } from "ts-common-by-teru";
+import { classMerger } from "ts-shared";
 
 interface Props extends ChildrenOnly {
     as?: Extract<

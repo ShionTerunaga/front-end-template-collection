@@ -4,7 +4,7 @@ import { textColor } from '@/shared/theme/design-system.style'
 import type { TextTheme } from '@/shared/theme/design-system.style'
 import type { ChildrenOnly } from '@/shared/types/react'
 import type { CSSProperties, ElementType } from 'react'
-import { classMerger } from 'ts-common-by-teru'
+import { classMerger } from 'ts-shared'
 
 type HeadingFont = keyof typeof headingFontStyle
 interface HeadingStyle {
