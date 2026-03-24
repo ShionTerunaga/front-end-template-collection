@@ -16,7 +16,7 @@
     "packageManager": "pnpm@10.18.3",
     "scripts": {
         "install:cli": "CI=true pnpm install --filter ./packages/create-template",
-        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts",
+        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts && pnpm build:all",
         "build:all": "pnpm exec ncc build ./packages/create-template/src/index.ts -o ./bin && node scripts/write/bin-write.mts",
         "changeset": "changeset",
         "version-packages": "changeset version",
@@ -40,11 +40,11 @@
     },
     "devDependencies": {
         "@changesets/changelog-github": "^0.5.1",
-        "@vercel/ncc": "^0.38.4",
         "@changesets/cli": "^2.29.7",
         "@tsconfig/node24": "^24.0.4",
         "@types/conf": "^3.0.3",
         "@types/node": "^25.0.1",
+        "@vercel/ncc": "^0.38.4",
         "@vitejs/plugin-react": "^5.0.4",
         "assert": "^2.1.0",
         "browserify-zlib": "^0.2.0",
@@ -55,6 +55,6 @@
         "ts-loader": "^9.5.4",
         "tsconfig-paths": "^4.2.0",
         "turbo": "^2.0.0",
-        "typescript": "^5.8.3"
+        "typescript": "^6.0.2"
     }
 }

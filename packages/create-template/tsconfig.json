@@ -2,9 +2,9 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "../../dist/src/create-template-react",
-        "rootDir": "./",
+        "rootDir": "./src",
         "composite": false
     },
-    "include": ["./**/*", "./template/**/*", "rspack.config.js"],
-    "exclude": ["node_modules", "./template/*", "./template/*", "./lib/*"]
+    "include": ["./src/**/*.ts"],
+    "exclude": ["node_modules", "./src/template/**", "./lib/**"]
 }

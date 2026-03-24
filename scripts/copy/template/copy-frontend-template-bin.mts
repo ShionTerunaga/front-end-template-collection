@@ -54,17 +54,21 @@ async function main(): Promise<void> {
     const sourceTemplateDir = path.join(checkoutDir, "template");
     const binDir = path.join(repoRoot, "bin");
     const destTemplateDir = path.join(binDir, "template");
+    const templateRef = process.env.FRONTEND_TEMPLATE_REF ?? "release";
 
     fs.rmSync(tempRoot, { recursive: true, force: true });
     fs.mkdirSync(tempRoot, { recursive: true });
 
     try {
-        console.log("Cloning frontend-template...");
+        console.log(`Cloning frontend-template (${templateRef})...`);
         runGit(
             [
                 "clone",
                 "--depth",
                 "1",
+                "--branch",
+                templateRef,
+                "--single-branch",
                 "--filter=blob:none",
                 "--sparse",
                 "https://github.com/ShionTerunaga/frontend-template",
