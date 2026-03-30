@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2
+
+### Patch Changes
+
+- [`04ccddb`](https://github.com/ShionTerunaga/frontend-template-cli/commit/04ccddbcb85616bda3ef144b64163289b383af53)
+  Thanks [@ShionTerunaga](https://github.com/ShionTerunaga)! - updated the
+  template dependencies
+
 ## 0.7.1
 
 ### Patch Changes
