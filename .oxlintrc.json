@@ -1,0 +1,15 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["typescript", "unicorn", "oxc", "import"],
+    "categories": {
+        "correctness": "error"
+    },
+    "ignorePatterns": ["bin/**", "coverage/**", "dist/**", "node_modules/**"],
+    "rules": {
+        "typescript/consistent-type-imports": "error",
+        "no-unused-vars": "warn"
+    },
+    "env": {
+        "builtin": true
+    }
+}

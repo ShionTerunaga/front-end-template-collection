@@ -1,70 +1,72 @@
 name: Sync Release Branch
 
 on:
-  pull_request_target:
-    types:
-      - closed
-    branches:
-      - main
+    pull_request_target:
+        types:
+            - closed
+        branches:
+            - main
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  sync_release_branch:
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'changeset-release/')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: main
+    sync_release_branch:
+        if:
+            github.event.pull_request.merged == true &&
+            startsWith(github.event.pull_request.head.ref, 'changeset-release/')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  ref: main
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
 
-      - name: Configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            - name: Configure git
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Resolve version
-        id: version
-        run: |
-          VERSION=$(node -p 'require("./package.json").version')
-          TAG="v${VERSION}"
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+            - name: Resolve version
+              id: version
+              run: |
+                  VERSION=$(node -p 'require("./package.json").version')
+                  TAG="v${VERSION}"
+                  echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+                  echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
 
-      - name: Sync release branch to main
-        run: |
-          git fetch origin main
+            - name: Sync release branch to main
+              run: |
+                  git fetch origin main
 
-          if git ls-remote --exit-code --heads origin release >/dev/null 2>&1; then
-            git fetch origin release
-            git push --force-with-lease origin origin/main:release
-            exit 0
-          fi
+                  if git ls-remote --exit-code --heads origin release >/dev/null 2>&1; then
+                    git fetch origin release
+                    git push --force-with-lease origin origin/main:release
+                    exit 0
+                  fi
 
-          git push origin origin/main:release
+                  git push origin origin/main:release
 
-      - name: Create git tag
-        env:
-          TAG: ${{ steps.version.outputs.tag }}
-        run: |
-          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG already exists. Skipping."
-            exit 0
-          fi
+            - name: Create git tag
+              env:
+                  TAG: ${{ steps.version.outputs.tag }}
+              run: |
+                  if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+                    echo "Tag $TAG already exists. Skipping."
+                    exit 0
+                  fi
 
-          git tag -a "$TAG" -m "$TAG"
-          git push origin "$TAG"
+                  git tag -a "$TAG" -m "$TAG"
+                  git push origin "$TAG"
 
-      - name: Sync GitHub Release Notes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node scripts/release/sync-github-release.mts
+            - name: Sync GitHub Release Notes
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  node scripts/release/sync-github-release.mts
