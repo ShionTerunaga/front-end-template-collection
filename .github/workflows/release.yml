@@ -31,7 +31,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Build CLI
-              run: pnpm build:all
+              run: pnpm build
 
             - name: Create or Update Release PR
               uses: changesets/action@v1
