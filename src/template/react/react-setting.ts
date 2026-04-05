@@ -2,6 +2,7 @@ import path from "path";
 import { commanderCore } from "../../command/common/command-core";
 import { cssReactCommand } from "../../command/react/react-css";
 import { frameworkCommand } from "../../command/react/react-framework";
+import { fileURLToPath } from "node:url";
 import type { Result } from "../../utils/result";
 import { resultUtility } from "../../utils/result";
 import type { TechMaterial } from "../core/core-static";
@@ -12,6 +13,7 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
     const { optionReactFramework, optionCss } = commanderCore;
     const { createOk } = resultUtility;
     const { createSome } = optionUtility;
+    const cliDir = path.dirname(fileURLToPath(import.meta.url));
 
     const frameworResult = await frameworkCommand(optionReactFramework);
 
@@ -27,7 +29,7 @@ export async function reactCli(): Promise<Result<TechMaterial, Error>> {
 
     const resultPath = foundFolder([
         path.join(
-            __dirname,
+            cliDir,
             "template",
             "react",
             frameworResult.value,

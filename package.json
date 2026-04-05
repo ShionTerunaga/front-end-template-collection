@@ -2,12 +2,13 @@
     "name": "create-frontend-template",
     "version": "0.7.2",
     "description": "CLI for generating frontend templates",
+    "type": "module",
     "license": "MIT",
     "engines": {
         "node": ">=24"
     },
     "bin": {
-        "create-frontend-template": "./bin/index.js"
+        "create-frontend-template": "./bin/index.mjs"
     },
     "files": [
         "bin"
@@ -33,7 +34,7 @@
         }
     },
     "scripts": {
-        "build": "pnpm exec vite build && node scripts/write/bin-write.mts",
+        "build": "pnpm exec vite build && node scripts/write/bin-write.mts && pnpm format",
         "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts && pnpm build",
         "changeset": "changeset",
         "format": "pnpm exec oxfmt --write .",
@@ -43,8 +44,8 @@
         "lint:fix": "pnpm exec oxlint src scripts vite.config.ts --fix",
         "version-packages": "changeset version",
         "release:pr": "changeset version",
-        "test:react-bin": "pnpm build && cd test/auto && uv sync && uv run main.py react",
-        "test:vue-bin": "pnpm build && cd test/auto && uv sync && uv run main.py vue"
+        "test:react-bin": "pnpm build && cd test/auto && UV_CACHE_DIR=../../.tmp/uv uv sync && UV_CACHE_DIR=../../.tmp/uv uv run main.py react",
+        "test:vue-bin": "pnpm build && cd test/auto && UV_CACHE_DIR=../../.tmp/uv uv sync && UV_CACHE_DIR=../../.tmp/uv uv run main.py vue"
     },
     "dependencies": {
         "@commitlint/cli": "^19.8.1",

@@ -47,7 +47,7 @@ export const optionUtility = (function () {
             return createNone();
         }
 
-        return createSome(value);
+        return createSome(value as NonNullable<T>);
     };
 
     return Object.freeze({

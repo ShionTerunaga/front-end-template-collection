@@ -1,10 +1,15 @@
 import { builtinModules } from "node:module";
 import { defineConfig } from "vite";
 
-const external = new Set([
-    ...builtinModules,
-    ...builtinModules.map((moduleName) => `node:${moduleName}`)
-]);
+const external = new Set(
+    builtinModules.flatMap((moduleName) => {
+        const normalizedName = moduleName.startsWith("node:")
+            ? moduleName.slice("node:".length)
+            : moduleName;
+
+        return [normalizedName, `node:${normalizedName}`];
+    })
+);
 
 export default defineConfig({
     build: {
@@ -15,10 +20,13 @@ export default defineConfig({
         sourcemap: false,
         lib: {
             entry: "src/index.ts",
-            formats: ["cjs"],
-            fileName: () => "index.js"
+            formats: ["es"],
+            fileName: () => "index.mjs"
         },
         rollupOptions: {
+            output: {
+                banner: 'import { createRequire } from "node:module"; const require = createRequire(import.meta.url);'
+            },
             external: [...external]
         }
     }

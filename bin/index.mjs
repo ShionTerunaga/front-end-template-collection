@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+import path, { basename, dirname, join, resolve } from "node:path";
+import fs, { existsSync, lstatSync, mkdirSync, readdirSync } from "node:fs";
+import fs$1 from "fs/promises";
+import path$1 from "path";
+import { copyFile, mkdir } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -32,16 +40,11 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	enumerable: true
 }) : target, mod));
 var __toCommonJS = (mod) => __hasOwnProp.call(mod, "module.exports") ? mod["module.exports"] : __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, { get: (a, b) => (typeof require !== "undefined" ? require : a)[b] }) : x)(function(x) {
+	if (typeof require !== "undefined") return require.apply(this, arguments);
+	throw Error("Calling `require` for \"" + x + "\" in an environment that doesn't expose the `require` function. See https://rolldown.rs/in-depth/bundling-cjs#require-external-modules for more details.");
+});
 //#endregion
-let node_path = require("node:path");
-node_path = __toESM(node_path);
-let node_fs = require("node:fs");
-node_fs = __toESM(node_fs);
-let fs_promises = require("fs/promises");
-fs_promises = __toESM(fs_promises);
-let path = require("path");
-path = __toESM(path);
-let node_fs_promises = require("node:fs/promises");
 //#region node_modules/.pnpm/validate-npm-package-name@7.0.2/node_modules/validate-npm-package-name/lib/builtin-modules.json
 var builtin_modules_exports = /* @__PURE__ */ __exportAll({ default: () => builtin_modules_default });
 var builtin_modules_default;
@@ -178,7 +181,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 		return result;
 	};
 	module.exports = validate;
-})))());
+})))(), 1);
 function validateNpmName(name) {
 	const nameValidation = (0, import_lib.default)(name);
 	if (nameValidation.validForNewPackages) return { valid: true };
@@ -1297,11 +1300,11 @@ var require_suggestSimilar = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#endregion
 //#region node_modules/.pnpm/commander@14.0.3/node_modules/commander/lib/command.js
 var require_command = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var EventEmitter$2 = require("node:events").EventEmitter;
-	var childProcess = require("node:child_process");
-	var path$13 = require("node:path");
-	var fs$5 = require("node:fs");
-	var process$1 = require("node:process");
+	var EventEmitter$2 = __require("node:events").EventEmitter;
+	var childProcess = __require("node:child_process");
+	var path$11 = __require("node:path");
+	var fs$5 = __require("node:fs");
+	var process$1 = __require("node:process");
 	var { Argument, humanReadableArgName } = require_argument();
 	var { CommanderError } = require_error$1();
 	var { Help, stripColor } = require_help();
@@ -2219,9 +2222,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
 				".cjs"
 			];
 			function findFile(baseDir, baseName) {
-				const localBin = path$13.resolve(baseDir, baseName);
+				const localBin = path$11.resolve(baseDir, baseName);
 				if (fs$5.existsSync(localBin)) return localBin;
-				if (sourceExt.includes(path$13.extname(baseName))) return void 0;
+				if (sourceExt.includes(path$11.extname(baseName))) return void 0;
 				const foundExt = sourceExt.find((ext) => fs$5.existsSync(`${localBin}${ext}`));
 				if (foundExt) return `${localBin}${foundExt}`;
 			}
@@ -2236,17 +2239,17 @@ Expecting one of '${allowedValues.join("', '")}'`);
 				} catch {
 					resolvedScriptPath = this._scriptPath;
 				}
-				executableDir = path$13.resolve(path$13.dirname(resolvedScriptPath), executableDir);
+				executableDir = path$11.resolve(path$11.dirname(resolvedScriptPath), executableDir);
 			}
 			if (executableDir) {
 				let localFile = findFile(executableDir, executableFile);
 				if (!localFile && !subcommand._executableFile && this._scriptPath) {
-					const legacyName = path$13.basename(this._scriptPath, path$13.extname(this._scriptPath));
+					const legacyName = path$11.basename(this._scriptPath, path$11.extname(this._scriptPath));
 					if (legacyName !== this._name) localFile = findFile(executableDir, `${legacyName}-${subcommand._name}`);
 				}
 				executableFile = localFile || executableFile;
 			}
-			launchWithNode = sourceExt.includes(path$13.extname(executableFile));
+			launchWithNode = sourceExt.includes(path$11.extname(executableFile));
 			let proc;
 			if (process$1.platform !== "win32") if (launchWithNode) {
 				args.unshift(executableFile);
@@ -3014,7 +3017,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
 		* @return {Command}
 		*/
 		nameFromFilename(filename) {
-			this._name = path$13.basename(filename, path$13.extname(filename));
+			this._name = path$11.basename(filename, path$11.extname(filename));
 			return this;
 		}
 		/**
@@ -3812,9 +3815,9 @@ var require_util$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/prompts@2.4.2/node_modules/prompts/dist/elements/prompt.js
 var require_prompt$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var readline$1 = require("readline");
+	var readline$1 = __require("readline");
 	var action = require_util$1().action;
-	var EventEmitter$1 = require("events");
+	var EventEmitter$1 = __require("events");
 	var _require2 = require_src(), beep = _require2.beep, cursor = _require2.cursor;
 	var color = require_kleur();
 	/**
@@ -6300,9 +6303,9 @@ var require_util = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/prompts@2.4.2/node_modules/prompts/lib/elements/prompt.js
 var require_prompt = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var readline = require("readline");
+	var readline = __require("readline");
 	var { action } = require_util();
-	var EventEmitter = require("events");
+	var EventEmitter = __require("events");
 	var { beep, cursor } = require_src();
 	var color = require_kleur();
 	/**
@@ -8324,7 +8327,7 @@ var import_prompts = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((ex
 		return false;
 	}
 	module.exports = isNodeLT("8.6.0") ? require_dist() : require_lib();
-})))());
+})))(), 1);
 async function nameCommand(optionName) {
 	const { optionConversion } = optionUtility;
 	const { onPromptState } = commanderCore;
@@ -8446,14 +8449,14 @@ function isFolderEmpty(root, name) {
 		"yarnrc.yml",
 		".yarn"
 	];
-	const conflicts = (0, node_fs.readdirSync)(root).filter((file) => {
+	const conflicts = readdirSync(root).filter((file) => {
 		return !validFiles.includes(file) && !/\.iml&/.test(file);
 	});
 	if (conflicts.length > 0) {
 		console.log(`The directory ${(0, import_picocolors_browser.green)(name)} contains files that could conflict:`);
 		console.log();
 		for (const file of conflicts) try {
-			if ((0, node_fs.lstatSync)((0, node_path.join)(root, file)).isDirectory()) console.log((0, import_picocolors_browser.blue)(`  ${file}/`));
+			if (lstatSync(join(root, file)).isDirectory()) console.log((0, import_picocolors_browser.blue)(`  ${file}/`));
 			else console.log(`  ${file}`);
 		} catch {
 			console.log(`  ${file}`);
@@ -8522,8 +8525,8 @@ var require_fs$3 = /* @__PURE__ */ __commonJSMin(((exports) => {
 var require_path = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.convertPosixPathToPattern = exports.convertWindowsPathToPattern = exports.convertPathToPattern = exports.escapePosixPath = exports.escapeWindowsPath = exports.escape = exports.removeLeadingDotSegment = exports.makeAbsolute = exports.unixify = void 0;
-	var os$1 = require("os");
-	var path$12 = require("path");
+	var os$1 = __require("os");
+	var path$10 = __require("path");
 	var IS_WINDOWS_PLATFORM = os$1.platform() === "win32";
 	var LEADING_DOT_SEGMENT_CHARACTERS_COUNT = 2;
 	/**
@@ -8552,7 +8555,7 @@ var require_path = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.unixify = unixify;
 	function makeAbsolute(cwd, filepath) {
-		return path$12.resolve(cwd, filepath);
+		return path$10.resolve(cwd, filepath);
 	}
 	exports.makeAbsolute = makeAbsolute;
 	function removeLeadingDotSegment(entry) {
@@ -8702,8 +8705,8 @@ var require_is_glob = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region node_modules/.pnpm/glob-parent@5.1.2/node_modules/glob-parent/index.js
 var require_glob_parent = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var isGlob = require_is_glob();
-	var pathPosixDirname = require("path").posix.dirname;
-	var isWin32 = require("os").platform() === "win32";
+	var pathPosixDirname = __require("path").posix.dirname;
+	var isWin32 = __require("os").platform() === "win32";
 	var slash = "/";
 	var backslash = /\\/g;
 	var enclosure = /[\{\[].*[\}\]]$/;
@@ -9063,7 +9066,7 @@ var require_to_regex_range = /* @__PURE__ */ __commonJSMin(((exports, module) =>
 * Licensed under the MIT License.
 */
 var require_fill_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var util$1 = require("util");
+	var util$1 = __require("util");
 	var toRegexRange = require_to_regex_range();
 	var isObject = (val) => val !== null && typeof val === "object" && !Array.isArray(val);
 	var transform = (toNumber) => {
@@ -9804,7 +9807,7 @@ var require_braces = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/constants.js
 var require_constants$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var path$11 = require("path");
+	var path$9 = __require("path");
 	var WIN_SLASH = "\\\\/";
 	var WIN_NO_SLASH = `[^${WIN_SLASH}]`;
 	var DEFAULT_MAX_EXTGLOB_RECURSION = 0;
@@ -9929,7 +9932,7 @@ var require_constants$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		CHAR_UNDERSCORE: 95,
 		CHAR_VERTICAL_LINE: 124,
 		CHAR_ZERO_WIDTH_NOBREAK_SPACE: 65279,
-		SEP: path$11.sep,
+		SEP: path$9.sep,
 		extglobChars(chars) {
 			return {
 				"!": {
@@ -9967,7 +9970,7 @@ var require_constants$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/utils.js
 var require_utils$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var path$10 = require("path");
+	var path$8 = __require("path");
 	var win32 = process.platform === "win32";
 	var { REGEX_BACKSLASH, REGEX_REMOVE_BACKSLASH, REGEX_SPECIAL_CHARS, REGEX_SPECIAL_CHARS_GLOBAL } = require_constants$1();
 	exports.isObject = (val) => val !== null && typeof val === "object" && !Array.isArray(val);
@@ -9987,7 +9990,7 @@ var require_utils$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.isWindows = (options) => {
 		if (options && typeof options.windows === "boolean") return options.windows;
-		return win32 === true || path$10.sep === "\\";
+		return win32 === true || path$8.sep === "\\";
 	};
 	exports.escapeLast = (input, char, lastIdx) => {
 		const idx = input.lastIndexOf(char, lastIdx);
@@ -11357,7 +11360,7 @@ var require_parse = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/picomatch@2.3.2/node_modules/picomatch/lib/picomatch.js
 var require_picomatch$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var path$9 = require("path");
+	var path$7 = __require("path");
 	var scan = require_scan();
 	var parse = require_parse();
 	var utils = require_utils$2();
@@ -11496,7 +11499,7 @@ var require_picomatch$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	* @api public
 	*/
 	picomatch.matchBase = (input, glob, options, posix = utils.isWindows(options)) => {
-		return (glob instanceof RegExp ? glob : picomatch.makeRe(glob, options)).test(path$9.basename(input));
+		return (glob instanceof RegExp ? glob : picomatch.makeRe(glob, options)).test(path$7.basename(input));
 	};
 	/**
 	* Returns true if **any** of the given glob `patterns` match the specified `string`.
@@ -11655,7 +11658,7 @@ var require_picomatch = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/micromatch@4.0.8/node_modules/micromatch/index.js
 var require_micromatch = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var util = require("util");
+	var util = __require("util");
 	var braces = require_braces();
 	var picomatch = require_picomatch();
 	var utils = require_utils$2();
@@ -12051,7 +12054,7 @@ var require_micromatch = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 var require_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.isAbsolute = exports.partitionAbsoluteAndRelative = exports.removeDuplicateSlashes = exports.matchAny = exports.convertPatternsToRe = exports.makeRe = exports.getPatternParts = exports.expandBraceExpansion = exports.expandPatternsWithBraceExpansion = exports.isAffectDepthOfReadingPattern = exports.endsWithSlashGlobStar = exports.hasGlobStar = exports.getBaseDirectory = exports.isPatternRelatedToParentDirectory = exports.getPatternsOutsideCurrentDirectory = exports.getPatternsInsideCurrentDirectory = exports.getPositivePatterns = exports.getNegativePatterns = exports.isPositivePattern = exports.isNegativePattern = exports.convertToNegativePattern = exports.convertToPositivePattern = exports.isDynamicPattern = exports.isStaticPattern = void 0;
-	var path$8 = require("path");
+	var path$6 = __require("path");
 	var globParent = require_glob_parent();
 	var micromatch = require_micromatch();
 	var GLOBSTAR = "**";
@@ -12159,7 +12162,7 @@ var require_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.endsWithSlashGlobStar = endsWithSlashGlobStar;
 	function isAffectDepthOfReadingPattern(pattern) {
-		const basename = path$8.basename(pattern);
+		const basename = path$6.basename(pattern);
 		return endsWithSlashGlobStar(pattern) || isStaticPattern(basename);
 	}
 	exports.isAffectDepthOfReadingPattern = isAffectDepthOfReadingPattern;
@@ -12233,14 +12236,14 @@ var require_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.partitionAbsoluteAndRelative = partitionAbsoluteAndRelative;
 	function isAbsolute(pattern) {
-		return path$8.isAbsolute(pattern);
+		return path$6.isAbsolute(pattern);
 	}
 	exports.isAbsolute = isAbsolute;
 }));
 //#endregion
 //#region node_modules/.pnpm/merge2@1.4.1/node_modules/merge2/index.js
 var require_merge2 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var PassThrough = require("stream").PassThrough;
+	var PassThrough = __require("stream").PassThrough;
 	var slice = Array.prototype.slice;
 	module.exports = merge2;
 	function merge2() {
@@ -12519,7 +12522,7 @@ var require_sync$5 = /* @__PURE__ */ __commonJSMin(((exports) => {
 var require_fs$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.createFileSystemAdapter = exports.FILE_SYSTEM_ADAPTER = void 0;
-	var fs$4 = require("fs");
+	var fs$4 = __require("fs");
 	exports.FILE_SYSTEM_ADAPTER = {
 		lstat: fs$4.lstat,
 		stat: fs$4.stat,
@@ -12842,7 +12845,7 @@ var require_sync$4 = /* @__PURE__ */ __commonJSMin(((exports) => {
 var require_fs = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.createFileSystemAdapter = exports.FILE_SYSTEM_ADAPTER = void 0;
-	var fs$3 = require("fs");
+	var fs$3 = __require("fs");
 	exports.FILE_SYSTEM_ADAPTER = {
 		lstat: fs$3.lstat,
 		stat: fs$3.stat,
@@ -12861,7 +12864,7 @@ var require_fs = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/@nodelib+fs.scandir@2.1.5/node_modules/@nodelib/fs.scandir/out/settings.js
 var require_settings$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var path$7 = require("path");
+	var path$5 = __require("path");
 	var fsStat = require_out$3();
 	var fs = require_fs();
 	var Settings = class {
@@ -12869,7 +12872,7 @@ var require_settings$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 			this._options = _options;
 			this.followSymbolicLinks = this._getValue(this._options.followSymbolicLinks, false);
 			this.fs = fs.createFileSystemAdapter(this._options.fs);
-			this.pathSegmentSeparator = this._getValue(this._options.pathSegmentSeparator, path$7.sep);
+			this.pathSegmentSeparator = this._getValue(this._options.pathSegmentSeparator, path$5.sep);
 			this.stats = this._getValue(this._options.stats, false);
 			this.throwErrorOnBrokenSymbolicLink = this._getValue(this._options.throwErrorOnBrokenSymbolicLink, true);
 			this.fsStatSettings = new fsStat.Settings({
@@ -13241,7 +13244,7 @@ var require_reader$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/@nodelib+fs.walk@1.2.8/node_modules/@nodelib/fs.walk/out/readers/async.js
 var require_async$3 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var events_1 = require("events");
+	var events_1 = __require("events");
 	var fsScandir = require_out$2();
 	var fastq = require_queue();
 	var common = require_common();
@@ -13359,7 +13362,7 @@ var require_async$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/@nodelib+fs.walk@1.2.8/node_modules/@nodelib/fs.walk/out/providers/stream.js
 var require_stream$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var stream_1$2 = require("stream");
+	var stream_1$2 = __require("stream");
 	var async_1 = require_async$3();
 	var StreamProvider = class {
 		constructor(_root, _settings) {
@@ -13463,7 +13466,7 @@ var require_sync$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/@nodelib+fs.walk@1.2.8/node_modules/@nodelib/fs.walk/out/settings.js
 var require_settings$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var path$6 = require("path");
+	var path$4 = __require("path");
 	var fsScandir = require_out$2();
 	var Settings = class {
 		constructor(_options = {}) {
@@ -13473,7 +13476,7 @@ var require_settings$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 			this.deepFilter = this._getValue(this._options.deepFilter, null);
 			this.entryFilter = this._getValue(this._options.entryFilter, null);
 			this.errorFilter = this._getValue(this._options.errorFilter, null);
-			this.pathSegmentSeparator = this._getValue(this._options.pathSegmentSeparator, path$6.sep);
+			this.pathSegmentSeparator = this._getValue(this._options.pathSegmentSeparator, path$4.sep);
 			this.fsScandirSettings = new fsScandir.Settings({
 				followSymbolicLinks: this._options.followSymbolicLinks,
 				fs: this._options.fs,
@@ -13525,7 +13528,7 @@ var require_out$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/fast-glob@3.3.3/node_modules/fast-glob/out/readers/reader.js
 var require_reader = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var path$5 = require("path");
+	var path$3 = __require("path");
 	var fsStat = require_out$3();
 	var utils = require_utils$1();
 	var Reader = class {
@@ -13538,7 +13541,7 @@ var require_reader = /* @__PURE__ */ __commonJSMin(((exports) => {
 			});
 		}
 		_getFullEntryPath(filepath) {
-			return path$5.resolve(this._settings.cwd, filepath);
+			return path$3.resolve(this._settings.cwd, filepath);
 		}
 		_makeEntry(stats, pattern) {
 			const entry = {
@@ -13559,7 +13562,7 @@ var require_reader = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/fast-glob@3.3.3/node_modules/fast-glob/out/readers/stream.js
 var require_stream$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var stream_1$1 = require("stream");
+	var stream_1$1 = __require("stream");
 	var fsStat = require_out$3();
 	var fsWalk = require_out$1();
 	var reader_1 = require_reader();
@@ -13873,7 +13876,7 @@ var require_entry = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/fast-glob@3.3.3/node_modules/fast-glob/out/providers/provider.js
 var require_provider = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var path$4 = require("path");
+	var path$2 = __require("path");
 	var deep_1 = require_deep();
 	var entry_1 = require_entry$1();
 	var error_1 = require_error();
@@ -13887,7 +13890,7 @@ var require_provider = /* @__PURE__ */ __commonJSMin(((exports) => {
 			this.entryTransformer = new entry_2.default(this._settings);
 		}
 		_getRootDirectory(task) {
-			return path$4.resolve(this._settings.cwd, task.base);
+			return path$2.resolve(this._settings.cwd, task.base);
 		}
 		_getReaderOptions(task) {
 			const basePath = task.base === "." ? "" : task.base;
@@ -13947,7 +13950,7 @@ var require_async = /* @__PURE__ */ __commonJSMin(((exports) => {
 //#region node_modules/.pnpm/fast-glob@3.3.3/node_modules/fast-glob/out/providers/stream.js
 var require_stream = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var stream_1 = require("stream");
+	var stream_1 = __require("stream");
 	var stream_2 = require_stream$1();
 	var provider_1 = require_provider();
 	var ProviderStream = class extends provider_1.default {
@@ -14043,8 +14046,8 @@ var require_sync = /* @__PURE__ */ __commonJSMin(((exports) => {
 var require_settings = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.DEFAULT_FILE_SYSTEM_ADAPTER = void 0;
-	var fs$2 = require("fs");
-	var os = require("os");
+	var fs$2 = __require("fs");
+	var os = __require("os");
 	/**
 	* The `os.cpus` method can return zero. We expect the number of cores to be greater than zero.
 	* https://github.com/nodejs/node/blob/7faeddf23a98c53896f8b574a6e66589e8fb1eb8/lib/os.js#L106-L107
@@ -14208,14 +14211,14 @@ async function copy(src, dest, { cwd, rename = identity, parents = true }) {
 		err: () => /* @__PURE__ */ new Error("Failed to glob source files")
 	});
 	if (sourceFiles.isErr) return sourceFiles;
-	const destRelativeToCwd = cwd ? (0, node_path.resolve)(cwd, dest) : dest;
+	const destRelativeToCwd = cwd ? resolve(cwd, dest) : dest;
 	for (const p of sourceFiles.value) {
-		const dirName = (0, node_path.dirname)(p);
-		const baseName = rename((0, node_path.basename)(p));
-		const from = cwd ? (0, node_path.resolve)(cwd, p) : p;
-		const to = parents ? (0, node_path.join)(destRelativeToCwd, dirName, baseName) : (0, node_path.join)(destRelativeToCwd, baseName);
-		await (0, node_fs_promises.mkdir)((0, node_path.dirname)(to), { recursive: true });
-		await (0, node_fs_promises.copyFile)(from, to);
+		const dirName = dirname(p);
+		const baseName = rename(basename(p));
+		const from = cwd ? resolve(cwd, p) : p;
+		const to = parents ? join(destRelativeToCwd, dirName, baseName) : join(destRelativeToCwd, baseName);
+		await mkdir(dirname(to), { recursive: true });
+		await copyFile(from, to);
 	}
 	return createOk(() => {});
 }
@@ -14225,7 +14228,7 @@ async function typescriptTemplateInstall({ root, appName, material }) {
 	const { createNg, createOk, checkPromiseVoid } = resultUtility;
 	const { path: templatePath } = material;
 	const copySource = ["**/*"];
-	(0, node_fs.mkdirSync)(root, { recursive: true });
+	mkdirSync(root, { recursive: true });
 	if (!isFolderEmpty(root, appName)) return createNg(/* @__PURE__ */ new Error(`The directory ${appName} is not empty. Please choose a different project name or remove the existing directory.\n`));
 	console.log(`Creating a new React app in ${(0, import_picocolors_browser.green)(root)}.`);
 	console.log();
@@ -14244,10 +14247,10 @@ async function typescriptTemplateInstall({ root, appName, material }) {
 		}
 	});
 	if (res.isErr) return res;
-	const pkgPath = node_path.default.join(root, "package.json");
+	const pkgPath = path.join(root, "package.json");
 	const exists = await checkPromiseVoid({
 		fn: async () => {
-			await fs_promises.default.stat(pkgPath);
+			await fs$1.stat(pkgPath);
 		},
 		err: (e) => {
 			if (e instanceof Error) return /* @__PURE__ */ new Error(`Failed to access package.json: ${e.message}`);
@@ -14255,14 +14258,14 @@ async function typescriptTemplateInstall({ root, appName, material }) {
 		}
 	});
 	if (exists.isErr) return exists;
-	const raw = await fs_promises.default.readFile(pkgPath, "utf8");
+	const raw = await fs$1.readFile(pkgPath, "utf8");
 	const pkg = JSON.parse(raw || "{}");
 	if (!appName || typeof appName !== "string") return createNg(/* @__PURE__ */ new Error("Invalid app name"));
 	pkg.name = appName;
 	pkg.version = "0.1.0";
 	const writeResult = await checkPromiseVoid({
 		fn: async () => {
-			await fs_promises.default.writeFile(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf8");
+			await fs$1.writeFile(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf8");
 		},
 		err: () => /* @__PURE__ */ new Error(`Failed to update package.json name`)
 	});
@@ -14274,8 +14277,8 @@ async function typescriptTemplateInstall({ root, appName, material }) {
 async function reactInstaller({ appPath, material }) {
 	const { createNg } = resultUtility;
 	const { styleSheet } = material;
-	const root = (0, node_path.resolve)(appPath);
-	const appName = (0, node_path.basename)(appPath);
+	const root = resolve(appPath);
+	const appName = basename(appPath);
 	if (styleSheet.isNone) return createNg(/* @__PURE__ */ new Error("CSS option is required"));
 	return await typescriptTemplateInstall({
 		root,
@@ -14371,7 +14374,7 @@ async function vueFrameworkCommand(optionVueFramework) {
 //#region src/utils/found-file.ts
 function foundFolder(paths) {
 	const { createNg, createOk } = resultUtility;
-	for (const p of paths) if (node_fs.default.existsSync(p)) return createOk(p);
+	for (const p of paths) if (fs.existsSync(p)) return createOk(p);
 	return createNg(/* @__PURE__ */ new Error(`Not found folder: ${paths.join(", ")}`));
 }
 //#endregion
@@ -14380,11 +14383,12 @@ async function vueCli() {
 	const { optionCss, optionVueFramework } = commanderCore;
 	const { createSome } = optionUtility;
 	const { createOk } = resultUtility;
+	const cliDir = path$1.dirname(fileURLToPath(import.meta.url));
 	const frameworkResult = await vueFrameworkCommand(optionVueFramework);
 	if (frameworkResult.isErr) return frameworkResult;
 	const cssResult = await vueCssCommander(optionCss);
 	if (cssResult.isErr) return cssResult;
-	const resultPath = foundFolder([path.default.join(__dirname, "template", "vue", frameworkResult.value, cssResult.value), path.default.join(__dirname, "..", "..", "..", "template", "vue", frameworkResult.value, cssResult.value)]);
+	const resultPath = foundFolder([path$1.join(cliDir, "template", "vue", frameworkResult.value, cssResult.value)]);
 	if (resultPath.isErr) return resultPath;
 	return createOk({
 		path: resultPath.value,
@@ -14398,8 +14402,8 @@ async function vueInstaller({ appPath, material }) {
 	const { styleSheet } = material;
 	if (styleSheet.isNone) return createNg(/* @__PURE__ */ new Error("CSS option is required"));
 	return await typescriptTemplateInstall({
-		root: (0, node_path.resolve)(appPath),
-		appName: (0, node_path.basename)(appPath),
+		root: resolve(appPath),
+		appName: basename(appPath),
 		material
 	});
 }
@@ -14462,11 +14466,12 @@ async function reactCli() {
 	const { optionReactFramework, optionCss } = commanderCore;
 	const { createOk } = resultUtility;
 	const { createSome } = optionUtility;
+	const cliDir = path$1.dirname(fileURLToPath(import.meta.url));
 	const frameworResult = await frameworkCommand(optionReactFramework);
 	if (frameworResult.isErr) return frameworResult;
 	const cssResult = await cssReactCommand(optionCss);
 	if (cssResult.isErr) return cssResult;
-	const resultPath = foundFolder([path.default.join(__dirname, "template", "react", frameworResult.value, cssResult.value)]);
+	const resultPath = foundFolder([path$1.join(cliDir, "template", "react", frameworResult.value, cssResult.value)]);
 	if (resultPath.isErr) return resultPath;
 	return createOk({
 		path: resultPath.value,
@@ -14513,8 +14518,8 @@ async function run() {
 		cliErrorLog(projectName.err);
 		process.exit(1);
 	}
-	const appPath = (0, node_path.resolve)(projectName.value);
-	const appName = (0, node_path.basename)(appPath);
+	const appPath = resolve(projectName.value);
+	const appName = basename(appPath);
 	const techStack = await techStackCommand(optionTechStack);
 	if (techStack.isErr) {
 		cliErrorLog(techStack.err);
@@ -14525,7 +14530,7 @@ async function run() {
 		console.error(`Could not create a project called ${appName} because of npm naming restrictions:\n\n- ${validation.problems?.join("\n- ")}\n`);
 		process.exit(1);
 	}
-	if ((0, node_fs.existsSync)(appName)) {
+	if (existsSync(appName)) {
 		console.error((0, import_picocolors_browser.red)(`The directory ${appName} already exists. Please choose a different project name or remove the existing directory.\n`));
 		process.exit(1);
 	}

@@ -2,6 +2,7 @@ import path from "path";
 import { commanderCore } from "../../command/common/command-core";
 import { vueCssCommander } from "../../command/vue/vue-css";
 import { vueFrameworkCommand } from "../../command/vue/vue-framework";
+import { fileURLToPath } from "node:url";
 import { optionUtility } from "../../utils/option";
 import type { Result } from "../../utils/result";
 import { resultUtility } from "../../utils/result";
@@ -12,6 +13,7 @@ export async function vueCli(): Promise<Result<TechMaterial, Error>> {
     const { optionCss, optionVueFramework } = commanderCore;
     const { createSome } = optionUtility;
     const { createOk } = resultUtility;
+    const cliDir = path.dirname(fileURLToPath(import.meta.url));
     const frameworkResult = await vueFrameworkCommand(optionVueFramework);
 
     if (frameworkResult.isErr) {
@@ -26,17 +28,7 @@ export async function vueCli(): Promise<Result<TechMaterial, Error>> {
 
     const templatePath = [
         path.join(
-            __dirname,
-            "template",
-            "vue",
-            frameworkResult.value,
-            cssResult.value
-        ),
-        path.join(
-            __dirname,
-            "..",
-            "..",
-            "..",
+            cliDir,
             "template",
             "vue",
             frameworkResult.value,
