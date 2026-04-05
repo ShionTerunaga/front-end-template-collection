@@ -34,8 +34,9 @@
         }
     },
     "scripts": {
-        "build": "pnpm exec vite build && node scripts/write/bin-write.mts && pnpm format",
-        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts && pnpm build",
+        "build:all": "pnpm exec vite build && node scripts/write/bin-write.mts",
+        "build": "pnpm build:all && pnpm cp:frontend-template:bin && pnpm lint:fix && pnpm format",
+        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts",
         "changeset": "changeset",
         "format": "pnpm exec oxfmt --write .",
         "format:check": "pnpm exec oxfmt --check .",
