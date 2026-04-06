@@ -1,17 +1,14 @@
 {
     "extends": "@tsconfig/node24/tsconfig.json",
     "compilerOptions": {
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "target": "es2015",
+        "rootDir": "./src",
         "types": ["node"],
         "resolveJsonModule": true,
         "outDir": "./dist"
     },
-    "include": [
-        "scripts/**/*.ts",
-        "scripts/**/*.mts",
-        "packages/create-template/src/**/*.ts"
-    ],
+    "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "dist", "bin/template/**", "test/**"]
 }

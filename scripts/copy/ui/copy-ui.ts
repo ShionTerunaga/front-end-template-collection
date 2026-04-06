@@ -1,8 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 type UiKind = "tailwind" | "vanilla-extract";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..", "..", "..");
 
 const relativeTargets = [

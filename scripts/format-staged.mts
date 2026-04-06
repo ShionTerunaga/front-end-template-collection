@@ -30,7 +30,9 @@ function main(): void {
         .filter(Boolean);
 
     const stagedFiles: string[] =
-        stagedFilesFromArgv.length > 0 ? stagedFilesFromArgv : stagedFilesFromEnv;
+        stagedFilesFromArgv.length > 0
+            ? stagedFilesFromArgv
+            : stagedFilesFromEnv;
 
     const targets: string[] = stagedFiles.filter(shouldFormat);
 
@@ -38,7 +40,7 @@ function main(): void {
         return;
     }
 
-    execFileSync("pnpm", ["exec", "prettier", "--write", ...targets], {
+    execFileSync("pnpm", ["exec", "oxfmt", "--write", ...targets], {
         stdio: "inherit"
     });
 }

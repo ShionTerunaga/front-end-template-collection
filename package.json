@@ -2,12 +2,13 @@
     "name": "create-frontend-template",
     "version": "0.8.0",
     "description": "CLI for generating frontend templates",
+    "type": "module",
     "license": "MIT",
     "engines": {
         "node": ">=24"
     },
     "bin": {
-        "create-frontend-template": "./bin/index.js"
+        "create-frontend-template": "./bin/index.mjs"
     },
     "files": [
         "bin"
@@ -33,28 +34,33 @@
         }
     },
     "scripts": {
-        "install:cli": "CI=true pnpm install --filter ./packages/create-template",
-        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts && pnpm build:all",
-        "build:all": "pnpm exec ncc build ./packages/create-template/src/index.ts -o ./bin && node scripts/write/bin-write.mts",
+        "initial": "pnpm exec lefthook install && pnpm install",
+        "build": "pnpm exec vite build && node scripts/write/bin-write.mts",
+        "build:all": "pnpm cp:frontend-template:bin && pnpm build:all && pnpm lint:fix && pnpm format",
+        "cp:frontend-template:bin": "node scripts/copy/template/copy-frontend-template-bin.mts",
         "changeset": "changeset",
+        "format": "pnpm exec oxfmt --write .",
+        "format:check": "pnpm exec oxfmt --check .",
+        "lint": "pnpm exec oxlint src scripts vite.config.ts --fix",
+        "lint:check": "pnpm exec oxlint src scripts vite.config.ts",
+        "lint:fix": "pnpm exec oxlint src scripts vite.config.ts --fix",
         "version-packages": "changeset version",
         "release:pr": "changeset version",
-        "test:react-bin": "pnpm build:all && cd test/auto && uv sync && uv run main.py react",
-        "test:vue-bin": "pnpm build:all && cd test/auto && uv sync && uv run main.py vue",
-        "lib:storybook": "pnpm exec turbo run storybook --filter=lib",
-        "lib:test": "pnpm exec turbo run test --filter=lib",
-        "story:react-tw": "pnpm exec turbo run storybook --filter=./packages/ui/react/tailwind",
-        "story:react-ve": "pnpm exec turbo run storybook --filter=./packages/ui/react/vanilla-extract"
+        "test:react-bin": "pnpm build && cd test/auto && UV_CACHE_DIR=../../.tmp/uv uv sync && UV_CACHE_DIR=../../.tmp/uv uv run main.py react",
+        "test:vue-bin": "pnpm build && cd test/auto && UV_CACHE_DIR=../../.tmp/uv uv sync && UV_CACHE_DIR=../../.tmp/uv uv run main.py vue"
     },
     "dependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
         "@types/adm-zip": "^0.5.7",
         "adm-zip": "^0.5.16",
+        "commander": "^14.0.2",
         "conf": "^15.0.2",
         "csstype": "^3.2.3",
+        "fast-glob": "^3.3.3",
         "picocolors": "^1.1.1",
-        "prettier": "^3.6.2"
+        "prompts": "^2.4.2",
+        "validate-npm-package-name": "^7.0.0"
     },
     "devDependencies": {
         "@changesets/changelog-github": "^0.5.1",
@@ -62,18 +68,22 @@
         "@tsconfig/node24": "^24.0.4",
         "@types/conf": "^3.0.3",
         "@types/node": "^25.0.1",
+        "@types/prompts": "^2.4.9",
+        "@types/validate-npm-package-name": "^4.0.2",
         "@vercel/ncc": "^0.38.4",
-        "@vitejs/plugin-react": "^5.0.4",
+        "@vitejs/plugin-react": "^6.0.1",
         "assert": "^2.1.0",
         "browserify-zlib": "^0.2.0",
         "buffer": "^6.0.3",
         "copy-webpack-plugin": "^13.0.1",
+        "oxfmt": "^0.43.0",
+        "oxlint": "^1.58.0",
         "process": "^0.11.10",
         "stream-browserify": "^3.0.0",
         "ts-loader": "^9.5.4",
         "tsconfig-paths": "^4.2.0",
         "turbo": "^2.0.0",
         "typescript": "^6.0.2",
-        "webpack": "^5.104.1"
+        "vite": "^8.0.0"
     }
 }

@@ -15,7 +15,7 @@ def parse_args():
 
 
 def resolve_cli_cmd(repo_root):
-    cli_entry = os.path.join(repo_root, "bin", "index.js")
+    cli_entry = os.path.join(repo_root, "bin", "index.mjs")
     return [node_path(), cli_entry]
 
 

@@ -48,11 +48,15 @@ body:
       id: environment
       attributes:
           label: 環境
-          description: OS、Node.js のバージョン、pnpm のバージョンなど、関連する環境情報を記載してください。
+          description:
+              OS、Node.js のバージョン、pnpm
+              のバージョンなど、関連する環境情報を記載してください。
           placeholder: |
               例: "macOS 14.0, Node 20.10.0, pnpm 8.0.0"
     - type: textarea
       id: additional
       attributes:
           label: 補足情報
-          description: そのほか参考になりそうな情報があれば書いてください。ログ、スクリーンショット、失敗した CI へのリンクなど。
+          description:
+              そのほか参考になりそうな情報があれば書いてください。ログ、スクリーンショット、失敗した
+              CI へのリンクなど。
