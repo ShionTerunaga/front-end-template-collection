@@ -1,20 +1,16 @@
 name: Sync Release Branch
 
 on:
-    pull_request_target:
-        types:
-            - closed
+    push:
         branches:
             - main
+    workflow_dispatch:
 
 permissions:
     contents: write
 
 jobs:
     sync_release_branch:
-        if:
-            github.event.pull_request.merged == true &&
-            startsWith(github.event.pull_request.head.ref, 'changeset-release/')
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -39,31 +35,27 @@ jobs:
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            - name: Resolve version
+            - name: Resolve latest changelog version
               id: version
               run: |
-                  VERSION=$(node -p 'require("./package.json").version')
+                  VERSION=$(node --input-type=module -e "import { getLatestVersion } from './scripts/release/write-release-notes.mts'; process.stdout.write(getLatestVersion());")
                   TAG="v${VERSION}"
                   echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
                   echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
-
-            - name: Checkout release branch from main
-              run: |
-                  git fetch origin main
-                  git checkout -B release origin/main
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
             - name: Prepare release artifacts
-              run: pnpm run build:release
+              run: pnpm build
 
             - name: Prepare release branch files
+              env:
+                  RELEASE_VERSION: ${{ steps.version.outputs.version }}
               run: |
                   rm -rf .release-dist
                   mkdir -p .release-dist
                   node scripts/write/release-package-json.mts .release-dist/package.json
-                  cp README.md .release-dist/README.md
                   cp LICENSE .release-dist/LICENSE
                   cp -R bin .release-dist/bin
 
@@ -88,6 +80,7 @@ jobs:
 
             - name: Create git tag
               env:
+                  VERSION: ${{ steps.version.outputs.version }}
                   TAG: ${{ steps.version.outputs.tag }}
               run: |
                   if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
@@ -102,5 +95,7 @@ jobs:
             - name: Sync GitHub Release Notes
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  VERSION: ${{ steps.version.outputs.version }}
+                  TARGET_SHA: origin/release
               run: |
                   node scripts/release/sync-github-release.mts

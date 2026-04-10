@@ -43,10 +43,11 @@ async function main(): Promise<void> {
         "utf8"
     );
     const sourcePackage = JSON.parse(sourcePackageJsonText) as RootPackageJson;
+    const releaseVersion = process.env.RELEASE_VERSION ?? sourcePackage.version;
 
     const releasePackageJson = {
         name: sourcePackage.name,
-        version: sourcePackage.version,
+        version: releaseVersion,
         description: sourcePackage.description,
         type: sourcePackage.type,
         license: sourcePackage.license,
