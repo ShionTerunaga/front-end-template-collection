@@ -58,20 +58,33 @@ jobs:
             - name: Prepare release artifacts
               run: pnpm run build:release
 
-            - name: Commit release artifacts
+            - name: Prepare release branch files
               run: |
-                  git add -f bin
+                  rm -rf .release-dist
+                  mkdir -p .release-dist
+                  node scripts/write/release-package-json.mts .release-dist/package.json
+                  cp README.md .release-dist/README.md
+                  cp LICENSE .release-dist/LICENSE
+                  cp -R bin .release-dist/bin
 
-                  if git diff --cached --quiet; then
-                    echo "No release artifact changes."
-                    exit 0
-                  fi
+            - name: Publish release branch
+              env:
+                  RELEASE_SOURCE_DIR: ${{ github.workspace }}/.release-dist
+              run: |
+                  rm -rf ../release-worktree
+                  git worktree add --detach ../release-worktree
 
+                  cd ../release-worktree
+                  git checkout --orphan release
+                  find . -mindepth 1 -maxdepth 1 ! -name ".git" -exec rm -rf {} +
+                  cp -R "$RELEASE_SOURCE_DIR"/. .
+                  git add .
                   git commit -m "chore: prepare release artifacts"
-
-            - name: Push release branch
-              run: |
                   git push --force-with-lease origin HEAD:release
+
+            - name: Fetch release branch
+              run: |
+                  git fetch origin release
 
             - name: Create git tag
               env:
@@ -82,7 +95,8 @@ jobs:
                     exit 0
                   fi
 
-                  git tag -a "$TAG" -m "$TAG"
+                  RELEASE_SHA=$(git rev-parse origin/release)
+                  git tag -a "$TAG" "$RELEASE_SHA" -m "$TAG"
                   git push origin "$TAG"
 
             - name: Sync GitHub Release Notes
