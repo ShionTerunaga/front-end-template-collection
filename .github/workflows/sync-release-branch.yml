@@ -63,6 +63,7 @@ jobs:
                   name: release-dist
                   path: .release-dist
                   if-no-files-found: error
+                  include-hidden-files: true
 
     publish_release_branch:
         runs-on: ubuntu-latest
