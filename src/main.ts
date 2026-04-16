@@ -92,11 +92,18 @@ function isNewerVersion(
 ): boolean {
     const latestParts = normalizeVersion(latestVersion);
     const currentParts = normalizeVersion(currentVersion);
-    const length = Math.max(latestParts.length, currentParts.length);
 
-    for (let index = 0; index < length; index += 1) {
-        const latestPart = latestParts[index] ?? 0;
-        const currentPart = currentParts[index] ?? 0;
+    if (latestParts.length !== 3 || currentParts.length !== 3) {
+        throw new Error(
+            `Invalid version format. Expected format is "x.y.z". latestVersion: ${latestVersion}, currentVersion: ${currentVersion}`
+        );
+    }
+
+    const length = latestParts.length;
+
+    for (let i = 0; i < length; i++) {
+        const latestPart = latestParts[i] ?? 0;
+        const currentPart = currentParts[i] ?? 0;
 
         if (latestPart > currentPart) {
             return true;
