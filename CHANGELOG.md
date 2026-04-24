@@ -4,7 +4,9 @@
 
 ### Patch Changes
 
-- [`ffba7a5`](https://github.com/ShionTerunaga/frontend-template-cli/commit/ffba7a54090dfe6381c73e1bde967f13d5f7393b) Thanks [@ShionTerunaga](https://github.com/ShionTerunaga)! - Upgrade template dependencies
+- [`ffba7a5`](https://github.com/ShionTerunaga/frontend-template-cli/commit/ffba7a54090dfe6381c73e1bde967f13d5f7393b)
+  Thanks [@ShionTerunaga](https://github.com/ShionTerunaga)! - Upgrade template
+  dependencies
 
 ## 0.9.4
 
